@@ -47,7 +47,20 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
 int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
   union timer_status_field_val val;
-  val.byte = st;
-  timer_print_config(timer, field, val);
-  return 0;
+
+  // TODO: Figure out how timer_print_config works :(
+  switch (field) {
+    case tsf_all:
+      val.byte = st;
+      return timer_print_config(timer, field, val);
+    case tsf_initial:
+      val.in_mode = ((st & 0x30) >> 4);
+      return timer_print_config(timer, field, val);
+    case tsf_mode:
+      val.count_mode = ((st & 0x0E) >> 1);
+      return timer_print_config(timer, field, val);
+    case tsf_base:
+      val.bcd = (st & 0x01);
+      return timer_print_config(timer, field, val);
+  }
 }

@@ -7,7 +7,7 @@
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   
-  printf("%s is not yet implemented!\n", __func__);
+  uint32_t ctrl_word = 0;
 
   return 1;
 }
@@ -53,13 +53,13 @@ int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field fiel
       val.byte = st;
       return timer_print_config(timer, field, val);
     case tsf_initial:
-      val.in_mode = ((st & 0x30) >> 4);
+      val.in_mode = ((st & (BIT(5) | BIT(6))) >> 4);
       return timer_print_config(timer, field, val);
     case tsf_mode:
-      val.count_mode = ((st & 0x0E) >> 1);
+      val.count_mode = ((st & (BIT(1) | BIT(2) | BIT(3))) >> 1);
       return timer_print_config(timer, field, val);
     case tsf_base:
-      val.bcd = (st & 0x01);
+      val.bcd = (st & BIT(0));
       return timer_print_config(timer, field, val);
   }
 }

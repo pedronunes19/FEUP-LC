@@ -35,7 +35,7 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 
   switch(timer) {
 
-    case 0: return util_sys_inb((int)TIMER_0, st);
+    case 0: return util_sys_inb(TIMER_0, st);
 
     case 1: return util_sys_inb(TIMER_1, st);
 
@@ -48,7 +48,6 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
   union timer_status_field_val val;
 
-  // TODO: Figure out how timer_print_config works :(
   switch (field) {
     case tsf_all:
       val.byte = st;

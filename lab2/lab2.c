@@ -1,5 +1,6 @@
 #include <lcom/lcf.h>
 #include <lcom/lab2.h>
+#include <i8254.h>
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -30,9 +31,13 @@ int main(int argc, char *argv[]) {
 }
 
 int(timer_test_read_config)(uint8_t timer, enum timer_status_field field) {
-  uint8_t st = 0x00;
-  timer_get_conf(timer, &st);
-  return timer_display_conf(timer, st, field);
+    uint32_t rb_comm = TIMER_RB_CMD | BIT(5) | BIT(timer + 1);
+    sys_outb(TIMER_CTRL, rb_comm);
+    
+    uint8_t timer_status = 0;
+    timer_get_conf(timer, &timer_status);
+
+    return timer_display_conf(timer, timer_status, field);
 }
 
 int(timer_test_time_base)(uint8_t timer, uint32_t freq) {

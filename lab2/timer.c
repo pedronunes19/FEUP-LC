@@ -6,24 +6,37 @@
 #include "i8254.h"
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
-  
-  uint32_t ctrl_word = 0;
+  uint32_t rb_comm = TIMER_RB_CMD | BIT(5) | BIT(timer + 1);
+  sys_outb(TIMER_CTRL, rb_comm);
 
-  return 1;
-}
+  uint8_t conf = timer_get_conf(timer, &conf);
+  conf &= 0x0f;
 
-int (timer_subscribe_int)(uint8_t *bit_no) {
-    /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  uint32_t ctrl_word = conf | BIT(5) | BIT (4);
 
-  return 1;
-}
+  switch (timer) {
+    case 0: ctrl_word |= TIMER_SEL0; break;
+    case 1: ctrl_word |= TIMER_SEL1; break;
+    case 2: ctrl_word |= TIMER_SEL2; break;
+    default: return -1;
+  }
 
-int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  sys_outb(TIMER_CTRL, ctrl_word);
 
-  return 1;
+  uint32_t new_clk = TIMER_FREQ/freq;
+
+  uint8_t lsb = (uint8_t) new_clk;
+  new_clk = new_clk >> 8;
+  uint8_t msb = (uint8_t) new_clk;
+
+  switch (timer) {
+    case 0: sys_outb(TIMER_0, lsb); sys_outb(TIMER_0, msb); break;
+    case 1: sys_outb(TIMER_1, (uint32_t) (TIMER_FREQ/freq)); break;
+    case 2: sys_outb(TIMER_2, (uint32_t) (TIMER_FREQ/freq)); break;
+    default: return -1;
+  }
+
+  return 0;
 }
 
 void (timer_int_handler)() {

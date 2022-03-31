@@ -25,14 +25,19 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 
   uint32_t new_clk = TIMER_FREQ/freq;
 
+  uint8_t lsb = 0, msb = 0;
+
+  util_get_LSB((uint16_t) new_clk, &lsb);
+  util_get_MSB((uint16_t) new_clk, &msb);
+  /*
   uint8_t lsb = (uint8_t) new_clk;
   new_clk = new_clk >> 8;
-  uint8_t msb = (uint8_t) new_clk;
+  uint8_t msb = (uint8_t) new_clk;*/
 
   switch (timer) {
     case 0: sys_outb(TIMER_0, lsb); sys_outb(TIMER_0, msb); break;
-    case 1: sys_outb(TIMER_1, (uint32_t) (TIMER_FREQ/freq)); break;
-    case 2: sys_outb(TIMER_2, (uint32_t) (TIMER_FREQ/freq)); break;
+    case 1: sys_outb(TIMER_1, lsb); sys_outb(TIMER_1, msb); break;
+    case 2: sys_outb(TIMER_2, lsb); sys_outb(TIMER_2, msb); break;
     default: return -1;
   }
 

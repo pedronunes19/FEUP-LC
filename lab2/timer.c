@@ -5,6 +5,9 @@
 
 #include "i8254.h"
 
+static int hook_id = 0;
+int timer_counter = 0;
+
 #define READ_FOUR_LSB 0x0F
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
@@ -43,8 +46,21 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 }
 
 void (timer_int_handler)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+    //printf("%d\n", timer_counter);
+    timer_counter++;
+}
+
+int (timer_subscribe_int) (uint8_t* bit_no) {
+
+    *bit_no = hook_id;
+    return sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id);
+
+}
+
+int (timer_unsubscribe_int) () {
+
+    return sys_irqrmpolicy(&hook_id);
+
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {

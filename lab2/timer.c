@@ -5,34 +5,32 @@
 
 #include "i8254.h"
 
+#define READ_FOUR_LSB 0x0F
+
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   uint32_t rb_comm = TIMER_RB_CMD | BIT(5) | BIT(timer + 1);
   sys_outb(TIMER_CTRL, rb_comm);
 
-  uint8_t conf = timer_get_conf(timer, &conf);
-  conf &= 0x0f;
-
-  uint32_t ctrl_word = conf | BIT(5) | BIT (4);
+  uint8_t conf = 0;
+  timer_get_conf(timer, &conf);
+  conf &= READ_FOUR_LSB;
+  conf |= TIMER_LSB_MSB;
 
   switch (timer) {
-    case 0: ctrl_word |= TIMER_SEL0; break;
-    case 1: ctrl_word |= TIMER_SEL1; break;
-    case 2: ctrl_word |= TIMER_SEL2; break;
-    default: return -1;
+    case 0: conf |= TIMER_SEL0; break;
+    case 1: conf |= TIMER_SEL1; break;
+    case 2: conf |= TIMER_SEL2; break;
+    default: return 1;
   }
 
-  sys_outb(TIMER_CTRL, ctrl_word);
+  sys_outb(TIMER_CTRL, conf);
 
-  uint32_t new_clk = TIMER_FREQ/freq;
+  uint16_t new_clk = TIMER_FREQ/freq;
 
   uint8_t lsb = 0, msb = 0;
 
-  util_get_LSB((uint16_t) new_clk, &lsb);
-  util_get_MSB((uint16_t) new_clk, &msb);
-  /*
-  uint8_t lsb = (uint8_t) new_clk;
-  new_clk = new_clk >> 8;
-  uint8_t msb = (uint8_t) new_clk;*/
+  util_get_LSB(new_clk, &lsb);
+  util_get_MSB(new_clk, &msb);
 
   switch (timer) {
     case 0: sys_outb(TIMER_0, lsb); sys_outb(TIMER_0, msb); break;

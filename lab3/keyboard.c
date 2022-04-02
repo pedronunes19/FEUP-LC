@@ -15,15 +15,15 @@ int (keyboard_unsubscribe_int) () {
 
 int (check_status) (uint8_t st) {
 
-    if (st | PARITY) {
+    if (st & PARITY) {
         return PARITY_ERR;
     }
 
-    if (st | TIME_OUT) {
+    if (st & TIME_OUT) {
         return TIME_OUT_ERR;
     }
 
-    if (st | IBF) {
+    if (st & IBF) {
         return IBF_FULL;
     }
 

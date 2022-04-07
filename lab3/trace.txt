@@ -1,0 +1,6 @@
+@lcflib.a:2019, lcf_start
+  kbd_test_scan()
+  @keyboard.c:10, kbd_subscribe_int
+    sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id)
+  > sys_irqsetpolicy(1, 3, addr: 0x822d1a0 [0])
+  < sys_irqsetpolicy(1, 3, addr: 0x822d1a0 [10]) -> (ret: 0)

@@ -15,6 +15,7 @@
 #define IS_BREAK      BIT(7)        // bit mask to check if a scancode is a breakcode
 
 /* Constants */
+#define TWO_BYTE_SC   0xE0          // value to check if we are dealing with a 2 byte scan code
 #define ESC_MAKE      0x01          // makecode for ESC
 #define ESC_BREAK     0x81          // breakcode for ESC
 #define KBC_OK        0x55          // code for valid keyboard controller
@@ -28,4 +29,4 @@
 #define KBI_DIS       0xAD          // disable keyboard interface
 #define KBI_ENA       0xAE          // enable keyboard interface
 
-#endif
+#endif /*_LCOM_I8042_H_*/

@@ -1,10 +1,13 @@
-#include <lcom/lcf.h>
-#include <lcom/lab3.h>
-#include "keyboard.h"
 #include "i8042.h"
+#include "keyboard.h"
+#include <lcom/lab3.h>
+#include <lcom/lcf.h>
 
-extern uint16_t scan_code;
+extern uint8_t scan_code[];
 extern int scan_code_size;
+extern uint8_t ih_flag;
+extern uint8_t end_flag;
+extern bool handling_two_bytes;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -35,53 +38,52 @@ int(kbd_test_scan)() {
   kbd_subscribe_int(&bit_no);
 
   uint32_t irq_set = BIT(bit_no);
-  
+
   message msg;
   int ipc_status;
 
-  while (scan_code != ESC_BREAK) {}
-
+  while (end_flag != ESC_BREAK) {
+    
     int r;
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {
       printf("driver_receive failed with: %d", r);
     }
 
     if (is_ipc_notify(ipc_status)) {
-        switch (_ENDPOINT_P(msg.m_source)) {
-          
-          case HARDWARE: {
-            if (msg.m_notify.interrupts & irq_set) {
-              
-              /*
-              switch( kbd_int_handler() ) {
+      switch (_ENDPOINT_P(msg.m_source)) {
 
-                case 1: {
-                  kbd_print_scancode(false, scan_code_size, &scan_code);
-                  scan_code_size = 0;
-                  scan_code = 0;
-                  break;
-                }
+        case HARDWARE: {
+          if (msg.m_notify.interrupts & irq_set) {
 
-                case 2: {
-                  kbd_print_scancode(true, scan_code_size, &scan_code);
-                  scan_code_size = 0;
-                  scan_code = 0;
-                  break;
-                }
+            kbd_ih();
 
-                default: break;
+            switch (ih_flag) {
 
+              case 1: {
+                kbd_print_scancode(false, scan_code_size, scan_code);
+                break;
               }
-              */
+
+              case 2: {
+                kbd_print_scancode(true, scan_code_size, scan_code);
+                break;
+              }
+
+              default: break;
             }
-            break;
+
+            if (!handling_two_bytes) kbd_reset_globals();
+            
           }
-
-          default: break;
+          break;
         }
-    } else {
 
+        default: break;
+      }
     }
+  }
+
+  kbd_unsubscribe_int();
 
   return 0;
 }

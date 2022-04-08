@@ -6,6 +6,7 @@ int scan_code_size = 0;
 uint8_t ih_flag = 0;
 uint8_t end_flag = 0;
 bool handling_two_bytes = false;
+int counter = 0;
 
 int(kbd_subscribe_int)(uint8_t *bit_no) {
 

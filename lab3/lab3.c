@@ -8,6 +8,7 @@ extern int scan_code_size;
 extern uint8_t ih_flag;
 extern uint8_t end_flag;
 extern bool handling_two_bytes;
+extern int counter;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -73,7 +74,7 @@ int(kbd_test_scan)() {
             }
 
             if (!handling_two_bytes) kbd_reset_globals();
-            
+
           }
           break;
         }
@@ -84,6 +85,7 @@ int(kbd_test_scan)() {
   }
 
   kbd_unsubscribe_int();
+  printf("the number of sys_inb calls are: %d\n", counter);
 
   return 0;
 }

@@ -93,3 +93,28 @@ void(draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
 
   memcpy(addr, &color, vmi.BytesPerScanLine / vmi.XResolution);
 }
+
+void(draw_xpm)(xpm_image_t img, uint16_t x, uint16_t y) {
+  if (y + img.height > vmi.YResolution)
+    y = vmi.YResolution - img.height;
+  if (x + img.width > vmi.XResolution)
+    x = vmi.XResolution - img.width;
+    
+  uint64_t cnt = 0;
+  uint16_t ox = x;
+
+  for (int i = 0; i < img.height; i++) {
+    for (int j = 0; j < img.width; j++) {
+        uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
+          void *addr = (void *)((char *) base_addr + offset);
+
+        uint8_t bpp = img.size / (img.height * img.width);
+
+        memcpy(addr, img.bytes + (cnt*bpp), vmi.BytesPerScanLine / vmi.XResolution);
+        x++;
+        cnt++;
+    }
+    y++;
+    x = ox;
+  }
+}

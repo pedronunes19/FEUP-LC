@@ -10,6 +10,7 @@
 
 #include "defines.h"
 #include "video.h"
+#include "pixmap.h"
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -81,8 +82,25 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 }
 
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
-  /* To be completed */
-  printf("%s(%8p, %u, %u): under construction\n", __func__, xpm, x, y);
+  
+  int r, a;
+
+  if ((r = map_vm(0x105)) != 0) {
+    return EXIT_FAILURE; 
+  }
+  
+  if ((a = change_mode(0x105)) != 0) {
+    return EXIT_FAILURE;
+  }
+  
+  xpm_image_t img;
+  xpm_load(xpm, XPM_INDEXED, &img);
+  
+  draw_xpm(img, x, y);
+
+  sleep(4);
+
+  vg_exit();
 
   return 1;
 }

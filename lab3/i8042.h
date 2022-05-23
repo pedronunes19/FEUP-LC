@@ -6,12 +6,17 @@
 /* I/O Ports */
 #define KBD_IRQ       1             // keyboard's interrupt line
 #define OUT_BUF       0x60          // output buffer port
+#define KBC_ARGS      0x60          // same as output buffer, used for sending KBC command arguments
 #define STATUS_REG    0x64          // status register port
+#define KBC_CMD_REG   0x64          // same as status register, but used for issuing KBC commands
 
 /* Bit masks */
 #define PARITY        BIT(7)        // bit mask to check for parity error
 #define TIME_OUT      BIT(6)        // bit mask to check for timeout error
+#define AUX           BIT(5)        // bit mask to check if we're receiving mouse data
 #define IBF           BIT(1)        // bit mask to check if input buffer is full
+#define OBF           BIT(0)        // bit mask to check if output buffer is full
+#define KBC_INT       BIT(0)        // bit mask to check if keyboard interrupts are enabled
 #define IS_BREAK      BIT(7)        // bit mask to check if a scancode is a breakcode
 
 /* Constants */

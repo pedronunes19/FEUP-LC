@@ -1,63 +1,15 @@
 #include "keyboard.h"
 
-static int hook_id = 0;
-uint8_t scan_code[] = {0, 0};
-int scan_code_size = 0;
-uint8_t ih_flag = 0;
-uint8_t end_flag = 0;
-bool handling_two_bytes = false;
+static int kbd_id = 1;
 int counter = 0;
 
 int(kbd_subscribe_int)(uint8_t *bit_no) {
-
-  *bit_no = hook_id;
-  return sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id);
+  *bit_no = kbd_id;
+  return sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &kbd_id);
 }
 
 int(kbd_unsubscribe_int)() {
-
-  return sys_irqrmpolicy(&hook_id);
-}
-
-void(kbd_ih)() {
-
-  uint8_t output;
-  util_sys_inb(OUT_BUF, &output);
-
-  uint8_t st;
-  util_sys_inb(STATUS_REG, &st);
-
-  if (check_status(st) == OK) {
-
-    scan_code_size++;
-    scan_code[0] = output;
-
-    if (scan_code[0] == TWO_BYTE_SC) {
-      handling_two_bytes = true;
-    }
-    else if (handling_two_bytes) {
-      scan_code[0] = TWO_BYTE_SC;
-      scan_code[1] = output;
-      handling_two_bytes = false;
-    }
-
-    if (!handling_two_bytes) {
-      if (output & IS_BREAK)
-        ih_flag = IS_BREAKCODE;
-      else
-        ih_flag = IS_MAKECODE;
-    }
-
-    else
-      ih_flag = IH_STATUS_ERROR;
-  }
-}
-
-void(kbd_reset_globals)() {
-  scan_code_size = 0;
-  end_flag = scan_code[0];
-  scan_code[0] = 0;
-  scan_code[1] = 0;
+  return sys_irqrmpolicy(&kbd_id);
 }
 
 int(check_status)(uint8_t st) {
@@ -70,6 +22,10 @@ int(check_status)(uint8_t st) {
     return TIME_OUT_ERR;
   }
 
+  if (st & AUX) {
+    return AUX_DATA;
+  }
+
   /* might cause issues with the lab, since we won't be writing to the input buffer
   if (st & IBF) {
       return IBF_FULL;
@@ -77,4 +33,94 @@ int(check_status)(uint8_t st) {
   */
 
   return OK;
+}
+
+int(kbd_get_status)(uint8_t *st) {
+  return util_sys_inb(STATUS_REG, st);
+}
+
+int(kbd_read_out_buffer)(uint8_t *output) {
+  return util_sys_inb(OUT_BUF, output);
+}
+
+int(kbd_write_cmdb)(int port, uint8_t cmdb) {
+
+  int timeout = 0;
+  uint8_t st;
+
+  while (timeout < 3) {
+
+    if (kbd_get_status(&st) != 0) {
+      fprintf(stderr, "Error getting status while issuing command!\n");
+      return -1;
+    }
+
+    if ((st & IBF) == 0) {
+      sys_outb(port, cmdb);
+      return 0;
+    }
+
+    tickdelay(micros_to_ticks(DELAY_US));
+    timeout++;
+  }
+
+  return -1;
+}
+
+int(kbd_read_ret_cmdb)(uint8_t *data) {
+
+  int timeout = 0;
+  uint8_t st;
+
+  while (timeout < 3) {
+    if (kbd_get_status(&st) != 0) {
+      fprintf(stderr, "Error getting status when reading command byte return value!\n");
+      return -1;
+    }
+
+    if (st & OBF) {
+
+      if (kbd_read_out_buffer(data) != 0) {
+        fprintf(stderr, "Error reading KBC command byte return value from output buffer!\n");
+        return -1;
+      }
+
+      if ((st & (PARITY | TIME_OUT)) == 0)
+        return *data;
+      else
+        return -1;
+    }
+
+    tickdelay(micros_to_ticks(DELAY_US));
+    timeout++;
+
+  }
+  
+  return 0;
+}
+
+int(kbd_reenable_ints)() {
+
+  uint8_t output;
+
+  if (kbd_write_cmdb(KBC_CMD_REG, READ_CMDB) != 0) {
+    fprintf(stderr, "Error writing command byte while reenabling interrupts!\n");
+    return -1;
+  }
+
+  kbd_read_ret_cmdb(&output);
+
+  output |= KBC_INT;
+
+  if (kbd_write_cmdb(KBC_CMD_REG, WRITE_CMDB) != 0) {
+    fprintf(stderr, "Error writing command byte while reenabling interrupts!\n");
+    return -1;
+  }
+
+  if (kbd_write_cmdb(KBC_ARGS, output) != 0) {
+    fprintf(stderr, "Error writing CMDB arguments to input buffer!\n");
+    return -1;
+  }
+
+  return 0;
 }

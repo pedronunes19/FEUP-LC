@@ -41,6 +41,7 @@ int(change_mode)(uint16_t mode) {
 }
 
 int(map_vm)(uint16_t mode) {
+
   int r;
   struct minix_mem_range mr; /* physical memory range */
 
@@ -48,7 +49,10 @@ int(map_vm)(uint16_t mode) {
     return EXIT_FAILURE;
 
   phys_bytes vram_base = vmi.PhysBasePtr; /* VRAM's physical addresss */
-  unsigned int vram_size = (vmi.XResolution * vmi.YResolution) * (vmi.BytesPerScanLine / vmi.XResolution); /* VRAM's size, but you can use frame the frame-buffer size, instead */
+  unsigned int vram_size = 
+    (vmi.XResolution * vmi.YResolution) * 
+    (vmi.BytesPerScanLine / vmi.XResolution); 
+    /* VRAM's size, but you can use frame the frame-buffer size, instead */
 
   /* Allow memory mapping */
   mr.mr_base = vram_base;
@@ -65,6 +69,7 @@ int(map_vm)(uint16_t mode) {
 }
 
 int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
+
   if (y + height > vmi.YResolution)
     height = vmi.YResolution - y;
   if (x + width > vmi.XResolution)
@@ -105,14 +110,16 @@ void(draw_xpm)(xpm_image_t img, uint16_t x, uint16_t y) {
 
   for (int i = 0; i < img.height; i++) {
     for (int j = 0; j < img.width; j++) {
+
         uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
-          void *addr = (void *)((char *) base_addr + offset);
+        void *addr = (void *)((char *) base_addr + offset);
 
         uint8_t bpp = img.size / (img.height * img.width);
 
         memcpy(addr, img.bytes + (cnt*bpp), vmi.BytesPerScanLine / vmi.XResolution);
         x++;
         cnt++;
+        
     }
     y++;
     x = ox;

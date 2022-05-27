@@ -4,13 +4,18 @@
 #include <stdint.h>
 #include <stdio.h>
 
-
-
 // Any header files included below this line should have been created by you
 
 #include "defines.h"
 #include "video.h"
 #include "pixmap.h"
+#include "keyboard.h"
+
+#include "keyboard.c"
+#include "utils.c"
+
+extern uint8_t scan_code[2];
+extern int i;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -37,36 +42,68 @@ int main(int argc, char *argv[]) {
 }
 
 int(video_test_init)(uint16_t mode, uint8_t delay) {
-/*
-  vbe_mode_info_t previous_mode;
-  memset(&previous_mode, 0, sizeof(previous_mode));
-
-  read_mode(&previous_mode, mode);
-  printf("previous_mode: %u\n", previous_mode.BitsPerPixel);*/
-  change_mode(mode);
-
+  
+  if (change_mode(mode) != 0) return EXIT_FAILURE;
   sleep(delay);
-
-  vg_exit();
+  if (vg_exit() != 0) return EXIT_FAILURE;
 
   return 0;
+
 }
 
 int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
                           uint16_t width, uint16_t height, uint32_t color) {
 
-  int r, a;
-
-  if ((r = map_vm(mode)) != 0) {
+  if (map_vm(mode) != 0) {
     return EXIT_FAILURE; 
   }
   
-  if ((a = change_mode(mode)) != 0) {
+  if (change_mode(mode) != 0) {
     return EXIT_FAILURE;
   }
 
   vg_draw_rectangle(x, y, width, height, color);
-  sleep(2);
+
+  uint8_t bit_no;
+
+  kbd_subscribe_int(&bit_no);
+  uint32_t irq_set = BIT(bit_no);
+
+  message msg;
+  int ipc_status;
+
+  while (scan_code[i] != ESC_BREAK) {
+    
+    int r;
+    if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {
+      printf("driver_receive failed with: %d", r);
+    }
+
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+
+        case HARDWARE: {
+          if (msg.m_notify.interrupts & irq_set) {
+
+            kbc_ih();
+
+            if (scan_code[i] == TWO_BYTE_SC) {
+              i++;
+              continue;
+            }
+            
+            i = 0;
+
+          }
+          break;
+        }
+
+        default: break;
+      }
+    }
+  }
+
+  kbd_unsubscribe_int();
 
   vg_exit();
   

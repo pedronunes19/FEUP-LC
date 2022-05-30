@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include "utils.h"
 
 typedef struct {
     uint32_t x;
@@ -6,3 +7,7 @@ typedef struct {
     char* tcolor;
     uint8_t** matrix; 
 } tetromino_t;
+
+void rotatePieceLeft(tetromino_t piece);
+
+void rotatePieceRight(tetromino_t piece);

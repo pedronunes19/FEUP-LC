@@ -139,8 +139,7 @@ int draw_board(board_t *board) {
 }
 
 int draw_tetromino(tetromino_t *tetromino) {
-  //switchMainColor(tetromino->tcolor);
-  printf("%s", tetromino_xpm[2]);
+  switchMainColor(tetromino->tcolor);
   xpm_image_t img;
   xpm_load((xpm_row_t *)tetromino_xpm, XPM_8_8_8, &img);
   uint8_t mx[4][4] = {{0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}};

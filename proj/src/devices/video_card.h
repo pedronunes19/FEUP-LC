@@ -1,7 +1,6 @@
 #include "vc_defines.h"
 #include "./game/board.h"
 #include "./game/tetromino.h"
-#include "./game/utils.h"
 
 #include <stdint.h>
 #include <lcom/lcf.h>

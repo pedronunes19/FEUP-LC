@@ -19,8 +19,8 @@ void reverseRows(uint8_t **arr, unsigned R, unsigned C)
     for (int i = 0; i < R; i++){
         for (int j = 0, k = R - 1; j < k; j++, k--){
             uint8_t temp = arr[i][j];
-            arr[i][j] = arr[i][j];
-            arr[i][j] = temp;
+            arr[i][j] = arr[i][k];
+            arr[i][k] = temp;
         } 
     }
 }

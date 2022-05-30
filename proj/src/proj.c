@@ -1,5 +1,4 @@
 #include "devices/video_card.h"
-// #include "game/board.h"
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -12,7 +11,6 @@ int main(int argc, char *argv[]) {
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
   lcf_log_output("/home/lcom/labs/g05/proj/src/output.txt");
-
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -27,8 +25,7 @@ int main(int argc, char *argv[]) {
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
-
-  vg_init(0x110);
+  vg_init(0x115);
 
   board_t *board = malloc(sizeof(board_t));
   board->width = 10;
@@ -37,10 +34,16 @@ int(proj_main_loop)(int argc, char *argv[]) {
   board->stroke = 10;
   board->margin = 5;
 
+  tetromino_t *tetromino = malloc(sizeof(tetromino_t));
+  tetromino->tcolor = "D32222";
+
   draw_board(board);
+
+  draw_tetromino(tetromino);
 
   sleep(4);
 
+  free(tetromino);
   free(board);
 
   vg_exit();

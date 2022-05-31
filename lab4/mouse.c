@@ -1,9 +1,9 @@
-#include "i8042.h"
-#include <lcom/lcf.h>
-#include <lcom/lab4.h>
+#include "mouse.h"
 
-static int mouse_hook_id = 0;
-static int kbd_hook_id = 0;
+int kbd_hook_id = 1;
+int mouse_hook_id = 12;
+
+struct packet pp;
 
 int (mouse_subscribe_int)(uint8_t *bit_no) {
   *bit_no = mouse_hook_id;
@@ -21,6 +21,10 @@ int (mouse_unsubscribe_int)() {
 
 int (kbd_unsubscribe_int)() {
   return sys_irqrmpolicy(&kbd_hook_id);
+}
+
+int (mouse_enable_data_reporting)() {
+  
 }
 
 void (mouse_ih)() {

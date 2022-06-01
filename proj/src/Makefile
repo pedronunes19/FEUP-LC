@@ -10,7 +10,7 @@ PROG=proj
 SRCS = proj.c video_card.c utils.c tetromino.c
 
 # __LCOM_OPTIMIZED__ disables most of the LCF's overhead (and functionality!)
-CPPFLAGS += -pedantic #-D __LCOM_OPTIMIZED__
+CFLAGS += -pedantic #-D __LCOM_OPTIMIZED__
 
 DPADD += ${LIBLCF}
 LDADD += -llcf

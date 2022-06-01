@@ -6,6 +6,8 @@
 
 // Any header files included below this line should have been created by you
 
+#include "mouse.h"
+
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -30,31 +32,56 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+int(mouse_test_packet)(uint32_t cnt) {
+  uint8_t bit_no;
+  mouse_subscribe_int(&bit_no);
 
-int (mouse_test_packet)(uint32_t cnt) {
-    /* To be completed */
-    uint8_t bit_no;
-    mouse_subscribe_int(&bit_no);
-    uint32_t irq_set = BIT(bit_no);
-    mouse_enable_data_reporting();
-    printf("%s(%u): under construction\n", __func__, cnt);
-    return 1;
+  uint32_t irq_set = BIT(bit_no);
+  mouse_enable_data_reporting();
+
+  message msg;
+  int ipc_status;
+
+  while (cnt > 0) {
+
+    int r;
+    if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {
+      printf("driver_receive failed with: %d", r);
+    }
+
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+
+        case HARDWARE: {
+          if (msg.m_notify.interrupts & irq_set) {
+
+          }
+
+          break;
+        }
+
+        default: break;
+      }
+    }
+  }
+
+  return 0;
 }
 
-int (mouse_test_async)(uint8_t idle_time) {
-    /* To be completed */
-    printf("%s(%u): under construction\n", __func__, idle_time);
-    return 1;
+int(mouse_test_async)(uint8_t idle_time) {
+  /* To be completed */
+  printf("%s(%u): under construction\n", __func__, idle_time);
+  return 1;
 }
 
-int (mouse_test_gesture)() {
-    /* To be completed */
-    printf("%s: under construction\n", __func__);
-    return 1;
+int(mouse_test_gesture)() {
+  /* To be completed */
+  printf("%s: under construction\n", __func__);
+  return 1;
 }
 
-int (mouse_test_remote)(uint16_t period, uint8_t cnt) {
-    /* This year you need not implement this. */
-    printf("%s(%u, %u): under construction\n", __func__, period, cnt);
-    return 1;
+int(mouse_test_remote)(uint16_t period, uint8_t cnt) {
+  /* This year you need not implement this. */
+  printf("%s(%u, %u): under construction\n", __func__, period, cnt);
+  return 1;
 }

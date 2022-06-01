@@ -78,18 +78,15 @@ int(kbd_read_ret_cmdb)(uint8_t *data) {
       return -1;
     }
 
-    if (st & OBF) {
+    if (st & OBF && ((st & (PARITY | TIME_OUT)) == 0)) {
 
       if (kbd_read_out_buffer(data) != 0) {
         fprintf(stderr, "Error reading KBC command byte return value from output buffer!\n");
         return -1;
       }
-
-      if ((st & (PARITY | TIME_OUT)) == 0)
-        return *data;
-      else
-        return -1;
-    }
+      return 0;
+    
+    } else return -1;
 
     tickdelay(micros_to_ticks(DELAY_US));
     timeout++;

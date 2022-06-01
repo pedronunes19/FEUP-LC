@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-extern int matrix[16][10];
+extern uint32_t *board_state[16][10];
 
 typedef struct {
     int width;

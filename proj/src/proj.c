@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
-  vg_init(0x115);
+  vg_init(DC_800x600_24);
 
   board_t *board = malloc(sizeof(board_t));
   board->width = 10;
@@ -35,12 +35,14 @@ int(proj_main_loop)(int argc, char *argv[]) {
   board->margin = 5;
 
   tetromino_t *tetromino = malloc(sizeof(tetromino_t));
-  tetromino->tcolor = "D32222";
+  tetromino->type = O;
 
   draw_board(board);
 
   draw_tetromino(tetromino, true);
-
+  draw_board_state();
+  sleep(4);
+  draw_menu();
   sleep(4);
 
   free(tetromino);

@@ -1,12 +1,11 @@
-static const char *tetromino_xpm[] = {
-"35 35 4 1 ",
+static const char *tetromino_blue_xpm[] = {
+"35 35 3 1 ",
 "  c #0000FF",
-". c #1A1AFF",
-"X c #3030FF",
-"o c #FFFFFF",
+". c #0000FF",
+"o c #000000",
 "ooooooooooooooooooooooooooooooooooo",
 "ooooooooooooooooooooooooooooooooooo",
-"ooX.............................Xoo",
+"oo...............................oo",
 "oo.                             .oo",
 "oo.                             .oo",
 "oo.                             .oo",
@@ -36,7 +35,7 @@ static const char *tetromino_xpm[] = {
 "oo.                             .oo",
 "oo.                             .oo",
 "oo.                             .oo",
-"ooX.............................Xoo",
+"oo...............................oo",
 "ooooooooooooooooooooooooooooooooooo",
 "ooooooooooooooooooooooooooooooooooo"
 };

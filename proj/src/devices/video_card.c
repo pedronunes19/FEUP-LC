@@ -131,7 +131,6 @@ int draw_board(board_t *board) {
   screen_center_y = vmi.YResolution/2;
 
   uint16_t tetromino_side = (vmi.YResolution  - ((board->margin + board->stroke) * 2))/board->height;
-  printf("%d",tetromino_side);
   uint16_t top_left_corner_x = screen_center_x - tetromino_side * (board->width/2);
   uint16_t top_left_corner_y = screen_center_y - tetromino_side * (board->height/2);
 
@@ -143,27 +142,74 @@ int draw_board(board_t *board) {
 
 int draw_tetromino(tetromino_t *tetromino, bool spawn) {
   xpm_image_t img;
-  xpm_loader(tetromino_xpm, XPM_8_8_8, &img);
-  uint8_t mx[4][4] = {{0, 1, 0, 0},
-                      {0, 1, 0, 0},
-                      {0, 1, 0, 0},
-                      {0, 1, 0, 0}};
+  xpm_loader(tetromino->type, &img);
+  uint8_t mx[4][4] = {{0, 0, 0, 0},
+                      {0, 1, 1, 0},
+                      {0, 1, 1, 0},
+                      {0, 0, 0, 0}};
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       if (mx[i][j]) {
         if (spawn) {
           draw_xpm(img, (img.width * j) + (screen_center_x - 2*img.width), (img.height * i) + (tetromino_spawn_offset));
-          return OK;
-        }
+        } else {
           draw_xpm(img, (img.width * j) + (tetromino->x * img.width), (img.height * i) + (tetromino->y * img.height));
-          return OK;
+        }
       }
     }
   }
 
-  return EXIT_FAILURE;
+  return EXIT_SUCCESS;
 }
 
-uint8_t *(xpm_loader)(xpm_map_t xpm, enum xpm_image_type type, xpm_image_t *img) {
-  return xpm_load(xpm, type, img);
+uint8_t *(xpm_loader)(const tetromino_type type, xpm_image_t *img) {
+  switch(type) {
+    case CLEAR:
+      return NULL;
+      break;
+    case J:
+      return xpm_load(tetromino_blue_xpm, XPM_8_8_8, img);
+      break;
+    case I:
+      return xpm_load(tetromino_cyan_xpm, XPM_8_8_8, img);
+      break;
+    case L:
+      return xpm_load(tetromino_orange_xpm, XPM_8_8_8, img);
+      break;
+    case S:
+      return xpm_load(tetromino_green_xpm, XPM_8_8_8, img);
+      break;
+    case O:
+      return xpm_load(tetromino_yellow_xpm, XPM_8_8_8, img);
+      break;
+    case T:
+      return xpm_load(tetromino_purple_xpm, XPM_8_8_8, img);
+      break;
+    case Z:
+      return xpm_load(tetromino_red_xpm, XPM_8_8_8, img);
+      break;
+  }
+}
+
+void draw_board_state() {
+  tetromino_type mx[16][10] = {{1, 1, 2, 3, 4, 5, 6, 7, 7, 2},
+                               {0, 1, 1, 0},
+                               {0, 1, 1, 0},
+                               {0, 0, 0, 0}};
+
+  for (int i = 0; i < 16; i++) {
+    for (int j = 0; j < 10; j++) {
+      if (mx[i][j] != 0) {
+        xpm_image_t img;
+        xpm_loader(mx[i][j], &img);
+        draw_xpm(img, screen_center_x - ((j-4) * img.width), ((vmi.YResolution-50) - (i * img.height)));
+      }
+    }
+  }
+}
+
+void draw_menu() {
+  xpm_image_t img;
+  xpm_load(menu_800x600_xpm, XPM_8_8_8, &img);
+  draw_xpm(img, 0, 0);
 }

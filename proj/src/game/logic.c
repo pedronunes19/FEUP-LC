@@ -1,8 +1,4 @@
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include "tetromino.h"
+#include "logic.h"
 
 tetromino_t tmp;
 int piece_count = 7;
@@ -17,7 +13,7 @@ void shuffle(tetromino_t* array) {
     }
 }
 
-int main() {
+int test() {
     tetromino_t piece_1; piece_1.x = 1;
     tetromino_t piece_2; piece_2.x = 2;
     tetromino_t piece_3; piece_3.x = 3;

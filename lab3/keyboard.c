@@ -78,7 +78,7 @@ int(kbd_read_ret_cmdb)(uint8_t *data) {
       return -1;
     }
 
-    if (st & OBF && ((st & (PARITY | TIME_OUT)) == 0)) {
+    if (st & OBF && !(st & (PARITY | TIME_OUT))) {
 
       if (kbd_read_out_buffer(data) != 0) {
         fprintf(stderr, "Error reading KBC command byte return value from output buffer!\n");

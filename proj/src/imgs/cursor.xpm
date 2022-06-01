@@ -1,8 +1,8 @@
-static xpm_row_t const xpm_cursor_arrow[] = {
+static const char* xpm_cursor_arrow[] = {
   "15 25 3",
-  "a 255",
-  "` 0",
-  "b 63",
+  "a c 255",
+  "` c 0",
+  "b c 63",
   "`aaaaaaaaaaaaaa",
   "``aaaaaaaaaaaaa",
   "`b`aaaaaaaaaaaa",

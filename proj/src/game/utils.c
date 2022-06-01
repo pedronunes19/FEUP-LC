@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "game/utils.h"
 
 void reverseColumns(uint8_t **arr, unsigned R, unsigned C)
 {
@@ -56,13 +56,4 @@ void rotateRight(uint8_t **arr, unsigned R, unsigned C)
 {
     transpose(arr, R, C);
     reverseRows(arr, R, C);
-}
-
-void switchMainColor(char *color) {
-  tetromino_xpm[2] = strcat(tetromino_xpm[2], color);
-}
-
-/* Currently not useful keeping this in case we decide to do something of this sort */
-void switchSubColor(char *color) {
-  tetromino_xpm[1] = strcat(tetromino_xpm[1], color);
 }

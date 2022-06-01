@@ -39,7 +39,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
   draw_board(board);
 
-  draw_tetromino(tetromino);
+  draw_tetromino(tetromino, true);
 
   sleep(4);
 

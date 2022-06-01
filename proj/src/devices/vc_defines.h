@@ -1,3 +1,5 @@
+#pragma once
+
 // AH register values
 #define AH_DEFAULT 0x4F
 #define AH_BIOS 0x00

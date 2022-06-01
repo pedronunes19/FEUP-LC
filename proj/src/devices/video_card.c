@@ -2,6 +2,9 @@
 
 static vbe_mode_info_t vmi;
 static void *base_addr;
+static uint16_t screen_center_x;
+static uint16_t screen_center_y;
+static uint16_t tetromino_spawn_offset = 20;
 
 void *(vg_init)(uint16_t mode) {
 
@@ -124,11 +127,11 @@ int vg_draw_vline(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
 }
 
 int draw_board(board_t *board) {
-  uint16_t screen_center_x = vmi.XResolution/2;
-  uint16_t screen_center_y = vmi.YResolution/2;
+  screen_center_x = vmi.XResolution/2;
+  screen_center_y = vmi.YResolution/2;
 
   uint16_t tetromino_side = (vmi.YResolution  - ((board->margin + board->stroke) * 2))/board->height;
-
+  printf("%d",tetromino_side);
   uint16_t top_left_corner_x = screen_center_x - tetromino_side * (board->width/2);
   uint16_t top_left_corner_y = screen_center_y - tetromino_side * (board->height/2);
 
@@ -138,17 +141,29 @@ int draw_board(board_t *board) {
   return EXIT_SUCCESS;
 }
 
-int draw_tetromino(tetromino_t *tetromino) {
-  switchMainColor(tetromino->tcolor);
+int draw_tetromino(tetromino_t *tetromino, bool spawn) {
   xpm_image_t img;
-  xpm_load((xpm_row_t *)tetromino_xpm, XPM_8_8_8, &img);
-  uint8_t mx[4][4] = {{0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}};
+  xpm_loader(tetromino_xpm, XPM_8_8_8, &img);
+  uint8_t mx[4][4] = {{0, 1, 0, 0},
+                      {0, 1, 0, 0},
+                      {0, 1, 0, 0},
+                      {0, 1, 0, 0}};
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
-      if (mx[i][j] == 1)
-        draw_xpm(img, 0, 0);
+      if (mx[i][j]) {
+        if (spawn) {
+          draw_xpm(img, (img.width * j) + (screen_center_x - 2*img.width), (img.height * i) + (tetromino_spawn_offset));
+          return OK;
+        }
+          draw_xpm(img, (img.width * j) + (tetromino->x * img.width), (img.height * i) + (tetromino->y * img.height));
+          return OK;
+      }
     }
   }
 
-  return EXIT_SUCCESS;
+  return EXIT_FAILURE;
+}
+
+uint8_t *(xpm_loader)(xpm_map_t xpm, enum xpm_image_type type, xpm_image_t *img) {
+  return xpm_load(xpm, type, img);
 }

@@ -1,8 +1,10 @@
+#pragma once
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../imgs/tetromino.xpm"
+#include "imgs/tetromino.xpm"
 
 void reverseColumns(uint8_t **arr, unsigned R, unsigned C);
 

@@ -9,6 +9,8 @@
   "files.associations": {
     "lab3.h": "c",
     "timer.h": "c",
-    "lcf.h": "c"
+    "lcf.h": "c",
+    "keyboard.h": "c",
+    "sysutil.h": "c"
   },
 }

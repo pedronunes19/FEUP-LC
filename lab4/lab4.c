@@ -33,16 +33,22 @@ int main(int argc, char *argv[]) {
 }
 
 int(mouse_test_packet)(uint32_t cnt) {
+
   uint8_t bit_no;
   mouse_subscribe_int(&bit_no);
 
   uint32_t irq_set = BIT(bit_no);
-  mouse_enable_data_reporting();
+
+  if (_mouse_enable_data_reporting() != 0) {
+    fprintf(stderr, "Error enabling data reporting!\n");
+    mouse_unsubscribe_int();
+    return -1;
+  }
 
   message msg;
   int ipc_status;
 
-  while (cnt > 0) {
+  while (cnt != 0) {
 
     int r;
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {
@@ -53,8 +59,16 @@ int(mouse_test_packet)(uint32_t cnt) {
       switch (_ENDPOINT_P(msg.m_source)) {
 
         case HARDWARE: {
+
           if (msg.m_notify.interrupts & irq_set) {
 
+            mouse_ih();
+            if (ready) {
+              ready = false;
+              mouse_print_packet(&pp);
+              cnt--;
+            }
+            
           }
 
           break;
@@ -65,6 +79,9 @@ int(mouse_test_packet)(uint32_t cnt) {
     }
   }
 
+  mouse_unsubscribe_int();
+  mouse_disable_data_reporting();
+
   return 0;
 }
 
@@ -74,7 +91,7 @@ int(mouse_test_async)(uint8_t idle_time) {
   return 1;
 }
 
-int(mouse_test_gesture)() {
+int(mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
   /* To be completed */
   printf("%s: under construction\n", __func__);
   return 1;

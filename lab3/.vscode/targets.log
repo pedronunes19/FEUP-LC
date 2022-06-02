@@ -8,7 +8,7 @@ Makefile:16: *** missing separator.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 31 14:46:07 2022
+# Make data base, printed on Wed Jun  1 19:02:40 2022
 
 # Variables
 
@@ -53,7 +53,7 @@ _ = /usr/bin/code
 # makefile (from 'Makefile', line 9)
 CFLAGS = -pedantic -DLAB3
 # environment
-JOURNAL_STREAM = 8:47610
+JOURNAL_STREAM = 8:45506
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -77,11 +77,11 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 LC_CTYPE = pt_PT.UTF-8
 # environment
-MANAGERPID = 1518
+MANAGERPID = 1447
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f10c836d-6aea-4014-badb-7e6409990085.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4e1c82e9-0065-42f2-8482-42f0ca0c5463.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
@@ -99,7 +99,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1786,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1786
+SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1756,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1756
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -111,7 +111,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 560b885e6b8147838b32f617c1fb4850
+INVOCATION_ID = 21f46725e6a040efaf6946f42d6500b0
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -125,7 +125,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 12693
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3149
 # automatic
 %F = $(notdir $%)
 # environment
@@ -137,7 +137,7 @@ PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/lab3
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1752
+SSH_AGENT_PID = 1722
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = Unity
 # environment
@@ -277,10 +277,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-_P9K_TTY = /dev/pts/0
- 
+_P9K_TTY = /dev/pts/2
 # environment
-VSCODE_PID = 12693
+VSCODE_PID = 3149
 # variable set hash-table stats:
 # Load=134/1024=13%, Rehash=0, Collisions=22/150=15%
 
@@ -290,9 +289,10 @@ VSCODE_PID = 12693
 
 # Directories
 
-# . (device 66309, inode 154060): 20 files, no impossibilities.
+# . (device 66309, inode 154060): 13 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+ 
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -327,12 +327,12 @@ Makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 25 / storage = 221 B / avg = 8 B
-# current buf: size = 8162 B / used = 221 B / count = 25 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 160 B / avg = 8 B
+# current buf: size = 8162 B / used = 160 B / count = 18 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 13%
+# strcache performance: lookups = 22 / hit rate = 18%
 # hash-table stats:
-# Load=25/8192=0%, Rehash=0, Collisions=1/29=3%
-# Finished Make data base on Tue May 31 14:46:07 2022
+# Load=18/8192=0%, Rehash=0, Collisions=1/22=5%
+# Finished Make data base on Wed Jun  1 19:02:40 2022
 
  

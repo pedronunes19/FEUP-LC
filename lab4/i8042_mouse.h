@@ -4,8 +4,6 @@
 #include <lcom/lcf.h>
 
 /* I/O Ports */
-#define MOUSE_IRQ     12            // keyboard's interrupt line
-
 #define OUT_BUF       0x60          // output buffer port
 #define STATUS_REG    0x64          // status register port
 #define MOUSE_ARGS    0x60          // same as output buffer, but used for sending command arguments

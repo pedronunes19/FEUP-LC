@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 16:57:56 2022
+# Make data base, printed on Wed Jun  1 18:40:14 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/share/code/code
 # environment
-JOURNAL_STREAM = 8:56349
+JOURNAL_STREAM = 8:45506
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -73,11 +73,11 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 LC_CTYPE = pt_PT.UTF-8
 # environment
-MANAGERPID = 1906
+MANAGERPID = 1447
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5e7b573f-1a84-4785-81d7-68de0abd89c2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9d582bc1-c595-40a4-bce0-e39f6b8ad347.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
@@ -93,7 +93,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/2165,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/2165
+SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1756,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1756
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -105,7 +105,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 2dee1df2f4df4217960b0729cd17ebc5
+INVOCATION_ID = 21f46725e6a040efaf6946f42d6500b0
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -115,7 +115,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2659
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3149
 # automatic
 %F = $(notdir $%)
 # environment
@@ -127,7 +127,7 @@ PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2131
+SSH_AGENT_PID = 1722
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -241,7 +241,7 @@ LC_ADDRESS = pt_PT.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2659
+VSCODE_PID = 3149
 # variable set hash-table stats:
 # Load=115/1024=11%, Rehash=0, Collisions=19/137=14%
 
@@ -281,7 +281,6 @@ makefile:
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
- 
 
 # Not a target:
 .DEFAULT:
@@ -304,12 +303,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
+ 
 # strcache buffers: 1 (0) / strings = 20 / storage = 154 B / avg = 7 B
 # current buf: size = 8162 B / used = 154 B / count = 20 / avg = 7 B
 
 # strcache performance: lookups = 23 / hit rate = 13%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
-# Finished Make data base on Mon May 30 16:57:56 2022
+# Finished Make data base on Wed Jun  1 18:40:14 2022
 
  

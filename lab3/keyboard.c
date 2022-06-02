@@ -73,17 +73,19 @@ int(kbd_read_ret_cmdb)(uint8_t *data) {
   uint8_t st;
 
   while (timeout < 3) {
+
     if (kbd_get_status(&st) != 0) {
       fprintf(stderr, "Error getting status when reading command byte return value!\n");
       return -1;
     }
 
-    if (st & OBF && !(st & (PARITY | TIME_OUT))) {
+    if (st & OBF && !(st & (PARITY | TIME_OUT | AUX))) {
 
       if (kbd_read_out_buffer(data) != 0) {
         fprintf(stderr, "Error reading KBC command byte return value from output buffer!\n");
         return -1;
       }
+
       return 0;
     
     } else return -1;
@@ -105,7 +107,10 @@ int(kbd_reenable_ints)() {
     return -1;
   }
 
-  kbd_read_ret_cmdb(&output);
+  if (kbd_read_ret_cmdb(&output) != 0) {
+    fprintf(stderr, "Error reading return command byte!\n");
+    return -1;
+  }
 
   output |= KBC_INT;
 
@@ -115,7 +120,7 @@ int(kbd_reenable_ints)() {
   }
 
   if (kbd_write_cmdb(KBC_ARGS, output) != 0) {
-    fprintf(stderr, "Error writing CMDB arguments to input buffer!\n");
+    fprintf(stderr, "Error writing command byte arguments to input buffer!\n");
     return -1;
   }
 

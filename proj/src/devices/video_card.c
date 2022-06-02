@@ -213,3 +213,49 @@ void draw_menu() {
   xpm_load(menu_800x600_xpm, XPM_8_8_8, &img);
   draw_xpm(img, 0, 0);
 }
+
+void draw_character(const char character, const bool is_number, uint16_t x, uint16_t y) {
+  xpm_image_t img;
+  xpm_load(font_xpm, XPM_8_8_8, &img);
+
+  if (is_number) {
+    int num = character - '0';
+    uint8_t *pnt = img.bytes + ((18*img.width + 11*num) * img.size / (img.height * img.width));
+
+    uint16_t ox = x;
+
+    for (int i = 0; i < 18; i++) {
+      for (int j = 0; j < 11; j++) {
+        uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
+        void *addr = (void *) ((char *) base_addr + offset);
+
+        uint8_t bpp = img.size / (img.height * img.width);
+
+        memcpy(addr, pnt + ((i * img.width) + j) * bpp, vmi.BytesPerScanLine / vmi.XResolution);
+        x++;
+      }
+      y++;
+      x = ox;
+    }
+  } else {
+    int num = (int) character - 65;
+    printf("%d", num);
+    uint8_t *pnt = img.bytes + (11*num) * img.size / (img.height * img.width);
+
+    uint16_t ox = x;
+
+    for (int i = 0; i < 18; i++) {
+      for (int j = 0; j < 11; j++) {
+        uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
+        void *addr = (void *) ((char *) base_addr + offset);
+
+        uint8_t bpp = img.size / (img.height * img.width);
+
+        memcpy(addr, pnt + ((i * img.width) + j) * bpp, vmi.BytesPerScanLine / vmi.XResolution);
+        x++;
+      }
+      y++;
+      x = ox;
+    }
+  }
+}

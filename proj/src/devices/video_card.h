@@ -11,6 +11,7 @@
 #include "imgs/tetromino_cyan.xpm"
 #include "imgs/tetromino_orange.xpm"
 #include "imgs/menu_800x600.xpm"
+#include "imgs/font.xpm"
 
 #include <lcom/lcf.h>
 #include <machine/int86.h>
@@ -30,3 +31,4 @@ int draw_board(board_t *board);
 int draw_tetromino(tetromino_t *tetromino, bool spawn);
 void draw_board_state();
 void draw_menu();
+void draw_character(const char character, const bool is_number, uint16_t x, uint16_t y);

@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun  1 18:40:14 2022
+# Make data base, printed on Thu Jun  2 16:33:53 2022
 
 # Variables
 
@@ -39,7 +41,7 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared
+CURDIR := /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj
 # makefile
 SHELL = /bin/sh
 # environment
@@ -49,11 +51,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/bin/code
 # environment
-<<<<<<< Updated upstream
-JOURNAL_STREAM = 8:45506
-=======
 JOURNAL_STREAM = 8:47785
->>>>>>> Stashed changes
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -75,25 +73,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-<<<<<<< Updated upstream
-LC_CTYPE = pt_PT.UTF-8
-# environment
-MANAGERPID = 1447
-# environment
-P9K_SSH = 0
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9d582bc1-c595-40a4-bce0-e39f6b8ad347.sock
-=======
 MANAGERPID = 1455
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ac43c42d-2271-44e5-960f-83278503f914.sock
->>>>>>> Stashed changes
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-93d44bcf-466f-4861-b213-034098bb2fa2.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
-VSCODE_CWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared
+VSCODE_CWD = /home/flux/UNI/2ANO/LCOM
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -103,11 +91,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-<<<<<<< Updated upstream
-SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1756,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1756
-=======
 SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1763,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1763
->>>>>>> Stashed changes
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -121,11 +105,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-<<<<<<< Updated upstream
-INVOCATION_ID = 21f46725e6a040efaf6946f42d6500b0
-=======
 INVOCATION_ID = ef32b272724b434eb71ea966d96c2024
->>>>>>> Stashed changes
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -136,11 +116,6 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-<<<<<<< Updated upstream
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3149
-=======
->>>>>>> Stashed changes
 # automatic
 %F = $(notdir $%)
 # environment
@@ -148,15 +123,11 @@ DISPLAY = :1
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared
+PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj
 # default
 .LOADED := 
 # environment
-<<<<<<< Updated upstream
-SSH_AGENT_PID = 1722
-=======
 SSH_AGENT_PID = 1729
->>>>>>> Stashed changes
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = Unity
 # environment
@@ -174,7 +145,7 @@ VSCODE_CODE_CACHE_PATH = /home/flux/.config/Code/CachedData/c3511e6c69bb39013c4a
 # environment
 LOGNAME = flux
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 +F = $(notdir $+)
 # environment
@@ -188,7 +159,7 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 LC_TIME = pt_PT.UTF-8
 # environment
-VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-36dc66e409.sock
+VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-fa484b92a5.sock
 # environment
 COLORTERM = truecolor
 # default
@@ -198,7 +169,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 4
+SHLVL = 2
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # default
@@ -220,7 +191,7 @@ LC_TELEPHONE = pt_PT.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM
+OLDPWD = /home/flux/UNI/2ANO/LCOM
 # environment
 VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
 # environment
@@ -292,15 +263,11 @@ LC_ADDRESS = pt_PT.UTF-8
 # environment
 LANG = C
 # environment
-<<<<<<< Updated upstream
-VSCODE_PID = 3149
-=======
 TERM = xterm-256color
 # environment
-_P9K_TTY = /dev/pts/0
+_P9K_TTY = /dev/pts/1
 # environment
 VSCODE_PID = 3099
->>>>>>> Stashed changes
 # variable set hash-table stats:
 # Load=128/1024=12%, Rehash=0, Collisions=21/150=14%
 
@@ -310,9 +277,9 @@ VSCODE_PID = 3099
 
 # Directories
 
-# . (device 66309, inode 7209044): 12 files, no impossibilities.
+# . (device 66309, inode 154098): 5 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 5 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -332,6 +299,7 @@ Makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
+ 
 #  Failed to be updated.
 
 # Not a target:
@@ -346,9 +314,6 @@ makefile:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # Not a target:
 GNUmakefile:
@@ -365,17 +330,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
- 
-# strcache buffers: 1 (0) / strings = 20 / storage = 154 B / avg = 7 B
-# current buf: size = 8162 B / used = 154 B / count = 20 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 13 / storage = 106 B / avg = 8 B
+# current buf: size = 8162 B / used = 106 B / count = 13 / avg = 8 B
 
-# strcache performance: lookups = 23 / hit rate = 13%
+# strcache performance: lookups = 16 / hit rate = 18%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
-<<<<<<< Updated upstream
-# Finished Make data base on Wed Jun  1 18:40:14 2022
-=======
-# Finished Make data base on Thu Jun  2 18:46:16 2022
->>>>>>> Stashed changes
+# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
+# Finished Make data base on Thu Jun  2 16:33:53 2022
 
  

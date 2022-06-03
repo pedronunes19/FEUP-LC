@@ -4,7 +4,7 @@
 #include <lcom/lcf.h>
 
 /* I/O Ports */
-#define KBD_IRQ       1             // keyboard's interrupt line
+#define KBD_IRQ       1             // keyboard interrupt line
 #define OUT_BUF       0x60          // output buffer port
 #define KBC_ARGS      0x60          // same as output buffer, used for sending KBC command arguments
 #define STATUS_REG    0x64          // status register port

@@ -51,7 +51,11 @@ _ = /usr/share/code/code
 # makefile (from 'Makefile', line 9)
 CFLAGS = -pedantic -DLAB5
 # environment
+<<<<<<< Updated upstream
 JOURNAL_STREAM = 8:47610
+=======
+JOURNAL_STREAM = 8:46657
+>>>>>>> Stashed changes
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -75,6 +79,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 LC_CTYPE = pt_PT.UTF-8
 # environment
+<<<<<<< Updated upstream
 MANAGERPID = 1518
 # environment
 P9K_SSH = 0
@@ -84,6 +89,17 @@ VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-42a076bb-d907-4001-b2ff-dd85
 LC_NAME = pt_PT.UTF-8
 # environment
 VSCODE_CWD = /home/flux
+=======
+MANAGERPID = 1548
+# environment
+P9K_SSH = 0
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1f4a388d-c2a7-4500-86b6-b2ef1f91ca23.sock
+# environment
+LC_NAME = pt_PT.UTF-8
+# environment
+VSCODE_CWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared
+>>>>>>> Stashed changes
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -97,7 +113,11 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
+<<<<<<< Updated upstream
 SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1786,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1786
+=======
+SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1811,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1811
+>>>>>>> Stashed changes
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -109,7 +129,11 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
+<<<<<<< Updated upstream
 INVOCATION_ID = 560b885e6b8147838b32f617c1fb4850
+=======
+INVOCATION_ID = 03ee869e51c944efa50b2de909119750
+>>>>>>> Stashed changes
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -121,7 +145,11 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
+<<<<<<< Updated upstream
 GIO_LAUNCHED_DESKTOP_FILE_PID = 12693
+=======
+GIO_LAUNCHED_DESKTOP_FILE_PID = 24352
+>>>>>>> Stashed changes
 # automatic
 %F = $(notdir $%)
 # environment
@@ -133,7 +161,11 @@ PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/lab5
 # default
 .LOADED := 
 # environment
+<<<<<<< Updated upstream
 SSH_AGENT_PID = 1752
+=======
+SSH_AGENT_PID = 1777
+>>>>>>> Stashed changes
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -147,6 +179,11 @@ HOME = /home/flux
 # environment
 SPOTIPY_CLIENT_SECRET = 7a564947afa9435b9d366ad8d061a3e5
 # environment
+<<<<<<< Updated upstream
+=======
+VSCODE_CLI = 1
+# environment
+>>>>>>> Stashed changes
 VSCODE_CODE_CACHE_PATH = /home/flux/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LOGNAME = flux
@@ -195,19 +232,37 @@ LC_TELEPHONE = pt_PT.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
+<<<<<<< Updated upstream
 OLDPWD = /home/flux
+=======
+OLDPWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared
+# environment
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
+# environment
+TERM_PROGRAM = vscode
+>>>>>>> Stashed changes
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-d4bb65f5-1.67.2-main.sock
+<<<<<<< Updated upstream
+=======
+# environment
+VSCODE_GIT_ASKPASS_NODE = /usr/share/code/code
+>>>>>>> Stashed changes
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+<<<<<<< Updated upstream
+=======
+# environment
+TERM_PROGRAM_VERSION = 1.67.2
+>>>>>>> Stashed changes
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -251,7 +306,15 @@ LC_ADDRESS = pt_PT.UTF-8
 # environment
 LANG = C
 # environment
+<<<<<<< Updated upstream
 VSCODE_PID = 12693
+=======
+TERM = xterm-256color
+# environment
+_P9K_TTY = /dev/pts/0
+# environment
+VSCODE_PID = 24352
+>>>>>>> Stashed changes
 # variable set hash-table stats:
 # Load=120/1024=12%, Rehash=0, Collisions=17/136=12%
 
@@ -261,9 +324,15 @@ VSCODE_PID = 12693
 
 # Directories
 
+<<<<<<< Updated upstream
 # . (device 66309, inode 154086): 17 files, no impossibilities.
 
 # 17 files, no impossibilities in 1 directories.
+=======
+# . (device 66309, inode 154086): 11 files, no impossibilities.
+
+# 11 files, no impossibilities in 1 directories.
+>>>>>>> Stashed changes
 
 # Implicit Rules
 
@@ -292,6 +361,7 @@ Makefile:
 #  File has not been updated.
 
 # files hash-table stats:
+ 
 # Load=4/1024=0%, Rehash=0, Collisions=0/5=0%
 # VPATH Search Paths
 
@@ -299,6 +369,7 @@ Makefile:
 
 # No general ('VPATH' variable) search path.
 
+<<<<<<< Updated upstream
 # strcache buffers: 1 (0) / strings = 22 / storage = 198 B / avg = 9 B
 # current buf: size = 8162 B / used = 198 B / count = 22 / avg = 9 B
 
@@ -306,5 +377,14 @@ Makefile:
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/26=4%
 # Finished Make data base on Tue May 31 14:29:53 2022
+=======
+# strcache buffers: 1 (0) / strings = 16 / storage = 139 B / avg = 8 B
+# current buf: size = 8162 B / used = 139 B / count = 16 / avg = 8 B
+
+# strcache performance: lookups = 20 / hit rate = 20%
+# hash-table stats:
+# Load=16/8192=0%, Rehash=0, Collisions=1/20=5%
+# Finished Make data base on Tue May 24 15:24:49 2022
+>>>>>>> Stashed changes
 
  

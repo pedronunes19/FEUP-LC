@@ -7,6 +7,10 @@
 
 #include "i8042_kbd.h"
 
+extern uint8_t scan_code[2];
+extern int kbd_i;
+extern bool kbd_ih_flag;
+
 #define DELAY_US 20000
 
 #define PARITY_ERR   1
@@ -26,5 +30,7 @@ int (kbd_read_out_buffer) (uint8_t* output);
 int (kbd_reenable_ints) ();
 int (kbd_write_cmdb) (int port, uint8_t cmdb);
 int (kbd_read_ret_cmdb) (uint8_t* data);
+
+void (kbd_ih) ();
 
 #endif /*_KBD_H_*/

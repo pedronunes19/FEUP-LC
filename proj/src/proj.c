@@ -37,19 +37,16 @@ int(proj_main_loop)(int argc, char *argv[]) {
   board->stroke = 10;
   board->margin = 5;
 
-  tetromino_t *tetromino = malloc(sizeof(tetromino_t));
-  tetromino->type = O;
-
-  draw_character('I', false, 0, 0);
-  /*
+  tetromino_t *tetromino = createTetromino(1, 1, I);
+  //draw_character('I', false, 0, 0);
   draw_board(board);
   draw_tetromino(tetromino, true);
-  draw_board_state();*/
+  draw_board_state();
   sleep(4);
   /*draw_menu();
   sleep(4);*/
 
-  free(tetromino);
+  deleteTetromino(tetromino);
   free(board);
 
   vg_exit();  

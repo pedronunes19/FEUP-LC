@@ -21,6 +21,10 @@ typedef struct {
   uint8_t **matrix;
 } tetromino_t;
 
-void rotatePieceLeft(tetromino_t piece);
+void rotatePieceLeft(tetromino_t* piece);
 
-void rotatePieceRight(tetromino_t piece);
+void rotatePieceRight(tetromino_t* piece);
+
+tetromino_t* createTetromino(uint32_t x, uint32_t y, tetromino_type type);
+
+void deleteTetromino(tetromino_t * tetromino);

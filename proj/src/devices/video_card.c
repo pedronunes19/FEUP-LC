@@ -141,15 +141,12 @@ int draw_board(board_t *board) {
 }
 
 int draw_tetromino(tetromino_t *tetromino, bool spawn) {
+
   xpm_image_t img;
   xpm_loader(tetromino->type, &img);
-  uint8_t mx[4][4] = {{0, 0, 0, 0},
-                      {0, 1, 1, 0},
-                      {0, 1, 1, 0},
-                      {0, 0, 0, 0}};
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
-      if (mx[i][j]) {
+      if (tetromino->matrix[i][j]) {
         if (spawn) {
           draw_xpm(img, (img.width * j) + (screen_center_x - 2*img.width), (img.height * i) + (tetromino_spawn_offset));
         } else {
@@ -158,6 +155,7 @@ int draw_tetromino(tetromino_t *tetromino, bool spawn) {
       }
     }
   }
+  printf("shueryvewehdwokerojihfrjedrjihrfjeko");
 
   return EXIT_SUCCESS;
 }

@@ -5,9 +5,10 @@ PROG=proj
 .PATH: ${.CURDIR}/devices
 .PATH: ${.CURDIR}/game
 .PATH: ${.CURDIR}/imgs
+.PATH: ${.CURDIR}/event_handler
 
 # source code files to be compiled
-SRCS = proj.c video_card.c utils.c tetromino.c keyboard.c mouse.c timer.c device_utils.c rtc.c
+SRCS = proj.c utils.c device_utils.c video_card.c keyboard.c mouse.c timer.c rtc.c kbd_event_handler.c mouse_event_handler.c timer_event_handler.c int_manager.c tetromino.c
 
 # __LCOM_OPTIMIZED__ disables most of the LCF's overhead (and functionality!)
 CFLAGS += -pedantic #-D __LCOM_OPTIMIZED__

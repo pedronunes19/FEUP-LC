@@ -7,8 +7,8 @@
 #define DELAY_US2 25000
 
 extern struct packet pp;
-extern int i;
-extern bool ready;
+extern int mouse_i;
+extern bool mouse_ready;
 
 int (mouse_subscribe_int) (uint8_t* bit_no);
 int (kdb_subscribe_int)(uint8_t *bit_no);

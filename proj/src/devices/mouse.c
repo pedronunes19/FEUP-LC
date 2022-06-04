@@ -3,8 +3,8 @@
 int mouse_hook_id = 12;
 
 struct packet pp;
-int i;
-bool ready = false;
+int mouse_i;
+bool mouse_ready = false;
 
 int(mouse_subscribe_int)(uint8_t *bit_no) {
   *bit_no = mouse_hook_id;
@@ -104,14 +104,14 @@ void(mouse_ih)() {
   if (st & OBF && !(st & (PARITY | TIME_OUT))) {
 
     mouse_read_buffer(OUT_BUF, &output);
-    pp.bytes[i] = output;
+    pp.bytes[mouse_i] = output;
     
-    if (i == 0 && !(output & FIRST_BYTE)) {
-      printf("BAD BYTE!!!\n");
+    if (mouse_i == 0 && !(output & FIRST_BYTE)) {
+      mouse_ready = false;
       return;
     }
 
-    switch (i) {
+    switch (mouse_i) {
       case 0:
         pp.lb = output & BIT(0);
         pp.rb = output & BIT(1);
@@ -132,11 +132,11 @@ void(mouse_ih)() {
         break;
     }
 
-    i++;
+    mouse_i++;
 
-    if (i == 3) {
-      ready = true;
-      i = 0;
+    if (mouse_i == 3) {
+      mouse_ready = true;
+      mouse_i = 0;
     }
 
   }

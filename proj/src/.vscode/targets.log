@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun  3 16:44:35 2022
+# Make data base, printed on Sat Jun  4 21:39:37 2022
 
 # Variables
 
@@ -30,8 +30,6 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -45,13 +43,15 @@ CURDIR := /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj/src
 # makefile
 SHELL = /bin/sh
 # environment
+VTE_VERSION = 6003
+# environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/code
-# makefile (from 'Makefile', line 13)
+# makefile (from 'Makefile', line 14)
 CFLAGS = -pedantic 
 # environment
-JOURNAL_STREAM = 8:47550
+JOURNAL_STREAM = 8:49175
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -59,7 +59,7 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+IM_CONFIG_PHASE = 1
 # environment
 USERNAME = flux
 # environment
@@ -73,13 +73,11 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-LC_CTYPE = pt_PT.UTF-8
-# environment
-MANAGERPID = 1571
+MANAGERPID = 1530
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-7a9878db-c0fc-4737-8f12-975f0182e950.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4e07683e-26db-4a82-ba5d-c3c949c30a62.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
@@ -93,13 +91,13 @@ PROG = proj
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1832,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1832
+SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1795,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1795
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
+# environment
+LC_MONETARY = pt_PT.UTF-8
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -109,21 +107,19 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = a06ad1aed14046dfb5666bf1fbd227a6
+INVOCATION_ID = 5ef1b7539d1f4ed78d9a6e12047cad54
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
-# makefile (from 'Makefile', line 15)
+# makefile (from 'Makefile', line 16)
 DPADD = ${LIBLCF}
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2318
 # automatic
 %F = $(notdir $%)
 # environment
@@ -135,12 +131,12 @@ PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj/src
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1798
+SSH_AGENT_PID = 1761
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = Unity
 # environment
 GTK_MODULES = gail:atk-bridge
-# makefile (from 'Makefile', line 16)
+# makefile (from 'Makefile', line 17)
 LDADD = -llcf
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
@@ -178,10 +174,10 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
-# makefile (from 'Makefile', line 10)
-SRCS = proj.c video_card.c utils.c tetromino.c keyboard.c mouse.c timer.c device_utils.c rtc.c
+# makefile (from 'Makefile', line 11)
+SRCS = proj.c utils.c device_utils.c video_card.c keyboard.c mouse.c timer.c rtc.c kbd_event_handler.c mouse_event_handler.c timer_event_handler.c int_manager.c tetromino.c
 # environment
-SHLVL = 1
+SHLVL = 2
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # default
@@ -189,7 +185,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = flux
 # environment
-LC_MONETARY = pt_PT.UTF-8
+LC_CTYPE = pt_PT.UTF-8
 # makefile
 .DEFAULT_GOAL := 
 # environment
@@ -251,11 +247,13 @@ PAGER = less
 # environment
 LC_ALL = C
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
 P9K_TTY = old
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6399f745_c45b_476a_9f39_f34318d2eddd
 # automatic
 ^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.86
 # default
 SUFFIXES := 
 # environment
@@ -277,18 +275,18 @@ TERM = xterm-256color
 # environment
 _P9K_TTY = /dev/pts/0
 # environment
-VSCODE_PID = 2318
+VSCODE_PID = 2937
 # variable set hash-table stats:
-# Load=134/1024=13%, Rehash=0, Collisions=22/154=14%
+ 
+Makefile:19: *** missing separator.  Stop.
+
+# Load=133/1024=13%, Rehash=0, Collisions=19/154=12%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
-
- 
-Makefile:18: *** missing separator.  Stop.
 
 # . (device 66309, inode 154102): 11 files, no impossibilities.
 
@@ -319,7 +317,7 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-.PATH: /devices /game /imgs
+.PATH: /devices /game /imgs /event_handler
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -337,25 +335,31 @@ Makefile:
 #  File has not been updated.
 
 # Not a target:
+/event_handler:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 /devices:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/15=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/18=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 164 B / avg = 8 B
-# current buf: size = 8162 B / used = 164 B / count = 20 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 182 B / avg = 8 B
+# current buf: size = 8162 B / used = 182 B / count = 21 / avg = 8 B
 
-# strcache performance: lookups = 31 / hit rate = 35%
+# strcache performance: lookups = 34 / hit rate = 38%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Fri Jun  3 16:44:35 2022
+# Load=21/8192=0%, Rehash=0, Collisions=1/34=3%
+# Finished Make data base on Sat Jun  4 21:39:37 2022
 
  

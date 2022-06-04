@@ -8,12 +8,10 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  2 16:33:53 2022
+# Make data base, printed on Sat Jun  4 20:44:15 2022
 
 # Variables
 
-# environment
-VSCODE_GIT_ASKPASS_MAIN = /usr/share/code/resources/app/extensions/git/dist/askpass-main.js
 # 'override' directive
 GNUMAKEFLAGS := 
 # automatic
@@ -51,7 +49,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/bin/code
 # environment
-JOURNAL_STREAM = 8:47785
+JOURNAL_STREAM = 8:49175
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -73,15 +71,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 1455
+MANAGERPID = 1530
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-93d44bcf-466f-4861-b213-034098bb2fa2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1daae9c9-0246-407f-bcff-933747af27ba.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
-VSCODE_CWD = /home/flux/UNI/2ANO/LCOM
+VSCODE_CWD = /home/flux
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -91,7 +89,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1763,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1763
+SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1795,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1795
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -105,7 +103,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = ef32b272724b434eb71ea966d96c2024
+INVOCATION_ID = 5ef1b7539d1f4ed78d9a6e12047cad54
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -127,9 +125,9 @@ PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1729
+SSH_AGENT_PID = 1761
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = Unity
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
@@ -145,7 +143,7 @@ VSCODE_CODE_CACHE_PATH = /home/flux/.config/Code/CachedData/c3511e6c69bb39013c4a
 # environment
 LOGNAME = flux
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 +F = $(notdir $+)
 # environment
@@ -159,8 +157,6 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 LC_TIME = pt_PT.UTF-8
 # environment
-VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-fa484b92a5.sock
-# environment
 COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
@@ -169,7 +165,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 2
+SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # default
@@ -191,27 +187,19 @@ LC_TELEPHONE = pt_PT.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/flux/UNI/2ANO/LCOM
-# environment
-VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
-# environment
-TERM_PROGRAM = vscode
+OLDPWD = /home/flux
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-d4bb65f5-1.67.2-main.sock
-# environment
-VSCODE_GIT_ASKPASS_NODE = /usr/share/code/code
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# environment
-TERM_PROGRAM_VERSION = 1.67.2
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -219,13 +207,9 @@ GDK_BACKEND = x11
 # environment
 LC_PAPER = pt_PT.UTF-8
 # environment
-NO_AT_BRIDGE = 1
-# environment
 QT_ACCESSIBILITY = 1
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
-# environment
-GIT_ASKPASS = /usr/share/code/resources/app/extensions/git/dist/askpass.sh
 # default
 MAKEFILES := 
 # environment
@@ -241,7 +225,7 @@ LC_ALL = C
 # environment
 P9K_TTY = old
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/664bd64c_a8fe_46d1_94a6_2952e0573573
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6399f745_c45b_476a_9f39_f34318d2eddd
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -265,11 +249,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-_P9K_TTY = /dev/pts/1
+_P9K_TTY = /dev/pts/0
 # environment
-VSCODE_PID = 3099
+VSCODE_PID = 2937
 # variable set hash-table stats:
-# Load=128/1024=12%, Rehash=0, Collisions=21/150=14%
+# Load=120/1024=12%, Rehash=0, Collisions=20/142=14%
 
 # Pattern-specific Variable Values
 
@@ -299,11 +283,11 @@ Makefile:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
- 
 #  Failed to be updated.
 
 # Not a target:
 makefile:
+ 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -336,6 +320,6 @@ GNUmakefile:
 # strcache performance: lookups = 16 / hit rate = 18%
 # hash-table stats:
 # Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Thu Jun  2 16:33:53 2022
+# Finished Make data base on Sat Jun  4 20:44:15 2022
 
  

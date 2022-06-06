@@ -1,4 +1,4 @@
-static const char* xpm_cursor_arrow[] = {
+static const char* cursor_xpm[] = {
   "15 25 3",
   "a c 255",
   "` c 0",

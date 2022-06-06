@@ -4,7 +4,6 @@ static vbe_mode_info_t vmi;
 static void *base_addr;
 static uint16_t screen_center_x;
 static uint16_t screen_center_y;
-static uint16_t tetromino_offset = 20;
 
 void *(vg_init)(uint16_t mode) {
 
@@ -128,7 +127,7 @@ int vg_draw_vline(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   return EXIT_SUCCESS;
 }
 
-int draw_board(xpm_image_t board) {
+int vg_draw_board(xpm_image_t board) {
   uint8_t tetromino_side = (vmi.YResolution - 30)/16;
   uint8_t x = screen_center_x - (tetromino_side * 5) - 10;
 
@@ -137,19 +136,7 @@ int draw_board(xpm_image_t board) {
   return EXIT_SUCCESS;
 }
 
-int draw_tetromino(tetromino_t *tetromino) {
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
-      if (tetromino->matrix[i][j]) {
-          draw_xpm(tetromino->image, (tetromino->image.width * j) + (tetromino->x * tetromino->image.width) + (screen_center_x - 5 * tetromino->image.width), (tetromino->image.height * i) + (tetromino->y * tetromino->image.height) + tetromino_offset);
-      }
-    }
-  }
-
-  return EXIT_SUCCESS;
-}
-
-void draw_board_space(xpm_image_t img, uint8_t x, uint8_t y) {
+void draw_board_block(xpm_image_t img, uint8_t x, uint8_t y) {
   draw_xpm(img, (img.width * x) + (screen_center_x - 5 * img.width), ((vmi.YResolution-55) - (y * img.height)));
 }
 
@@ -196,20 +183,4 @@ void draw_character(const char character, const bool is_number, uint16_t x, uint
       x = ox;
     }
   }
-}
-
-int clear_tetromino(tetromino_t *tetromino, xpm_image_t clear) {
-  uint8_t y;
-  if (tetromino->y == 0) {
-    y = 0;
-  } else {
-    y = tetromino->y - 1;
-  }
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
-      draw_xpm(clear, (clear.width * j) + (tetromino->x * clear.width) + (screen_center_x - 5 * clear.width), (clear.height * i) + (y * clear.height) + 20);
-    }
-  }
-
-  return EXIT_SUCCESS;
 }

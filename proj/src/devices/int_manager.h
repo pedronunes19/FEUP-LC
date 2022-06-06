@@ -4,6 +4,8 @@
 #include "keyboard.h"
 #include "mouse.h"
 
+#include "game/game_state.h"
+
 #include "../event_handler/kbd_event_handler.h"
 #include "../event_handler/mouse_event_handler.h"
 #include "../event_handler/timer_event_handler.h"
@@ -15,5 +17,4 @@
 int (init)();
 int (main_loop)();
 int (leave)();
-int (load_xpms)();
-void draw_board_state();
+void tetromino_board_state(tetromino_t *tetromino, tetromino_type board_state[16][10]);

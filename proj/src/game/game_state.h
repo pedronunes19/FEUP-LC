@@ -1,5 +1,5 @@
 #include "draw_graphics.h"
-#include "tetromino.h"
+#include "logic.h"
 
 typedef enum {
   PLAYING,

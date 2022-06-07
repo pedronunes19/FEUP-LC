@@ -15,8 +15,8 @@ typedef enum {
 } tetromino_type;
 
 typedef struct {
-  uint32_t x;
-  uint32_t y;
+  int32_t x;
+  int32_t y;
   tetromino_type type;
   uint8_t matrix[4][4];
   xpm_image_t image;

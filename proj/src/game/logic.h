@@ -4,5 +4,5 @@
 #include <time.h>
 #include "tetromino.h"
 
-void shuffle(tetromino_t* array);
+void shuffle(tetromino_type* array);
 int test();

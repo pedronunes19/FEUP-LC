@@ -13,7 +13,7 @@ void rotatePieceRight(tetromino_t* piece){
 tetromino_t* create_tetromino(tetromino_type type){
     tetromino_t *tetromino = (tetromino_t*) malloc(sizeof(tetromino_t));
     memset(tetromino->matrix, 0, 16);
-    tetromino->x = 4;
+    (type == O) ? (tetromino->x = 2) : (tetromino->x = 4);
     tetromino->y = 0;
     tetromino->type = type;
 

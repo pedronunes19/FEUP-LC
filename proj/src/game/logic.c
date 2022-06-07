@@ -1,9 +1,9 @@
 #include "logic.h"
 
-tetromino_t tmp;
+tetromino_type tmp;
 int piece_count = 7;
 
-void shuffle(tetromino_t* array) {
+void shuffle(tetromino_type* array) {
     for (int i = 6; i > 0; i--) {
         srand(time(NULL));
         int j = rand() % i;
@@ -12,7 +12,7 @@ void shuffle(tetromino_t* array) {
         array[i] = tmp;
     }
 }
-
+ /*
 int test() {
     tetromino_t piece_1; piece_1.x = 1;
     tetromino_t piece_2; piece_2.x = 2;
@@ -38,3 +38,4 @@ int test() {
     }
     return 0;
 }
+*/

@@ -18,7 +18,7 @@ typedef struct {
   int32_t x;
   int32_t y;
   tetromino_type type;
-  uint8_t matrix[4][4];
+  uint8_t **matrix;
   xpm_image_t image;
 } tetromino_t;
 

@@ -1,8 +1,12 @@
 #include "tetromino.h"
 
 void check_rotate_border_collision(tetromino_t* tetromino) {
-  for (int i = 0; i < 4; i++)
-    for (int j = 0; j < 4; j++) {
+  int iter;  
+  if (tetromino->type == I || tetromino->type == O) iter = 4;
+  else iter = 3;
+
+  for (int i = 0; i < iter; i++)
+    for (int j = 0; j < iter; j++) {
       if (tetromino->matrix[i][j] != 0 && tetromino->x + j > 9) {
         (tetromino->x)-= ((tetromino->x + j)-9);
       }
@@ -11,23 +15,39 @@ void check_rotate_border_collision(tetromino_t* tetromino) {
 
 
 void rotatePieceLeft(tetromino_t* piece){
-    rotateLeft(piece->matrix);
+    if (piece->type == I || piece->type == O) rotateLeft(piece->matrix, 4, 4);
+    else rotateLeft(piece->matrix, 3, 3);
     check_rotate_border_collision(piece);
     // check borders and move accordingly
 }
 
 void rotatePieceRight(tetromino_t* piece){
-    rotateRight(piece->matrix);
+    if (piece->type == I || piece->type == O) rotateRight(piece->matrix, 4, 4);
+    else rotateRight(piece->matrix, 3, 3);
     check_rotate_border_collision(piece);
     // check borders and move accordingly
 }
 
 tetromino_t* create_tetromino(tetromino_type type){
     tetromino_t *tetromino = (tetromino_t*) malloc(sizeof(tetromino_t));
-    memset(tetromino->matrix, 0, 16);
     (type == O) ? (tetromino->x = 2) : (tetromino->x = 4);
     tetromino->y = 0;
     tetromino->type = type;
+
+    if (type == I || type == O){
+        tetromino->matrix = (uint8_t**) malloc(4*sizeof(uint8_t*));
+        tetromino->matrix[0] = (uint8_t*) malloc(4*sizeof(uint8_t));
+        tetromino->matrix[1] = (uint8_t*) malloc(4*sizeof(uint8_t));
+        tetromino->matrix[2] = (uint8_t*) malloc(4*sizeof(uint8_t));
+        tetromino->matrix[3] = (uint8_t*) malloc(4*sizeof(uint8_t));
+    }
+    else{
+        tetromino->matrix = (uint8_t**) malloc(3*sizeof(uint8_t*));
+        tetromino->matrix[0] = (uint8_t*) malloc(3*sizeof(uint8_t));
+        tetromino->matrix[1] = (uint8_t*) malloc(3*sizeof(uint8_t));
+        tetromino->matrix[2] = (uint8_t*) malloc(3*sizeof(uint8_t));
+    }
+    
 
     switch(type){
         case I:
@@ -56,9 +76,9 @@ tetromino_t* create_tetromino(tetromino_type type){
             break;
         case O:
             tetromino->matrix[1][2] = 1;
-            tetromino->matrix[1][3] = 1;
+            tetromino->matrix[1][1] = 1;
             tetromino->matrix[2][2] = 1;
-            tetromino->matrix[2][3] = 1;
+            tetromino->matrix[2][1] = 1;
             break;
         case T:
             tetromino->matrix[1][0] = 1;
@@ -80,5 +100,10 @@ tetromino_t* create_tetromino(tetromino_type type){
 }
 
 void delete_tetromino(tetromino_t * tetromino){
+    free(tetromino->matrix[0]);
+    free(tetromino->matrix[1]);
+    free(tetromino->matrix[2]);
+    if (tetromino->type == I || tetromino->type == O) free (tetromino->matrix[3]);
+    free(tetromino->matrix);
     free(tetromino);
 }

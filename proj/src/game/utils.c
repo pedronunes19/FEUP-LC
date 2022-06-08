@@ -22,10 +22,10 @@ int msleep(long msec) {
 }
 */
 
-void reverseColumns(uint8_t arr[4][4])
+void reverseColumns(uint8_t **arr, unsigned R, unsigned C)
 {
-    for (unsigned i = 0; i < 4; i++){
-        for (unsigned j = 0, k = 4 - 1; j < k; j++, k--){
+    for (unsigned i = 0; i < C; i++){
+        for (unsigned j = 0, k = C - 1; j < k; j++, k--){
             //swap(arr[j][i], arr[k][i]);
             uint8_t temp = arr[j][i];
             arr[j][i] = arr[k][i];
@@ -34,10 +34,10 @@ void reverseColumns(uint8_t arr[4][4])
     }
 }
 
-void reverseRows(uint8_t arr[4][4])
+void reverseRows(uint8_t **arr, unsigned R, unsigned C)
 {
-    for (unsigned i = 0; i < 4; i++){
-        for (unsigned j = 0, k = 4 - 1; j < k; j++, k--){
+    for (unsigned i = 0; i < R; i++){
+        for (unsigned j = 0, k = R - 1; j < k; j++, k--){
             uint8_t temp = arr[i][j];
             arr[i][j] = arr[i][k];
             arr[i][k] = temp;
@@ -46,10 +46,10 @@ void reverseRows(uint8_t arr[4][4])
 }
 
 // Function for do transpose of matrix
-void transpose(uint8_t arr[4][4])
+void transpose(uint8_t **arr, unsigned R, unsigned C)
 {
-    for (unsigned i = 0; i < 4; i++){
-        for (unsigned j = i; j < 4; j++){
+    for (unsigned i = 0; i < R; i++){
+        for (unsigned j = i; j < C; j++){
             //swap(arr[i][j], arr[j][i]);
             uint8_t temp = arr[i][j];
             arr[i][j] = arr[j][i];
@@ -59,25 +59,25 @@ void transpose(uint8_t arr[4][4])
 }
  
 // Function for print matrix
-void printMatrix(uint8_t arr[4][4])
+void printMatrix(uint8_t **arr, unsigned R, unsigned C)
 {
-    for (unsigned i = 0; i < 4; i++) {
-        for (unsigned j = 0; j < 4; j++)
-            printf("%d ", arr[i][j]);
+    for (unsigned i = 0; i < R; i++) {
+        for (unsigned j = 0; j < C; j++)
+            printf("%d ", arr[j][i]);
         printf("\n");
     }
 }
 
-void rotateLeft(uint8_t arr[4][4])
+void rotateLeft(uint8_t **arr, unsigned R, unsigned C)
 {
-    transpose(arr);
-    reverseColumns(arr);
+    transpose(arr, R, C);
+    reverseColumns(arr, R, C);
 }
 
-void rotateRight(uint8_t arr[4][4])
+void rotateRight(uint8_t **arr, unsigned R, unsigned C)
 {
-    transpose(arr);
-    reverseRows(arr);
+    transpose(arr, R, C);
+    reverseRows(arr, R, C);
 }
 
 bool is_alpha(char character) {

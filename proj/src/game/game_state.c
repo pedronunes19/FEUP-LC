@@ -36,8 +36,11 @@ void start_game() {
 bool check_space() {
   //printf("Checking if piece can be drawn\n\n");
   int last_y_idx = 0;
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
+  int iter;  
+  if (tetromino->type == I || tetromino->type == O) iter = 4;
+  else iter = 3;
+  for (int i = 0; i < iter; i++) {
+    for (int j = 0; j < iter; j++) {
       if (tetromino->matrix[i][j] != 0) {
         last_y_idx = i;
         if ((board[15 - i - tetromino->y][j + tetromino->x] != 0) && ((i + tetromino->y) >= 0)) {
@@ -71,9 +74,12 @@ void place_tetromino() {
     //Push the piece up trying to fit it in the remaining space
     tetromino->y--;
   }
+  int iter;  
+  if (tetromino->type == I || tetromino->type == O) iter = 4;
+  else iter = 3;
   //printf("Drawing piece\n\n");
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
+  for (int i = 0; i < iter; i++) {
+    for (int j = 0; j < iter; j++) {
       if ((tetromino->matrix[i][j] != 0) && (i + tetromino->y >= 0)) {
         board[15 - i - tetromino->y][j + tetromino->x] = tetromino->type;
       }
@@ -190,8 +196,11 @@ void piece_fall() {
 }
 
 void clear_tetromino() {
-  for (int i = 0; i < 4; i++)
-    for (int j = 0; j < 4; j++)
+  int iter;  
+  if (tetromino->type == I || tetromino->type == O) iter = 4;
+  else iter = 3;
+  for (int i = 0; i < iter; i++)
+    for (int j = 0; j < iter; j++)
       if (tetromino->matrix[i][j] != 0)
         board[15 - i - tetromino->y][j + tetromino->x] = 0;
 }
@@ -204,8 +213,11 @@ void draw_game_ui() {
 
 bool check_collision() {
   uint8_t y = tetromino->y + 1;
-  for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < 4; j++) {
+  int iter;  
+  if (tetromino->type == I || tetromino->type == O) iter = 4;
+  else iter = 3;
+  for (int i = 0; i < iter; i++) {
+    for (int j = 0; j < iter; j++) {
       if ((tetromino->matrix[i][j] != 0) && (board[15 - i - y][j + tetromino->x] != 0)) {
         return true;
       }

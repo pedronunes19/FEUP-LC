@@ -4,17 +4,18 @@ uint32_t timer_irq_set, kbd_irq_set, mouse_irq_set;
 tetromino_type board_state[16][10];
 
 int(init)() {
-  uint8_t timer_bit_no = 0, kbd_bit_no = 1, mouse_bit_no = 2;
+  uint8_t timer_bit_no, kbd_bit_no, mouse_bit_no;
 
   // enabling interrupts
-  timer_irq_set = BIT(timer_bit_no);
-  kbd_irq_set = BIT(kbd_bit_no);
-  mouse_irq_set = BIT(mouse_bit_no);
 
   timer_subscribe_int(&timer_bit_no);
   kbd_subscribe_int(&kbd_bit_no);
   mouse_subscribe_int(&mouse_bit_no);
   _mouse_enable_data_reporting();
+
+  timer_irq_set = BIT(timer_bit_no);
+  kbd_irq_set = BIT(kbd_bit_no);
+  mouse_irq_set = BIT(mouse_bit_no);
 
   // initialize vc
   vg_init(DC_800x600_24);
@@ -47,9 +48,9 @@ int(main_loop)() {
 
             mouse_ih();
             if (mouse_ready) {
-
+              mouse_print_packet(&pp);
               mouse_ready = false;
-              handle_mouse_event(&pp);
+              //handle_mouse_event(pp);
             }
           }
           else if (msg.m_notify.interrupts & kbd_irq_set) {
@@ -62,7 +63,7 @@ int(main_loop)() {
             }
 
             kbd_i = 0;
-            handle_kbd_event(&scan_code);
+            handle_kbd_event(scan_code);
           }
           else if (msg.m_notify.interrupts & timer_irq_set) {
 

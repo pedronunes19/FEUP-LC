@@ -138,7 +138,7 @@ bool check_collision() {
       if ((tetromino->matrix[i][j] != 0) && (board[15 - i - y][j + tetromino->x] != 0)) {
         return true;
       }
-      printf("\n\n%d - %d - %d\n\n", y + j, tetromino->matrix[i][j] != 0, y + (j) > 15);
+      //printf("\n\n%d - %d - %d\n\n", y + j, tetromino->matrix[i][j] != 0, y + (j) > 15);
       if ((tetromino->matrix[i][j] != 0) && (y + (i) > 15)) {
         return true;
       }

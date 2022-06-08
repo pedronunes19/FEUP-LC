@@ -103,11 +103,17 @@ void(mouse_ih)() {
 
   if (st & OBF && !(st & (PARITY | TIME_OUT))) {
 
-    mouse_read_buffer(OUT_BUF, &output);
+    if (mouse_read_buffer(OUT_BUF, &output) != 0) {
+      fprintf(stderr, "Error reading from buffer in mouse!\n");
+      return;
+    }
+
     pp.bytes[mouse_i] = output;
     
     if (mouse_i == 0 && !(output & FIRST_BYTE)) {
-      mouse_ready = false;
+      while (mouse_read_buffer(OUT_BUF, &output) == 0) {
+        continue;
+      }
       return;
     }
 

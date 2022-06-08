@@ -1,12 +1,24 @@
 #include "tetromino.h"
 
+void check_rotate_border_collision(tetromino_t* tetromino) {
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++) {
+      if (tetromino->matrix[i][j] != 0 && tetromino->x + j > 9) {
+        (tetromino->x)-= ((tetromino->x + j)-9);
+      }
+    }
+}
+
+
 void rotatePieceLeft(tetromino_t* piece){
     rotateLeft(piece->matrix);
+    check_rotate_border_collision(piece);
     // check borders and move accordingly
 }
 
 void rotatePieceRight(tetromino_t* piece){
     rotateRight(piece->matrix);
+    check_rotate_border_collision(piece);
     // check borders and move accordingly
 }
 

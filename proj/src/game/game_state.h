@@ -10,7 +10,9 @@ typedef enum {
 static tetromino_type board[16][10];
 static tetromino_t *tetromino;
 extern game_state state;
+static uint8_t time_score;
 
+void main_menu();
 void start_game();
 void draw_game_ui();
 void piece_fall();

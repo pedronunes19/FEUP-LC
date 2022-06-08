@@ -26,9 +26,15 @@ void draw_board_bg() {
   vg_draw_board(board);
 }
 
-void draw_menu() {
+void draw_main_menu() {
   draw_xpm(main_menu, 0, 0);
+
+  draw_string("SINGLEPLAYER", 0, 0, 3);
+  draw_string("MULTIPLAYER", 0, 0, 3);
+  draw_string("LEADERBOARD", 0, 0, 3);
+  draw_string("EXIT", 0, 0, 3);
 }
+
 void draw_gradient() {
   draw_xpm(gradient, 0, 0);
 }
@@ -36,10 +42,14 @@ void draw_gradient() {
 void draw_score(char *score) {
   uint16_t offset = vg_draw_score_bg(square);
 
-  uint16_t text_x = offset + 5;
-  uint16_t text_y = 10 + 5;
+  uint16_t score_x = offset + 100 - (18 * strlen(score) + 10) ;
+  uint16_t score_y = 38;
   
-  draw_string(score, text_x, text_y, 3);
+  uint16_t text_x = offset + 10;
+  uint16_t text_y = 12;
+
+  draw_string("SCORE", text_x, text_y, 3);
+  draw_string(score, score_x, score_y, 3);
 }
 
 void load_tetromino_image(tetromino_t *tetromino) {
@@ -105,7 +115,7 @@ void draw_board(tetromino_type board[16][10]) {
 
 void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale) {
   for (unsigned int i = 0; i < strlen(string); i++) {
-    draw_character(string[i], x + (11 * i) , y, scale);
+    draw_character(string[i], x + (17 * i) , y, scale);
   }
 }
 

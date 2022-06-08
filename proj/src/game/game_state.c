@@ -125,10 +125,9 @@ void clear_tetromino() {
 }
 
 void draw_game_ui() {
-  // todo: draw other ui elements
   draw_gradient();
   draw_board_bg();
-  draw_score("0");
+  draw_score("9999");
 }
 
 bool check_collision() {
@@ -147,4 +146,8 @@ bool check_collision() {
   }
   printf("\n");
   return false;
+}
+
+void main_menu() {
+  draw_main_menu();
 }

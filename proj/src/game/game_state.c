@@ -2,6 +2,7 @@
 
 static tetromino_type piece_type[] = {I, J, L, S, O, T, Z};
 static int counter = 1;
+game_state state = PLAYING;
 bool spawned = false;
 bool end = false;
 

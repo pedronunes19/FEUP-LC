@@ -3,8 +3,7 @@
 uint32_t timer_irq_set, kbd_irq_set, mouse_irq_set;
 tetromino_type board_state[16][10];
 
-
-int (init)() {
+int(init)() {
   uint8_t timer_bit_no = 0, kbd_bit_no = 1, mouse_bit_no = 2;
 
   // enabling interrupts
@@ -26,8 +25,7 @@ int (init)() {
   return 0;
 }
 
-
-int (main_loop)() {
+int(main_loop)() {
   message msg;
   int ipc_status;
 
@@ -52,34 +50,34 @@ int (main_loop)() {
 
               mouse_ready = false;
               handle_mouse_event(&pp);
+            }
+          }
+          else if (msg.m_notify.interrupts & kbd_irq_set) {
 
+            kbc_ih();
+
+            if (scan_code[kbd_i] == TWO_BYTE_SC) {
+              kbd_i++;
+              continue;
             }
 
-          } else if (msg.m_notify.interrupts & kbd_irq_set) {
-						 
-						kbc_ih();
-            
-						if (scan_code[kbd_i] == TWO_BYTE_SC) {
-							kbd_i++;
-							continue;
-						}
-
-						kbd_i = 0;
+            kbd_i = 0;
             handle_kbd_event(&scan_code);
+          }
+          else if (msg.m_notify.interrupts & timer_irq_set) {
 
-					} else if (msg.m_notify.interrupts & timer_irq_set) {
+            timer_int_handler();
 
-							timer_int_handler();
-							
-              if (timer_counter % 2 == 0) {
-                handle_timer_event();
-							}
+            if (timer_counter % 2 == 0) {
+              handle_timer_event();
+            }
 
+            if (state == PLAYING) {
               if (timer_counter % FAST == 0) {
                 piece_fall();
               }
-
-					}	
+            }
+          }
 
           break;
         }
@@ -92,10 +90,10 @@ int (main_loop)() {
   return EXIT_SUCCESS;
 }
 
-int (leave)() {
+int(leave)() {
 
-	timer_unsubscribe_int();
-	kbd_unsubscribe_int();
+  timer_unsubscribe_int();
+  kbd_unsubscribe_int();
   mouse_unsubscribe_int();
   mouse_disable_data_reporting();
   vg_exit();

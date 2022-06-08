@@ -29,14 +29,20 @@ void draw_board_bg() {
 void draw_main_menu() {
   draw_xpm(main_menu, 0, 0);
 
-  draw_string("SINGLEPLAYER", 0, 0, 3);
-  draw_string("MULTIPLAYER", 0, 0, 3);
-  draw_string("LEADERBOARD", 0, 0, 3);
-  draw_string("EXIT", 0, 0, 3);
+  // TODO: fix the x, y coordinates of this
+  draw_string("SINGLEPLAYER", 162, 312, 3);
+  draw_string("MULTIPLAYER", 150, 380, 3);
+  draw_string("LEADERBOARD", 150, 420, 3);
+  draw_string("EXIT", 180, 480, 3);
 }
 
 void draw_gradient() {
   draw_xpm(gradient, 0, 0);
+  /*
+  here for testing purposes while the full game loop is not implemented
+
+  draw_main_menu();
+  */
 }
 
 void draw_score(char *score) {

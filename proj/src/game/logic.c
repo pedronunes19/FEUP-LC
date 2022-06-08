@@ -11,7 +11,15 @@ void shuffle(tetromino_type* array) {
         array[j] = array[i];
         array[i] = tmp;
     }
+    for (int i = 6; i > 0; i--) {
+        srand(time(NULL));
+        int j = rand() % i;
+        tmp = array[j];
+        array[j] = array[i];
+        array[i] = tmp;
+    }
 }
+
  /*
 int test() {
     tetromino_t piece_1; piece_1.x = 1;

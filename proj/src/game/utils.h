@@ -5,6 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+
+/*
+int msleep(long ms);
+*/
 
 void reverseColumns(uint8_t arr[4][4]);
 

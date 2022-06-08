@@ -1,22 +1,34 @@
 #include "game_state.h"
+#include "utils.h"
 
 static tetromino_type piece_type[] = {I, J, L, S, O, T, Z};
 static int counter = 1;
 game_state state = PLAYING;
 bool spawned = false;
 bool end = false;
+bool cleared = false;
 
 void start_game() {
   memset(*board, 0, sizeof(board));
   shuffle(piece_type);
   tetromino = create_tetromino(piece_type[0]);
   load_tetromino_image(tetromino);
-  place_tetromino(tetromino);
-  
+  place_tetromino();
+
+  /*
+  for (int i = 0; i < 10; i++) {
+    board[0][i] = I;
+    board[1][i] = I;
+    board[2][i] = I;
+    board[3][i] = I;    
+  }
+  board[0][5] = 0;
+  board[1][5] = 0;
+  board[2][5] = 0;
+  board[3][5] = 0;
+  board[5][0] = I;
+  */  
   draw_game_ui();
-  
-  for (int i = 0; i < 10; i++)
-    board[0][i] = 1;
   
   draw_board(board);
 }
@@ -80,6 +92,64 @@ void place_tetromino() {
   */
 }
 
+bool clear_lines() {
+  //printf("\n\nclearing lines\n\n");
+  bool full = true;
+  bool clearing = false;
+  while (full) {
+    for (int i = 0; i < 16; i++) {
+      full = true;
+      for (int j = 0; j < 10; j++) {
+        if (board[i][j] == 0) {
+          //printf("Not full!\n");
+          full = false;
+          break;
+        }
+      }
+      if (full) {
+        clearing = true;
+        //printf("Clearing!\n");
+        //printf("%d", i);
+        for (int idx = i; idx < 15; idx++) {
+          for (int j = 0; j < 10; j++) {
+            board[idx][j] = 0;
+            board[idx][j] = board[idx+1][j];
+          }
+        }
+        for (int j = 0; j < 10; j++) {
+          board[15][j] = 0;
+        }
+        /*
+        printf("Board state after drawing\n\n");
+        for (int i = 15; i >= 0; i--) {
+          for (int j = 0; j < 10; j++) {
+            printf("%d", board[i][j]);
+          }
+          printf("\n");
+        }
+        printf("\n\n");
+        */
+        i--;
+      }
+    }
+  }
+  return clearing;
+}
+
+/* In loving memory of Gravity, RIP. (unneeded function)
+void gravity() {
+  for (int i = 1; i < 16; i++) {
+    for (int j = 0; j < 10; j++) {
+      while ((board[i][j] != 0) && (board[i-1][j] == 0)){
+        board[i-1][j] = board[i][j];
+        board[i][j] = 0;
+        if (i>1) i--;
+      }
+    }
+  }
+}
+*/
+
 void piece_fall() {
   //printf("\nThe end? %s", end ? "Yes!\n\n" : "Not yet...\n\n");
   if (end) return;
@@ -95,16 +165,18 @@ void piece_fall() {
     printf("\n\n");
   */
   bool collision = check_collision();
+  //printf("\n\nCollided? %d\n\n", collision);
 
   if (!collision) {
-    tetromino->y += 1;
+    if (!spawned) tetromino->y += 1;
     spawned = false;
   }
-
   place_tetromino();
   draw_board(board);
 
   if (collision) {
+    cleared = clear_lines();
+    //printf("\nCleared? %d\n", cleared);
     tetromino = create_tetromino(piece_type[counter]);
     load_tetromino_image(tetromino);
     counter++;
@@ -114,7 +186,6 @@ void piece_fall() {
       counter = 0;
       shuffle(piece_type);
     }
-
   }
 }
 
@@ -128,7 +199,7 @@ void clear_tetromino() {
 void draw_game_ui() {
   draw_gradient();
   draw_board_bg();
-  draw_score("9999");
+  draw_score("0");
 }
 
 bool check_collision() {
@@ -143,9 +214,9 @@ bool check_collision() {
         return true;
       }
     }
-    printf("\n");
+    //printf("\n");
   }
-  printf("\n");
+  //printf("\n");
   return false;
 }
 

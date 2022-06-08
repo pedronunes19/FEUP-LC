@@ -9,6 +9,7 @@
   "files.associations": {
     "timer.h": "c",
     "lcf.h": "c",
-    "lab2.h": "c"
+    "lab2.h": "c",
+    "*.xpm": "c"
   },
 }

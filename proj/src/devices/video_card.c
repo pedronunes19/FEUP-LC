@@ -108,6 +108,15 @@ void(draw_xpm)(xpm_image_t img, uint16_t x, uint16_t y) {
 
       uint8_t bpp = img.size / (img.height * img.width);
 
+      uint32_t color = 0;
+      for (size_t off = 0; off < 3; off++)
+        color |= *(img.bytes + (cnt * bpp) + off) << (off * 8);
+
+      if (color == 0x00b140) {
+        cnt++;
+        continue;
+      }
+      
       memcpy(addr, img.bytes + (cnt * bpp), vmi.BytesPerScanLine / vmi.XResolution);
       x++;
       cnt++;
@@ -127,6 +136,15 @@ int vg_draw_vline(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
   return EXIT_SUCCESS;
 }
 
+int vg_draw_score_bg(xpm_image_t square) {
+  uint16_t x = vmi.XResolution - square.width - 50;
+  uint16_t y = 10;
+
+  draw_xpm(square, x, y);
+
+  return x;
+}
+
 int vg_draw_board(xpm_image_t board) {
   uint8_t tetromino_side = (vmi.YResolution - 30)/16;
   uint8_t x = screen_center_x - (tetromino_side * 5) - 10;
@@ -140,47 +158,33 @@ void draw_board_block(xpm_image_t img, uint8_t x, uint8_t y) {
   draw_xpm(img, (img.width * x) + (screen_center_x - 5 * img.width), ((vmi.YResolution-55) - (y * img.height)));
 }
 
-void draw_character(const char character, const bool is_number, uint16_t x, uint16_t y) {
-  xpm_image_t img;
+void vg_draw_character(xpm_image_t font, uint16_t x, uint16_t y, uint8_t scale, uint8_t *pnt) {
+  uint16_t ox = x;
 
-  if (is_number) {
-    int num = character - '0';
-    uint8_t *pnt = img.bytes + ((18*img.width + 11*num) * img.size / (img.height * img.width));
+  for (int i = 0; i < 7; i++) { // y
+    for (int k = 0; k < scale; k++) {
+      for (int j = 0; j < 6; j++) { // x
+        for (int l = 0; l < scale; l++) {
+          uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
+          void *addr = (void *) ((char *) base_addr + offset);
 
-    uint16_t ox = x;
+          uint8_t bpp = font.size / (font.height * font.width);
 
-    for (int i = 0; i < 18; i++) {
-      for (int j = 0; j < 11; j++) {
-        uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
-        void *addr = (void *) ((char *) base_addr + offset);
+          uint32_t color = 0;
+          for (size_t off = 0; off < 3; off++)
+            color |= *(pnt + (j + i*font.width) * bpp + off) << (off * 8);
 
-        uint8_t bpp = img.size / (img.height * img.width);
-
-        memcpy(addr, pnt + ((i * img.width) + j) * bpp, vmi.BytesPerScanLine / vmi.XResolution);
-        x++;
+          if (color == 0x00b140) {
+            x++;
+            continue;
+          }
+        
+          memcpy(addr, pnt + ((i * font.width) + j) * bpp, vmi.BytesPerScanLine / vmi.XResolution);
+          x++;
+        }
       }
-      y++;
-      x = ox;
-    }
-  } else {
-    int num = (int) character - 65;
-    printf("%d", num);
-    uint8_t *pnt = img.bytes + (11*num) * img.size / (img.height * img.width);
-
-    uint16_t ox = x;
-
-    for (int i = 0; i < 18; i++) {
-      for (int j = 0; j < 11; j++) {
-        uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
-        void *addr = (void *) ((char *) base_addr + offset);
-
-        uint8_t bpp = img.size / (img.height * img.width);
-
-        memcpy(addr, pnt + ((i * img.width) + j) * bpp, vmi.BytesPerScanLine / vmi.XResolution);
-        x++;
-      }
-      y++;
-      x = ox;
+    y++;
+    x = ox;
     }
   }
 }

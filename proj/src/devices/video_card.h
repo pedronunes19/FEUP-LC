@@ -18,5 +18,6 @@ int(map_vm)();
 void(draw_pixel)(uint16_t x, uint16_t y, uint32_t color);
 void(draw_xpm)(xpm_image_t img, uint16_t x, uint16_t y);
 int vg_draw_board(xpm_image_t board);
-void draw_character(const char character, const bool is_number, uint16_t x, uint16_t y);
 void draw_board_block(xpm_image_t img, uint8_t x, uint8_t y);
+void vg_draw_character(xpm_image_t font, uint16_t x, uint16_t y, uint8_t scale, uint8_t *pnt);
+int vg_draw_score_bg(xpm_image_t square);

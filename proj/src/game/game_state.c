@@ -10,9 +10,13 @@ void start_game() {
   shuffle(piece_type);
   tetromino = create_tetromino(piece_type[0]);
   load_tetromino_image(tetromino);
-  place_tetromino();
-
+  place_tetromino(tetromino);
+  
   draw_game_ui();
+  
+  for (int i = 0; i < 10; i++)
+    board[0][i] = 1;
+  
   draw_board(board);
 }
 
@@ -122,7 +126,9 @@ void clear_tetromino() {
 
 void draw_game_ui() {
   // todo: draw other ui elements
+  draw_gradient();
   draw_board_bg();
+  draw_score("0");
 }
 
 bool check_collision() {

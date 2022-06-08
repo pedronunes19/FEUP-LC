@@ -12,6 +12,7 @@
 #include "imgs/board.xpm"
 #include "imgs/gradient.xpm"
 #include "imgs/sidebar.xpm"
+#include "imgs/square_resized.xpm"
 
 #include "devices/video_card.h"
 
@@ -21,3 +22,7 @@ void load_tetromino_image(tetromino_t *tetromino);
 void draw_board(tetromino_type board_state[16][10]);
 void draw_board_bg();
 void draw_menu();
+void draw_gradient();
+void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale);
+void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale);
+void draw_score(char *score);

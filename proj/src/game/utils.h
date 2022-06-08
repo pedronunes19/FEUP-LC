@@ -19,3 +19,5 @@ void printMatrix(uint8_t arr[4][4]);
 void rotateLeft(uint8_t arr[4][4]);
 
 void rotateRight(uint8_t arr[4][4]);
+
+bool is_alpha(char character);

@@ -57,3 +57,10 @@ void rotateRight(uint8_t arr[4][4])
     transpose(arr);
     reverseRows(arr);
 }
+
+bool is_alpha(char character) {
+    if ((character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z'))
+        return true;
+
+    return false;
+}

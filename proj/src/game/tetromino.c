@@ -1,14 +1,17 @@
 #include "tetromino.h"
 
-void check_rotate_border_collision(tetromino_t* tetromino) {
+void check_rotate_inside_border(tetromino_t* tetromino) {
   int iter;  
   if (tetromino->type == I || tetromino->type == O) iter = 4;
   else iter = 3;
 
   for (int i = 0; i < iter; i++)
     for (int j = 0; j < iter; j++) {
-      if (tetromino->matrix[i][j] != 0 && tetromino->x + j > 9) {
+      if (tetromino->matrix[i][j] != 0 && tetromino->x + j > 9) { // out right
         (tetromino->x)-= ((tetromino->x + j)-9);
+      }
+      if (tetromino->matrix[i][j] != 0 && tetromino->x + j < 0) { // out right
+        (tetromino->x)+= (0-(tetromino->x + j));
       }
     }
 }
@@ -17,14 +20,14 @@ void check_rotate_border_collision(tetromino_t* tetromino) {
 void rotatePieceLeft(tetromino_t* piece){
     if (piece->type == I || piece->type == O) rotateLeft(piece->matrix, 4, 4);
     else rotateLeft(piece->matrix, 3, 3);
-    check_rotate_border_collision(piece);
+    check_rotate_inside_border(piece);
     // check borders and move accordingly
 }
 
 void rotatePieceRight(tetromino_t* piece){
     if (piece->type == I || piece->type == O) rotateRight(piece->matrix, 4, 4);
     else rotateRight(piece->matrix, 3, 3);
-    check_rotate_border_collision(piece);
+    check_rotate_inside_border(piece);
     // check borders and move accordingly
 }
 

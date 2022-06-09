@@ -22,6 +22,8 @@ typedef struct {
   xpm_image_t image;
 } tetromino_t;
 
+void check_rotate_inside_border(tetromino_t* tetromino);
+
 void rotatePieceLeft(tetromino_t* piece);
 
 void rotatePieceRight(tetromino_t* piece);

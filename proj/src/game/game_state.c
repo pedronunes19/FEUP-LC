@@ -170,7 +170,7 @@ void piece_fall() {
     }
     printf("\n\n");
   */
-  bool collision = check_collision();
+  bool collision = check_collision(DOWN);
   //printf("\n\nCollided? %d\n\n", collision);
 
   if (!collision) {
@@ -211,19 +211,40 @@ void draw_game_ui() {
   draw_score("0");
 }
 
-bool check_collision() {
+bool check_collision(collision_dir dir) {
   uint8_t y = tetromino->y + 1;
+  uint8_t left = tetromino->x - 1;
+  uint8_t right = tetromino->x + 1;
   int iter;  
   if (tetromino->type == I || tetromino->type == O) iter = 4;
   else iter = 3;
   for (int i = 0; i < iter; i++) {
     for (int j = 0; j < iter; j++) {
-      if ((tetromino->matrix[i][j] != 0) && (board[15 - i - y][j + tetromino->x] != 0)) {
-        return true;
-      }
-      //printf("\n\n%d - %d - %d\n\n", y + j, tetromino->matrix[i][j] != 0, y + (j) > 15);
-      if ((tetromino->matrix[i][j] != 0) && (y + (i) > 15)) {
-        return true;
+      switch(dir){
+        case DOWN:
+          if ((tetromino->matrix[i][j] != 0) && (board[15 - i - y][j + tetromino->x] != 0)) {
+            return true;
+          }
+          //printf("\n\n%d - %d - %d\n\n", y + j, tetromino->matrix[i][j] != 0, y + (j) > 15);
+          if ((tetromino->matrix[i][j] != 0) && (y + (i) > 15)) {
+            return true;
+          }
+          break;
+        case LEFT:  
+          if ((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + left] != 0)) {
+            return true;
+          }
+          break;
+        case RIGHT:  
+          if ((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + right] != 0)) {
+            return true;
+          }
+          break;
+        case NO_DIR:  
+          if ((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + tetromino->x] != 0)) {
+            return true;
+          }
+          break;  
       }
     }
     //printf("\n");

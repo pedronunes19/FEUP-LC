@@ -7,6 +7,13 @@ typedef enum {
   FINISHED
 } game_state;
 
+typedef enum {
+  DOWN,
+  LEFT,
+  RIGHT,
+  NO_DIR
+} collision_dir;
+
 static tetromino_type board[16][10];
 static tetromino_t *tetromino;
 extern game_state state;
@@ -18,4 +25,4 @@ void draw_game_ui();
 void piece_fall();
 void clear_tetromino();
 void place_tetromino();
-bool check_collision();
+bool check_collision(collision_dir dir);

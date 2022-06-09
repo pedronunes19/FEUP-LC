@@ -1,5 +1,4 @@
 #include "game_state.h"
-#include "utils.h"
 
 static tetromino_type piece_type[] = {I, J, L, S, O, T, Z};
 static int counter = 1;

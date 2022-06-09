@@ -30,6 +30,7 @@ int(main_loop)() {
   message msg;
   int ipc_status;
 
+  // draw_leaderboard_menu(); // HERE FOR TESTING PURPOSES
   draw_main_menu();
 
   while (scan_code[kbd_i] != ESC_BREAK) {

@@ -1,6 +1,6 @@
 #include "draw_graphics.h"
 
-xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, main_menu, font, board, gradient, sidebar, clear, square;
+xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, main_menu, font, board, gradient, sidebar, clear, square, leaderboard_menu, font_white;
 
 
 int (load_xpms)() {
@@ -19,7 +19,10 @@ int (load_xpms)() {
   xpm_load(board_xpm, XPM_8_8_8, &board);
   xpm_load(clear_xpm, XPM_8_8_8, &clear);
   xpm_load(square_xpm, XPM_8_8_8, &square);
-  return 0;   
+  xpm_load(leaderboard_menu_xpm, XPM_8_8_8, &leaderboard_menu);
+  xpm_load(font_white_xpm, XPM_8_8_8, &font_white);
+
+  return 0;
 }
 
 void draw_board_bg() {
@@ -29,20 +32,24 @@ void draw_board_bg() {
 void draw_main_menu() {
   draw_xpm(main_menu, 0, 0);
 
-  // TODO: fix the x, y coordinates of this
-  draw_string("SINGLEPLAYER", 200, 312, 3);
-  draw_string("MULTIPLAYER", 210, 362, 3);
-  draw_string("LEADERBOARD", 210, 412, 3);
-  draw_string("EXIT", 270, 462, 3);
+  draw_string("SINGLEPLAYER", 200, 312, 3, false);
+  draw_string("MULTIPLAYER", 210, 362, 3, false);
+  draw_string("LEADERBOARD", 210, 412, 3, false);
+  draw_string("EXIT", 270, 462, 3, false);
+}
+
+void draw_leaderboard_menu() {
+  draw_xpm(leaderboard_menu, 0, 0);
+
+  draw_string("LEADERBOARD", 270, 90, 4, true);
+}
+
+void draw_save_score() {
+
 }
 
 void draw_gradient() {
   draw_xpm(gradient, 0, 0);
-  /*
-  here for testing purposes while the full game loop is not implemented
-
-  draw_main_menu();
-  */
 }
 
 void draw_score(char *score) {
@@ -54,8 +61,8 @@ void draw_score(char *score) {
   uint16_t text_x = offset + 10;
   uint16_t text_y = 12;
 
-  draw_string("SCORE", text_x, text_y, 3);
-  draw_string(score, score_x, score_y, 3);
+  draw_string("SCORE", text_x, text_y, 3, false);
+  draw_string(score, score_x, score_y, 3, false);
 }
 
 void load_tetromino_image(tetromino_t *tetromino) {
@@ -119,31 +126,41 @@ void draw_board(tetromino_type board[16][10]) {
   }
 }
 
-void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale) {
+void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale, bool white) {
   for (unsigned int i = 0; i < strlen(string); i++) {
-    draw_character(string[i], x + (17 * i) , y, scale);
+      draw_character(string[i], x + (scale * 6 * i) , y, scale, white);
   }
 }
 
-void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale) {
+void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale, bool white) {
   uint8_t *pnt = NULL;
   uint8_t font_bpp = (font.size / (font.height * font.width));
+  unsigned char *init_pnt;
+
+  if (white) {
+    init_pnt = font_white.bytes;
+  } else {
+    init_pnt = font.bytes;
+  }
   
+  // Finding pointer to start of character in font
   if (!is_alpha(character)) {
     int num = character - '0';
-    pnt = font.bytes + (6 * num) * font_bpp;
-
-    vg_draw_character(font, x, y, scale, pnt);
+    pnt = init_pnt + (6 * num) * font_bpp;
   } else {
     int num = (int) character - 65;
     if (num < 0 || num > 25) return;
 
     if (num >=0 && num <= 14) {
-      pnt = font.bytes + (6 * (num + 1)) * font_bpp + (font.width * 7) * font_bpp;
+      pnt = init_pnt + (6 * (num + 1)) * font_bpp + (font.width * 7) * font_bpp;
     } else if (num >= 15 && num <=25) {
-      pnt = font.bytes + (6 * (num - 15)) * font_bpp + (font.width * 14) * font_bpp;
+      pnt = init_pnt + (6 * (num - 15)) * font_bpp + (font.width * 14) * font_bpp;
     }
+  }
 
+  if (white) {
+    vg_draw_character(font_white, x, y, scale, pnt);
+  } else {
     vg_draw_character(font, x, y, scale, pnt);
   }
 }

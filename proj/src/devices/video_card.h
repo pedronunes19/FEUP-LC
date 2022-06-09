@@ -4,7 +4,6 @@
 #include "game/tetromino.h"
 #include "vc_defines.h"
 
-#include <lcom/lcf.h>
 #include <machine/int86.h>
 #include <stdint.h>
 

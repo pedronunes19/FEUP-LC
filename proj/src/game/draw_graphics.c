@@ -30,10 +30,10 @@ void draw_main_menu() {
   draw_xpm(main_menu, 0, 0);
 
   // TODO: fix the x, y coordinates of this
-  draw_string("SINGLEPLAYER", 162, 312, 3);
-  draw_string("MULTIPLAYER", 150, 380, 3);
-  draw_string("LEADERBOARD", 150, 420, 3);
-  draw_string("EXIT", 180, 480, 3);
+  draw_string("SINGLEPLAYER", 200, 312, 3);
+  draw_string("MULTIPLAYER", 210, 362, 3);
+  draw_string("LEADERBOARD", 210, 412, 3);
+  draw_string("EXIT", 270, 462, 3);
 }
 
 void draw_gradient() {

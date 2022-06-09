@@ -1,7 +1,7 @@
 #include <lcom/lab3.h>
 #include <lcom/lcf.h>
 
-#include "i8042.h"
+#include "i8042_kbd.h"
 #include "keyboard.h"
 #include "timer.c" // definitely a better way to do this, i don't know how
 

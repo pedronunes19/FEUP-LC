@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
+  
   // setting up interrupts and some graphics
   init();
 

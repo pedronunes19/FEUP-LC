@@ -16,5 +16,6 @@
 
 int (init)();
 int (main_loop)();
+int (game_loop)();
 int (leave)();
 void tetromino_board_state(tetromino_t *tetromino, tetromino_type board_state[16][10]);

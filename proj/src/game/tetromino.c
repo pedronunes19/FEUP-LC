@@ -39,16 +39,17 @@ tetromino_t* create_tetromino(tetromino_type type){
 
     if (type == I || type == O){
         tetromino->matrix = (uint8_t**) malloc(4*sizeof(uint8_t*));
-        tetromino->matrix[0] = (uint8_t*) malloc(4*sizeof(uint8_t));
-        tetromino->matrix[1] = (uint8_t*) malloc(4*sizeof(uint8_t));
-        tetromino->matrix[2] = (uint8_t*) malloc(4*sizeof(uint8_t));
-        tetromino->matrix[3] = (uint8_t*) malloc(4*sizeof(uint8_t));
+        for (int i = 0; i < 4; i++){
+            tetromino->matrix[i] = (uint8_t*) malloc(4*sizeof(uint8_t));
+            memset(tetromino->matrix[i], 0, 4);
+        }
     }
     else{
         tetromino->matrix = (uint8_t**) malloc(3*sizeof(uint8_t*));
-        tetromino->matrix[0] = (uint8_t*) malloc(3*sizeof(uint8_t));
-        tetromino->matrix[1] = (uint8_t*) malloc(3*sizeof(uint8_t));
-        tetromino->matrix[2] = (uint8_t*) malloc(3*sizeof(uint8_t));
+        for (int i = 0; i < 3; i++){
+            tetromino->matrix[i] = (uint8_t*) malloc(3*sizeof(uint8_t));
+            memset(tetromino->matrix[i], 0, 3);
+        }
     }
     
 

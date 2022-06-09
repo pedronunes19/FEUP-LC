@@ -187,6 +187,7 @@ void piece_fall() {
     cleared = clear_lines();
     if (cleared) draw_score(score_string);
     //printf("\nCleared? %d\n", cleared);
+    delete_tetromino(tetromino);
     tetromino = create_tetromino(piece_type[counter]);
     load_tetromino_image(tetromino);
     counter++;

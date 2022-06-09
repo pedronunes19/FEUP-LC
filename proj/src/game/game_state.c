@@ -7,14 +7,15 @@ game_state state = PLAYING;
 bool spawned = false;
 bool end = false;
 bool cleared = false;
-
+int score = 0;
+char* score_string = "0";
+ 
 void start_game() {
   memset(*board, 0, sizeof(board));
   shuffle(piece_type);
   tetromino = create_tetromino(piece_type[0]);
   load_tetromino_image(tetromino);
   place_tetromino();
-
   /*
   for (int i = 0; i < 10; i++) {
     board[0][i] = I;
@@ -27,7 +28,7 @@ void start_game() {
   board[2][5] = 0;
   board[3][5] = 0;
   board[5][0] = I;
-  */  
+  */
   draw_game_ui();
   
   draw_board(board);
@@ -114,6 +115,8 @@ bool clear_lines() {
       }
       if (full) {
         clearing = true;
+        score++;
+        sprintf(score_string, "%d", score);
         //printf("Clearing!\n");
         //printf("%d", i);
         for (int idx = i; idx < 15; idx++) {
@@ -182,6 +185,7 @@ void piece_fall() {
 
   if (collision) {
     cleared = clear_lines();
+    if (cleared) draw_score(score_string);
     //printf("\nCleared? %d\n", cleared);
     tetromino = create_tetromino(piece_type[counter]);
     load_tetromino_image(tetromino);
@@ -208,7 +212,7 @@ void clear_tetromino() {
 void draw_game_ui() {
   draw_gradient();
   draw_board_bg();
-  draw_score("0");
+  draw_score(score_string);
 }
 
 bool check_collision(collision_dir dir) {

@@ -8,6 +8,7 @@ bool end = false;
 bool cleared = false;
 int score = 0;
 char* score_string = "0";
+Cursor cursor_pos = {0, 0};
  
 void start_game() {
   memset(*board, 0, sizeof(board));
@@ -255,6 +256,27 @@ bool check_collision(collision_dir dir) {
   }
   //printf("\n");
   return false;
+}
+
+void piece_rotate(rotate_dir rotation) {
+  switch(rotation) {
+    case R_LEFT: rotatePieceLeft(tetromino); break;
+    case R_RIGHT: rotatePieceRight(tetromino); break;
+  }
+}
+
+void update_cursor(uint16_t x_val, uint16_t y_val) {
+
+  uint16_t new_x_pos = cursor_pos.x + x_val;
+  uint16_t new_y_pos = cursor_pos.y + y_val;
+
+  if (new_x_pos > 0 && new_x_pos < 800) cursor_pos.x = new_x_pos;
+  if (new_y_pos > 0 && new_y_pos < 600) cursor_pos.y = new_y_pos;
+
+}
+
+void move_tetromino(uint16_t x_displacement) {
+  tetromino->x += x_displacement;
 }
 
 void main_menu() {

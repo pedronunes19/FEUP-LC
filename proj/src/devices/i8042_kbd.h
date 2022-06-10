@@ -34,4 +34,9 @@
 #define KBI_DIS       0xAD          // disable keyboard interface
 #define KBI_ENA       0xAE          // enable keyboard interface
 
+/* Keys */
+#define D_KEY         0x20
+#define A_KEY         0x1E
+#define S_KEY         0x1F
+
 #endif /*_LCOM_I8042_H_*/

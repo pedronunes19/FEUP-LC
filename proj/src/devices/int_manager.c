@@ -30,7 +30,6 @@ int(main_loop)() {
   message msg;
   int ipc_status;
 
-  // draw_leaderboard_menu(); // HERE FOR TESTING PURPOSES
   draw_main_menu();
 
   while (scan_code[kbd_i] != ESC_BREAK) {
@@ -113,9 +112,8 @@ int(game_loop)() {
 
             mouse_ih();
             if (mouse_ready) {
-              mouse_print_packet(&pp);
               mouse_ready = false;
-              //handle_mouse_event(pp);
+              handle_mouse_event(pp);
             }
           }
           else if (msg.m_notify.interrupts & kbd_irq_set) {

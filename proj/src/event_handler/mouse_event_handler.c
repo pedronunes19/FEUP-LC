@@ -15,7 +15,7 @@ void handle_mouse_playing_event(struct packet pp) {
   printf("HANDLING MOUSE\n");
   printf("lb = %d / rb = %d\n", pp.lb, pp.rb);
 
-  if (pp.lb) piece_fall();
+  if (pp.lb) hard_drop();
   if (pp.rb) piece_rotate(R_RIGHT);
 
   /*

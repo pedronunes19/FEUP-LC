@@ -200,6 +200,32 @@ void piece_fall() {
   }
 }
 
+void hard_drop(){
+  bool collision = false;
+  while (!collision) {
+    clear_tetromino();
+    collision = check_collision(DOWN);
+    tetromino->y += 1;
+    place_tetromino();
+  }
+
+  if (collision) {
+    cleared = clear_lines();
+    if (cleared) draw_score(score_string);
+    //printf("\nCleared? %d\n", cleared);
+    delete_tetromino(tetromino);
+    tetromino = create_tetromino(piece_type[counter]);
+    load_tetromino_image(tetromino);
+    counter++;
+    spawned = true;
+    
+    if (counter > 6) {
+      counter = 0;
+      shuffle(piece_type);
+    }
+  }
+}
+
 void clear_tetromino() {
   int iter;  
   if (tetromino->type == I || tetromino->type == O) iter = 4;
@@ -259,6 +285,8 @@ bool check_collision(collision_dir dir) {
 }
 
 void piece_rotate(rotate_dir rotation) {
+  clear_tetromino();
+
   switch(rotation) {
     case R_LEFT: rotatePieceLeft(tetromino); break;
     case R_RIGHT: rotatePieceRight(tetromino); break;

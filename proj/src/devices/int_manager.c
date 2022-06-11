@@ -30,7 +30,7 @@ int(main_loop)() {
   message msg;
   int ipc_status;
 
-  draw_main_menu();
+  _main_menu();
 
   while (scan_code[kbd_i] != ESC_BREAK) {
 
@@ -133,6 +133,7 @@ int(game_loop)() {
             timer_int_handler();
 
             if (timer_counter % 2 == 0) {
+              _draw_board();
               handle_timer_event();
             }
 

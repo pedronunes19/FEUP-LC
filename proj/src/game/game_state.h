@@ -32,9 +32,14 @@ static tetromino_t *tetromino;
 extern game_state state;
 static uint8_t time_score;
 
-void main_menu();
+void _main_menu();
 void start_game();
+void _leaderboard_menu();
+void draw_scores();
 void draw_game_ui();
+void move_piece_left();
+void move_piece_right();
+void _draw_board();
 void piece_fall();
 void clear_tetromino();
 void place_tetromino();

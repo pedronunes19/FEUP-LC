@@ -12,19 +12,14 @@ void handle_mouse_event(struct packet pp) {
 
 void handle_mouse_playing_event(struct packet pp) {
 
-  printf("HANDLING MOUSE\n");
-  printf("lb = %d / rb = %d\n", pp.lb, pp.rb);
-
-  if (pp.lb) hard_drop();
+  if (pp.lb) piece_fall();
   if (pp.rb) piece_rotate(R_RIGHT);
 
-  /*
   if (pp.delta_x < 0) {
-    movePieceLeft(pp.delta_x);
+    move_piece_left();
   } else if (pp.delta_x > 0) {
-    movePieceRight(pp.delta_x);
+    move_piece_right();
   }
-  */
 }
 
 void handle_mouse_menu_event(struct packet pp) {

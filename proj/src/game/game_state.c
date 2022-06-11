@@ -181,7 +181,6 @@ void piece_fall() {
     spawned = false;
   }
   place_tetromino();
-  draw_board(board);
 
   if (collision) {
     cleared = clear_lines();
@@ -201,11 +200,13 @@ void piece_fall() {
 }
 
 void hard_drop(){
-  bool collision = false;
+  bool collision = check_collision(DOWN);
   while (!collision) {
     clear_tetromino();
     collision = check_collision(DOWN);
-    tetromino->y += 1;
+    if (!collision) {
+      tetromino->y += 1;
+    }
     place_tetromino();
   }
 
@@ -243,9 +244,9 @@ void draw_game_ui() {
 }
 
 bool check_collision(collision_dir dir) {
-  uint8_t y = tetromino->y + 1;
-  uint8_t left = tetromino->x - 1;
-  uint8_t right = tetromino->x + 1;
+  int y = tetromino->y + 1;
+  int left = tetromino->x - 1;
+  int right = tetromino->x + 1;
   int iter;  
   if (tetromino->type == I || tetromino->type == O) iter = 4;
   else iter = 3;
@@ -261,13 +262,14 @@ bool check_collision(collision_dir dir) {
             return true;
           }
           break;
-        case LEFT:  
-          if ((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + left] != 0)) {
+        case LEFT:
+          if (((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + left] != 0)) || ((tetromino->matrix[i][j] != 0) && (j + left < 0))) {
+            
             return true;
           }
           break;
-        case RIGHT:  
-          if ((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + right] != 0)) {
+        case RIGHT:
+          if (((tetromino->matrix[i][j] != 0) && (board[15 - i - tetromino->y][j + right] != 0))|| ((tetromino->matrix[i][j] != 0) && (j + right > 9))) {
             return true;
           }
           break;
@@ -282,6 +284,32 @@ bool check_collision(collision_dir dir) {
   }
   //printf("\n");
   return false;
+}
+
+void move_piece_right() {
+  if (spawned) return;
+  clear_tetromino();
+
+  bool collision = check_collision(RIGHT);
+
+  if (!collision) {
+    tetromino->x += 1;
+  }
+
+  place_tetromino();
+}
+
+void move_piece_left() {
+  if (spawned) return;
+  clear_tetromino();
+
+  bool collision = check_collision(LEFT);
+  
+  if (!collision) {
+    tetromino->x -= 1;
+  }
+
+  place_tetromino();
 }
 
 void piece_rotate(rotate_dir rotation) {
@@ -307,6 +335,26 @@ void move_tetromino(uint16_t x_displacement) {
   tetromino->x += x_displacement;
 }
 
-void main_menu() {
+void _main_menu() {
+  printf("hi");
   draw_main_menu();
+}
+
+void draw_scores() {
+  FILE* file = fopen("scores.txt", "r");
+  char *line = NULL;
+  while (fgets(line, sizeof(line), file) != NULL) {
+    printf("%s\n", line);
+  }
+  fclose(file);
+}
+
+void _leaderboard_menu() {
+  draw_leaderboard_menu();
+
+  draw_scores();
+}
+
+void _draw_board() {
+  draw_board(board);
 }

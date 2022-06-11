@@ -33,7 +33,7 @@ int(main_loop)() {
   message msg;
   int ipc_status;
 
-  while (state != FINISHED) {
+  while (state != EXIT) {
 
     int r;
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {

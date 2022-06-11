@@ -6,3 +6,4 @@ void handle_mouse_event(struct packet pp);
 void handle_mouse_menu_event(struct packet pp);
 void handle_mouse_playing_event(struct packet pp);
 void handle_mouse_finished_event(struct packet pp);
+void handle_mouse_leaderboard_event(struct packet pp);

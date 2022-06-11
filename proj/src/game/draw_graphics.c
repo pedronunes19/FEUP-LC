@@ -1,6 +1,6 @@
 #include "draw_graphics.h"
 
-xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, empty_cursor, main_menu, font, board, gradient, sidebar, clear, square, leaderboard_menu, font_white;
+xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, empty_cursor, main_menu, font, board, gradient, sidebar, clear, square, blank_menu, font_white;
 
 void _swap_buffer() {
   swap_buffer();
@@ -23,7 +23,7 @@ int (load_xpms)() {
   xpm_load(board_xpm, XPM_8_8_8, &board);
   xpm_load(clear_xpm, XPM_8_8_8, &clear);
   xpm_load(square_xpm, XPM_8_8_8, &square);
-  xpm_load(leaderboard_menu_xpm, XPM_8_8_8, &leaderboard_menu);
+  xpm_load(blank_menu_xpm, XPM_8_8_8, &blank_menu);
   xpm_load(font_white_xpm, XPM_8_8_8, &font_white);
 
   return 0;
@@ -43,9 +43,12 @@ void draw_main_menu() {
 }
 
 void draw_leaderboard_menu() {
-  draw_xpm(leaderboard_menu, 0, 0);
+  draw_xpm(blank_menu, 0, 0);
 
   draw_string("LEADERBOARD", 270, 90, 4, true);
+  draw_string("NAME", 100, 150, 3, true);
+  draw_string("DATE", 360, 150, 3, true);
+  draw_string("SCORE", 600, 150, 3, true);
 }
 
 void draw_save_score() {
@@ -132,7 +135,12 @@ void draw_board(tetromino_type board[16][10]) {
 
 void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale, bool white) {
   for (unsigned int i = 0; i < strlen(string); i++) {
+    if (string[i] != ' ') {
       draw_character(string[i], x + (scale * 6 * i) , y, scale, white);
+    } else {
+      i++;
+      draw_character(string[i], x + (scale * 6 * i) , y, scale, white);
+    }
   }
 }
 
@@ -177,3 +185,18 @@ void erase_cursor(uint16_t x, uint16_t y) {
   draw_xpm(empty_cursor, x, y);
 }
 
+void draw_finished_menu() {
+  draw_xpm(blank_menu, 0, 0);
+
+  draw_string("GAME OVER", 294, 90, 4, true);
+
+  draw_string("YOUR SCORE", 310, 150, 3, true);
+  
+  // switch it with the score
+  draw_string("5", 382, 180, 3, true);
+
+  draw_string("ENTER YOUR NAME", 260, 250, 3, true);
+
+  draw_string("PRESS ESC TO CONTINUE", 210, 500, 3, true);
+
+}

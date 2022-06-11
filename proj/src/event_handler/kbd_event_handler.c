@@ -6,6 +6,8 @@ void handle_kbd_event(uint8_t scan_code[2]) {
     case MAIN_MENU: break;
     case PLAYING: handle_kbd_playing_event(scan_code); break;
     case FINISHED: handle_kbd_finished_event(scan_code); break;
+    case LEADERBOARD: handle_kbd_leaderboard_event(scan_code); break;
+    case EXIT: break;
   }
 
 }
@@ -34,5 +36,13 @@ void handle_kbd_playing_event(uint8_t scan_code[2]) {
 }
 
 void handle_kbd_finished_event(uint8_t scan_code[2]) {
+  switch (scan_code[0]) {
+    case ESC_BREAK: state = MAIN_MENU;
+  }
+}
 
+void handle_kbd_leaderboard_event(uint8_t scan_code[2]) {
+  switch (scan_code[0]) {
+    case ESC_BREAK: state = MAIN_MENU;
+  }
 }

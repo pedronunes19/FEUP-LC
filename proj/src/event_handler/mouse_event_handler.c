@@ -6,6 +6,8 @@ void handle_mouse_event(struct packet pp) {
     case MAIN_MENU: handle_mouse_menu_event(pp); break;
     case PLAYING: handle_mouse_playing_event(pp); break;
     case FINISHED: handle_mouse_finished_event(pp); break;
+    case LEADERBOARD: handle_mouse_leaderboard_event(pp); break;
+    case EXIT: break;
   }
 
 }
@@ -30,5 +32,9 @@ void handle_mouse_menu_event(struct packet pp) {
 }
 
 void handle_mouse_finished_event(struct packet pp) {
+  update_cursor(pp.delta_x, pp.delta_y);
+}
 
+void handle_mouse_leaderboard_event(struct packet pp) {
+  update_cursor(pp.delta_x, pp.delta_y);
 }

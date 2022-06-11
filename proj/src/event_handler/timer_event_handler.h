@@ -8,3 +8,4 @@ void handle_timer_event();
 void handle_timer_menu_event();
 void handle_timer_playing_event();
 void handle_timer_finished_event();
+void handle_timer_leaderboard_event();

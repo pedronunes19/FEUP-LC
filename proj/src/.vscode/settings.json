@@ -13,6 +13,20 @@
     "*.xpm": "c",
     "int_manager.h": "c",
     "game_state.h": "c",
-    "mouse.h": "c"
+    "mouse.h": "c",
+    "draw_graphics.h": "c",
+    "utils.h": "c",
+    "game_state.h": "c",
+    "mouse_event_handler.h": "c",
+    "mouse.h": "c",
+    "int_manager.h": "c",
+    "keyboard.h": "c",
+    "i8042_mouse.h": "c",
+    "stdio.h": "c",
+    "lab4.h": "c",
+    "video_card.h": "c",
+    "logic.h": "c",
+    "kbd_event_handler.h": "c",
+    "timer_event_handler.h": "c"
   },
 }

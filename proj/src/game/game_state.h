@@ -7,7 +7,9 @@
 typedef enum {
   PLAYING,
   MAIN_MENU,
-  FINISHED
+  FINISHED,
+  LEADERBOARD,
+  EXIT
 } game_state;
 
 typedef enum {
@@ -39,6 +41,7 @@ void draw_scores();
 void draw_game_ui();
 void move_piece_left();
 void move_piece_right();
+void _finished_menu();
 void _draw_board();
 void piece_fall();
 void clear_tetromino();

@@ -1,5 +1,5 @@
 /* XPM */
-static const char *leaderboard_menu_xpm[] = {
+static const char *blank_menu_xpm[] = {
 "800 600 45 1",
 " 	c #FFFFFF",
 ".	c #FDFDFD",

@@ -2,6 +2,9 @@
 
 xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, main_menu, font, board, gradient, sidebar, clear, square, leaderboard_menu, font_white;
 
+void _swap_buffer() {
+  swap_buffer();
+}
 
 int (load_xpms)() {
   xpm_load(tetromino_blue_xpm, XPM_8_8_8, &tetromino_blue);

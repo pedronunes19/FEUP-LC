@@ -30,3 +30,4 @@ void draw_save_score();
 void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale, bool white);
 void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale, bool white);
 void draw_score(char *score);
+void _swap_buffer();

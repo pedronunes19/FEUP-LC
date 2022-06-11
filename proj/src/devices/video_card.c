@@ -2,6 +2,7 @@
 
 static vbe_mode_info_t vmi;
 static void *base_addr;
+static void *second_addr;
 static uint16_t screen_center_x;
 static uint16_t screen_center_y;
 
@@ -45,6 +46,7 @@ int(map_vm)() {
   struct minix_mem_range mr; /* physical memory range */
   phys_bytes vram_base = vmi.PhysBasePtr;                                                                  /* VRAM's physical addresss */
   unsigned int vram_size = (vmi.XResolution * vmi.YResolution) * (vmi.BytesPerScanLine / vmi.XResolution); /* VRAM's size, but you can use frame the frame-buffer size, instead */
+
   screen_center_x = vmi.XResolution/2;
   screen_center_y = vmi.YResolution/2;
 
@@ -56,10 +58,15 @@ int(map_vm)() {
 
   /* Map memory */
   base_addr = vm_map_phys(SELF, (void *) mr.mr_base, vram_size);
+  second_addr = malloc(vram_size);
   if (base_addr == MAP_FAILED)
     panic("couldn't map video memory");
 
   return 0;
+}
+
+void swap_buffer() {
+  memcpy(base_addr, second_addr, vmi.XResolution * vmi.YResolution * (vmi.BytesPerScanLine / vmi.XResolution));
 }
 
 int(vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
@@ -87,7 +94,7 @@ int(vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
 
 void(draw_pixel)(uint16_t x, uint16_t y, uint32_t color) {
   uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
-  void *addr = (void *) ((char *) base_addr + offset);
+  void *addr = (void *) ((char *) second_addr + offset);
 
   memcpy(addr, &color, vmi.BytesPerScanLine / vmi.XResolution);
 }
@@ -104,7 +111,7 @@ void(draw_xpm)(xpm_image_t img, uint16_t x, uint16_t y) {
   for (int i = 0; i < img.height; i++) {
     for (int j = 0; j < img.width; j++) {
       uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
-      void *addr = (void *) ((char *) base_addr + offset);
+      void *addr = (void *) ((char *) second_addr + offset);
 
       uint8_t bpp = img.size / (img.height * img.width);
 
@@ -114,6 +121,7 @@ void(draw_xpm)(xpm_image_t img, uint16_t x, uint16_t y) {
 
       if (color == 0x00b140) {
         cnt++;
+        x++;
         continue;
       }
       
@@ -166,7 +174,7 @@ void vg_draw_character(xpm_image_t font, uint16_t x, uint16_t y, uint8_t scale, 
       for (int j = 0; j < 6; j++) { // x
         for (int l = 0; l < scale; l++) {
           uint64_t offset = ((y * vmi.XResolution) + x) * (vmi.BytesPerScanLine / vmi.XResolution);
-          void *addr = (void *) ((char *) base_addr + offset);
+          void *addr = (void *) ((char *) second_addr + offset);
 
           uint8_t bpp = font.size / (font.height * font.width);
 

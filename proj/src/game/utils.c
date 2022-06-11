@@ -1,6 +1,6 @@
 #include "utils.h"
 
-/* Was used with gravity(), might be useful
+// Was used with gravity(), might be useful
 int msleep(long msec) {
     struct timespec ts;
     int res;
@@ -20,7 +20,6 @@ int msleep(long msec) {
 
     return res;
 }
-*/
 
 void reverseColumns(uint8_t **arr, unsigned R, unsigned C)
 {

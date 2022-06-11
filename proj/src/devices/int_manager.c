@@ -74,6 +74,8 @@ int(main_loop)() {
             timer_int_handler();
 
             if (timer_counter % 2 == 0) {
+              _main_menu();
+              _swap_buffer();
               handle_timer_event();
             }
           }
@@ -134,6 +136,7 @@ int(game_loop)() {
 
             if (timer_counter % 2 == 0) {
               _draw_board();
+              _swap_buffer();
               handle_timer_event();
             }
 

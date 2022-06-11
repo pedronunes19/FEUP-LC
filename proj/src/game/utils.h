@@ -7,9 +7,8 @@
 #include <string.h>
 #include <time.h>
 
-/*
+
 int msleep(long ms);
-*/
 
 void reverseColumns(uint8_t **arr, unsigned R, unsigned C);
 

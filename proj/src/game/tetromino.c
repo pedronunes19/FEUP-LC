@@ -18,15 +18,21 @@ void check_rotate_inside_border(tetromino_t* tetromino) {
 
 
 void rotatePieceLeft(tetromino_t* piece){
-    if (piece->type == I || piece->type == O) rotateLeft(piece->matrix, 4, 4);
-    else rotateLeft(piece->matrix, 3, 3);
+    if (piece->type == I || piece->type == O){
+        rotateLeft(piece->matrix, 4, 4);
+    } else {
+        rotateLeft(piece->matrix, 3, 3);  
+    } 
     check_rotate_inside_border(piece);
     // check borders and move accordingly
 }
 
 void rotatePieceRight(tetromino_t* piece){
-    if (piece->type == I || piece->type == O) rotateRight(piece->matrix, 4, 4);
-    else rotateRight(piece->matrix, 3, 3);
+    if (piece->type == I || piece->type == O) {
+        rotateRight(piece->matrix, 4, 4);
+    } else {
+        rotateRight(piece->matrix, 3, 3);
+    } 
     check_rotate_inside_border(piece);
     // check borders and move accordingly
 }

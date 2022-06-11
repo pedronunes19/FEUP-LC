@@ -319,6 +319,8 @@ void piece_rotate(rotate_dir rotation) {
     case R_LEFT: rotatePieceLeft(tetromino); break;
     case R_RIGHT: rotatePieceRight(tetromino); break;
   }
+  
+  place_tetromino();
 }
 
 void update_cursor(uint16_t x_val, uint16_t y_val) {
@@ -336,7 +338,6 @@ void move_tetromino(uint16_t x_displacement) {
 }
 
 void _main_menu() {
-  printf("hi");
   draw_main_menu();
 }
 

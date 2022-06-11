@@ -9,6 +9,7 @@
 #include "imgs/menu_800x600.xpm"
 #include "imgs/font.xpm"
 #include "imgs/cursor.xpm"
+#include "imgs/empty_cursor.xpm"
 #include "imgs/board.xpm"
 #include "imgs/gradient.xpm"
 #include "imgs/sidebar.xpm"
@@ -31,3 +32,5 @@ void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale, bool
 void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale, bool white);
 void draw_score(char *score);
 void _swap_buffer();
+void draw_cursor(uint16_t x, uint16_t y);
+void erase_cursor(uint16_t x, uint16_t y);

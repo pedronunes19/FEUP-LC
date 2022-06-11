@@ -48,3 +48,6 @@ void piece_rotate(rotate_dir rotation);
 void update_cursor(uint16_t x_val, uint16_t y_val);
 void move_tetromino(uint16_t x_displacement);
 void hard_drop();
+void cursor_draw();
+void cursor_erase();
+void check_mouse_clicks();

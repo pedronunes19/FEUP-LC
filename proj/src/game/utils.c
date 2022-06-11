@@ -85,3 +85,32 @@ bool is_alpha(char character) {
 
     return false;
 }
+
+void get_keys() {
+    keys[A_KEY] = 'A';
+    keys[B_KEY] = 'B';
+    keys[C_KEY] = 'C';
+    keys[D_KEY] = 'D';
+    keys[E_KEY] = 'E';
+    keys[F_KEY] = 'F';
+    keys[G_KEY] = 'G';
+    keys[H_KEY] = 'H';
+    keys[I_KEY] = 'I';
+    keys[J_KEY] = 'J';
+    keys[K_KEY] = 'K';
+    keys[L_KEY] = 'L';
+    keys[M_KEY] = 'M';
+    keys[N_KEY] = 'N';
+    keys[O_KEY] = 'O';
+    keys[P_KEY] = 'P';
+    keys[Q_KEY] = 'Q';
+    keys[R_KEY] = 'R';
+    keys[S_KEY] = 'S';
+    keys[T_KEY] = 'T';
+    keys[U_KEY] = 'U';
+    keys[V_KEY] = 'V';
+    keys[W_KEY] = 'W';
+    keys[X_KEY] = 'X';
+    keys[Y_KEY] = 'Y';
+    keys[Z_KEY] = 'Z';
+}

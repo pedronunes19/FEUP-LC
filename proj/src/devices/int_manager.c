@@ -23,6 +23,9 @@ int(init)() {
   // loading xpms
   load_xpms();
 
+  // initialize array of keys
+  get_keys();
+
   return EXIT_SUCCESS;
 }
 
@@ -30,75 +33,7 @@ int(main_loop)() {
   message msg;
   int ipc_status;
 
-  _main_menu();
-
-  while (scan_code[kbd_i] != ESC_BREAK) {
-
-    int r;
-    if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {
-      printf("driver_receive failed with: %d", r);
-    }
-
-    if (is_ipc_notify(ipc_status)) {
-      switch (_ENDPOINT_P(msg.m_source)) {
-
-        case HARDWARE: {
-
-          if (msg.m_notify.interrupts & mouse_irq_set) {
-
-            mouse_ih();
-            if (mouse_ready) {
-              mouse_print_packet(&pp);
-              mouse_ready = false;
-              //handle_mouse_event(pp);
-            }
-          }
-          else if (msg.m_notify.interrupts & kbd_irq_set) {
-
-            kbc_ih();
-
-            if (scan_code[kbd_i] == TWO_BYTE_SC) {
-              kbd_i++;
-              continue;
-            }
-
-            kbd_i = 0;
-            handle_kbd_event(scan_code);
-            if (scan_code[kbd_i] == ESC_BREAK){
-              scan_code[kbd_i] = 0;
-              game_loop();
-            }
-          }
-          else if (msg.m_notify.interrupts & timer_irq_set) {
-
-            timer_int_handler();
-
-            if (timer_counter % 2 == 0) {
-              _main_menu();
-              _swap_buffer();
-              handle_timer_event();
-            }
-          }
-
-          break;
-        }
-
-        default: break;
-      }
-    }
-  }
-
-
-  return EXIT_SUCCESS;
-}
-
-int(game_loop)() {
-  message msg;
-  int ipc_status;
-
-  start_game();
-
-  while (scan_code[kbd_i] != ESC_BREAK) {
+  while (state != FINISHED) {
 
     int r;
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != OK) {
@@ -128,15 +63,14 @@ int(game_loop)() {
             }
 
             kbd_i = 0;
+            kbd_print_scancode(kbd_ih_flag, (kbd_i+1), scan_code);
             handle_kbd_event(scan_code);
           }
           else if (msg.m_notify.interrupts & timer_irq_set) {
 
             timer_int_handler();
 
-            if (timer_counter % 2 == 0) {
-              _draw_board();
-              _swap_buffer();
+            if (timer_counter % 1 == 0) {
               handle_timer_event();
             }
 
@@ -155,7 +89,6 @@ int(game_loop)() {
     }
   }
 
-  state = FINISHED;
   return EXIT_SUCCESS;
 }
 

@@ -1,5 +1,5 @@
-#ifndef _LCOM_I8042_H_
-#define _LCOM_I8042_H_
+#ifndef _LCOM_I8042_MOUSE_H_
+#define _LCOM_I8042_MOUSE_H_
 
 #include <lcom/lcf.h>
 
@@ -48,4 +48,4 @@
 #define SET_STREAM    0xEA          // set mouse to stream mode
 #define MOUSE_CFG     0xE9          // get mouse configuration
 
-#endif /*_LCOM_I8042_H_*/
+#endif /*_LCOM_I8042_MOUSE_H_*/

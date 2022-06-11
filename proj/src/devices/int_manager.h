@@ -1,3 +1,5 @@
+#pragma once
+
 #include <lcom/timer.h>
 
 #include "timer.h"

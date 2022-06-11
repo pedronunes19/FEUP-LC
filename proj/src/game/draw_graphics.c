@@ -1,6 +1,6 @@
 #include "draw_graphics.h"
 
-xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, main_menu, font, board, gradient, sidebar, clear, square, leaderboard_menu, font_white;
+xpm_image_t tetromino_blue, tetromino_yellow, tetromino_red, tetromino_purple, tetromino_green, tetromino_cyan, tetromino_orange, cursor, empty_cursor, main_menu, font, board, gradient, sidebar, clear, square, leaderboard_menu, font_white;
 
 void _swap_buffer() {
   swap_buffer();
@@ -16,6 +16,7 @@ int (load_xpms)() {
   xpm_load(tetromino_green_xpm, XPM_8_8_8, &tetromino_green);
   xpm_load(font_xpm, XPM_8_8_8, &font);
   xpm_load(cursor_xpm, XPM_8_8_8, &cursor);
+  xpm_load(empty_cursor_xpm, XPM_8_8_8, &empty_cursor);
   xpm_load(menu_800x600, XPM_8_8_8, &main_menu);
   xpm_load(gradient_xpm, XPM_8_8_8, &gradient);
   xpm_load(sidebar_xpm, XPM_8_8_8, &sidebar);
@@ -167,3 +168,12 @@ void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale,
     vg_draw_character(font, x, y, scale, pnt);
   }
 }
+
+void draw_cursor(uint16_t x, uint16_t y) {
+  draw_xpm(cursor, x, y);
+}
+
+void erase_cursor(uint16_t x, uint16_t y) {
+  draw_xpm(empty_cursor, x, y);
+}
+

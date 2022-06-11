@@ -1,5 +1,5 @@
-#ifndef _LCOM_I8042_H_
-#define _LCOM_I8042_H_
+#ifndef _LCOM_I8042_KBD_H_
+#define _LCOM_I8042_KBD_H_
 
 #include <lcom/lcf.h>
 
@@ -35,8 +35,35 @@
 #define KBI_ENA       0xAE          // enable keyboard interface
 
 /* Keys */
-#define D_KEY         0x20
-#define A_KEY         0x1E
-#define S_KEY         0x1F
+#define DOWN_ARROW    0x50
+#define LEFT_ARROW    0x4b
+#define RIGHT_ARROW   0x4d
 
-#endif /*_LCOM_I8042_H_*/
+#define A_KEY         0x1f
+#define B_KEY         0x30
+#define C_KEY         0x2e
+#define D_KEY         0x20
+#define E_KEY         0x12
+#define F_KEY         0x21
+#define G_KEY         0x22
+#define H_KEY         0x23
+#define I_KEY         0x17
+#define J_KEY         0x24
+#define K_KEY         0x25
+#define L_KEY         0x26
+#define M_KEY         0x32
+#define N_KEY         0x31
+#define O_KEY         0x18
+#define P_KEY         0x19
+#define Q_KEY         0x10
+#define R_KEY         0x13
+#define S_KEY         0x1e
+#define T_KEY         0x14
+#define U_KEY         0x16
+#define V_KEY         0x2f
+#define W_KEY         0x11
+#define X_KEY         0x2d
+#define Y_KEY         0x15
+#define Z_KEY         0x2c
+
+#endif /*_LCOM_I8042_KBD_H_*/

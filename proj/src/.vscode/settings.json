@@ -10,6 +10,9 @@
     "timer.h": "c",
     "lcf.h": "c",
     "lab2.h": "c",
-    "*.xpm": "c"
+    "*.xpm": "c",
+    "int_manager.h": "c",
+    "game_state.h": "c",
+    "mouse.h": "c"
   },
 }

@@ -1,286 +1,247 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-# GNU Make 4.2.1
+Makefile:19: *** missing separator.  Stop.
+
+# GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun  4 21:39:37 2022
+# Make data base, printed on Sat Jun 11 17:49:18 2022
 
 # Variables
 
 # environment
-VSCODE_GIT_ASKPASS_MAIN = /usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+GDK_BACKEND = x11
 # environment
-GNUMAKEFLAGS := 
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# automatic
-?F = $(notdir $?)
+LC_ALL = C
 # environment
-DESKTOP_SESSION = ubuntu
-# default
-.SHELLFLAGS := -c
+GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-XDG_SESSION_CLASS = user
+SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
-XDG_SESSION_TYPE = x11
+GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_LOG_NATIVE = false
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# automatic
-@D = $(patsubst %/,%,$(dir $@))
-# environment
-XAUTHORITY = /run/user/1000/gdm/Xauthority
-# environment
-GDMSESSION = ubuntu
-# environment
-XMODIFIERS = @im=ibus
-# makefile
-CURDIR := /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj/src
-# makefile
-SHELL = /bin/sh
-# environment
-VTE_VERSION = 6003
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# environment
-_ = /usr/bin/code
-# makefile (from 'Makefile', line 14)
-CFLAGS = -pedantic 
-# environment
-JOURNAL_STREAM = 8:49175
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
-# automatic
-@F = $(notdir $@)
-# environment
-IM_CONFIG_PHASE = 1
-# environment
-USERNAME = flux
-# environment
-MAKELEVEL := 0
-# environment
-MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
-# environment
-XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-MANAGERPID = 1530
-# environment
-P9K_SSH = 0
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4e07683e-26db-4a82-ba5d-c3c949c30a62.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9fec0839-bbf2-4ce0-8a03-14bf17039146.sock
 # environment
 LC_NAME = pt_PT.UTF-8
 # environment
-VSCODE_CWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj
+LC_NUMERIC = pt_PT.UTF-8
+# environment
+VSCODE_CWD = /home/flux
+# environment
+LC_ADDRESS = pt_PT.UTF-8
 # default
-MAKE_HOST := x86_64-pc-linux-gnu
+MAKE_COMMAND := make
 # environment
-PATH = /home/flux/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-# makefile (from 'Makefile', line 2)
-PROG = proj
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
 # environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
 # environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
+PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj/src
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
 # environment
-SESSION_MANAGER = local/flux-HP-Laptop-15-dw2xxx:@/tmp/.ICE-unix/1795,unix/flux-HP-Laptop-15-dw2xxx:/tmp/.ICE-unix/1795
-# environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-LC_MONETARY = pt_PT.UTF-8
-# environment
-XDG_MENU_PREFIX = gnome-
-# environment
-SPOTIPY_CLIENT_ID = 5f12d3fbfc964d57a9a31576b87eaf8e
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
 # environment
 VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
 # environment
-ELECTRON_RUN_AS_NODE = 1
+VSCODE_CODE_CACHE_PATH = /home/flux/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # environment
-INVOCATION_ID = 5ef1b7539d1f4ed78d9a6e12047cad54
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.LUNLN1
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj/src
 # environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
+VSCODE_PIPE_LOGGING = true
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# makefile (from 'Makefile', line 11)
+SRCS = proj.c utils.c device_utils.c video_card.c keyboard.c mouse.c timer.c rtc.c kbd_event_handler.c mouse_event_handler.c timer_event_handler.c int_manager.c tetromino.c game_state.c draw_graphics.c logic.c
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
 # makefile (from 'Makefile', line 16)
 DPADD = ${LIBLCF}
 # environment
 XDG_SESSION_DESKTOP = ubuntu
-# environment
-SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
 # automatic
-%F = $(notdir $%)
+@F = $(notdir $@)
 # environment
-DISPLAY = :1
+VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PIPE_LOGGING = true
+VSCODE_PID = 9112
 # environment
-PWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj/src
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/fLux-gamer:@/tmp/.ICE-unix/1918,unix/fLux-gamer:/tmp/.ICE-unix/1918
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
-.LOADED := 
+MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-SSH_AGENT_PID = 1761
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = Unity
+XMODIFIERS = @im=ibus
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+SHLVL = 0
+# environment
+MAKELEVEL := 0
+# environment
+IM_CONFIG_CHECK_ENV = 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LC_MONETARY = pt_PT.UTF-8
+# automatic
+^F = $(notdir $^)
+# environment
+LC_TIME = pt_PT.UTF-8
+# environment
+INVOCATION_ID = 68b22ef818e04933b292aa9163d2236a
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = flux
+# environment
+GNOME_SETUP_DISPLAY = :1
+# environment
+LC_TELEPHONE = pt_PT.UTF-8
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+?F = $(notdir $?)
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# makefile (from 'Makefile', line 2)
+PROG = proj
+# environment
+LS_COLORS = 
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = flux
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# makefile
+.DEFAULT_GOAL := 
+# environment
+SYSTEMD_EXEC_PID = 1936
+# environment
+DISPLAY = :0
+# environment
+USER = flux
 # environment
 GTK_MODULES = gail:atk-bridge
-# makefile (from 'Makefile', line 17)
-LDADD = -llcf
+# default
+MAKE_VERSION := 4.3
+# environment
+MANAGERPID = 1736
+# environment
+LC_MEASUREMENT = pt_PT.UTF-8
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 9112
+# environment
+_ = /usr/share/code/code
+# environment
+LC_PAPER = pt_PT.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'Makefile', line 14)
+CFLAGS = -pedantic 
+# environment
+LC_CTYPE = pt_PT.UTF-8
+# environment
+JOURNAL_STREAM = 8:35076
+# environment
+XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/flux
 # environment
-SPOTIPY_CLIENT_SECRET = 7a564947afa9435b9d366ad8d061a3e5
-# environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /home/flux/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
-# environment
-LOGNAME = flux
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# automatic
-+F = $(notdir $+)
-# environment
-ZSH = /home/flux/.oh-my-zsh
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# environment
-GNOME_DESKTOP_SESSION_ID = this-is-deprecated
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-LC_TIME = pt_PT.UTF-8
-# environment
-VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-4e848678c7.sock
-# environment
-COLORTERM = truecolor
-# default
-MAKE = $(MAKE_COMMAND)
-# default
-MAKECMDGOALS := all
-# environment
 QT_IM_MODULE = ibus
-# makefile (from 'Makefile', line 11)
-SRCS = proj.c utils.c device_utils.c video_card.c keyboard.c mouse.c timer.c rtc.c kbd_event_handler.c mouse_event_handler.c timer_event_handler.c int_manager.c tetromino.c
 # environment
-SHLVL = 2
+ELECTRON_RUN_AS_NODE = 1
 # environment
-GNOME_SHELL_SESSION_MODE = ubuntu
-# default
-MAKE_VERSION := 4.2.1
+VSCODE_IPC_HOOK = /run/user/1000/vscode-d4bb65f5-1.68.0-main.sock
 # environment
-USER = flux
-# environment
-LC_CTYPE = pt_PT.UTF-8
-# makefile
-.DEFAULT_GOAL := 
-# environment
-XDG_CURRENT_DESKTOP = Unity
-# environment
-LESS = -R
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# environment
-LC_TELEPHONE = pt_PT.UTF-8
-# default
-MAKE_COMMAND := make
-# environment
-OLDPWD = /home/flux/UNI/2ANO/LCOM/MINIX-LCOM/shared/proj
-# environment
-VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
-# environment
-TERM_PROGRAM = vscode
-# default
-.VARIABLES := 
-# automatic
-*F = $(notdir $*)
-# environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-d4bb65f5-1.67.2-main.sock
-# environment
-VSCODE_GIT_ASKPASS_NODE = /usr/share/code/code
-# makefile
-MAKEFLAGS = pqrR
-# environment
-MFLAGS = -pqrR
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# environment
-TERM_PROGRAM_VERSION = 1.67.2
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-GDK_BACKEND = x11
-# environment
-LC_PAPER = pt_PT.UTF-8
-# environment
-NO_AT_BRIDGE = 1
-# environment
-QT_ACCESSIBILITY = 1
-# environment
-DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
-# environment
-GIT_ASKPASS = /usr/share/code/resources/app/extensions/git/dist/askpass.sh
-# default
-MAKEFILES := 
-# environment
-LC_NUMERIC = pt_PT.UTF-8
-# automatic
-<F = $(notdir $<)
-# environment
-LC_MEASUREMENT = pt_PT.UTF-8
-# environment
-PAGER = less
-# environment
-LC_ALL = C
-# environment
-P9K_TTY = old
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/6399f745_c45b_476a_9f39_f34318d2eddd
-# automatic
-^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.86
-# default
-SUFFIXES := 
-# environment
-CHROME_DESKTOP = code-url-handler.desktop
-# environment
-WINDOWPATH = 2
-# default
-.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# environment
-LC_IDENTIFICATION = pt_PT.UTF-8
+IM_CONFIG_PHASE = 1
 # default
 .RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-LC_ADDRESS = pt_PT.UTF-8
+XDG_MENU_PREFIX = gnome-
+# makefile (from 'Makefile', line 17)
+LDADD = -llcf
 # environment
-LANG = C
+GDMSESSION = ubuntu
 # environment
-TERM = xterm-256color
-# environment
-_P9K_TTY = /dev/pts/0
-# environment
-VSCODE_PID = 2937
+LC_IDENTIFICATION = pt_PT.UTF-8
 # variable set hash-table stats:
- 
-Makefile:19: *** missing separator.  Stop.
-
-# Load=133/1024=13%, Rehash=0, Collisions=19/154=12%
+# Load=114/1024=11%, Rehash=0, Collisions=6/135=4%
 
 # Pattern-specific Variable Values
 
@@ -288,9 +249,9 @@ Makefile:19: *** missing separator.  Stop.
 
 # Directories
 
-# . (device 66309, inode 154102): 11 files, no impossibilities.
+# . (device 66309, inode 3959983): 28 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 28 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -305,8 +266,7 @@ Makefile:19: *** missing separator.  Stop.
 #  File has not been updated.
 
 # Not a target:
-all:
-#  Command line target.
+/event_handler:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -323,7 +283,7 @@ Makefile:
 #  File has not been updated.
 
 # Not a target:
-/game:
+/devices:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -335,13 +295,14 @@ Makefile:
 #  File has not been updated.
 
 # Not a target:
-/event_handler:
+all:
+#  Command line target.
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-/devices:
+/game:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -354,12 +315,12 @@ Makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 182 B / avg = 8 B
-# current buf: size = 8162 B / used = 182 B / count = 21 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 38 / storage = 389 B / avg = 10 B
+# current buf: size = 8162 B / used = 389 B / count = 38 / avg = 10 B
 
-# strcache performance: lookups = 34 / hit rate = 38%
+# strcache performance: lookups = 51 / hit rate = 25%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/34=3%
-# Finished Make data base on Sat Jun  4 21:39:37 2022
+# Load=38/8192=0%, Rehash=0, Collisions=0/51=0%
+# Finished Make data base on Sat Jun 11 17:49:18 2022
 
  

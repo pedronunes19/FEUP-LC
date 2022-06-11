@@ -2,6 +2,7 @@
 
 static int kbd_hook_id = 1;
 
+char keys[M_KEY + 1];
 uint8_t scan_code[2];
 int kbd_i = 0;
 bool kbd_ih_flag = false;

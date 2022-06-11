@@ -2,13 +2,13 @@
 
 static tetromino_type piece_type[] = {I, J, L, S, O, T, Z};
 static int counter = 1;
-game_state state = PLAYING;
+game_state state = MAIN_MENU;
 bool spawned = false;
 bool end = false;
 bool cleared = false;
 int score = 0;
 char* score_string = "0";
-Cursor cursor_pos = {0, 0};
+Cursor cursor_pos = {400, 300};
  
 void start_game() {
   memset(*board, 0, sizeof(board));
@@ -161,7 +161,12 @@ void gravity() {
 
 void piece_fall() {
   //printf("\nThe end? %s", end ? "Yes!\n\n" : "Not yet...\n\n");
-  if (end) return;
+  if (end) {
+    state = FINISHED;
+    delete_tetromino(tetromino);
+    return;
+  }
+
   if (!spawned) clear_tetromino();
   /*
   printf("Board state after clear (only if piece can move)\n\n");
@@ -326,7 +331,7 @@ void piece_rotate(rotate_dir rotation) {
 void update_cursor(uint16_t x_val, uint16_t y_val) {
 
   uint16_t new_x_pos = cursor_pos.x + x_val;
-  uint16_t new_y_pos = cursor_pos.y + y_val;
+  uint16_t new_y_pos = cursor_pos.y - y_val;
 
   if (new_x_pos > 0 && new_x_pos < 800) cursor_pos.x = new_x_pos;
   if (new_y_pos > 0 && new_y_pos < 600) cursor_pos.y = new_y_pos;
@@ -352,10 +357,32 @@ void draw_scores() {
 
 void _leaderboard_menu() {
   draw_leaderboard_menu();
-
   draw_scores();
 }
 
 void _draw_board() {
   draw_board(board);
+}
+
+void cursor_draw() {
+  draw_cursor(cursor_pos.x, cursor_pos.y);
+}
+
+void cursor_erase() {
+  erase_cursor(cursor_pos.x, cursor_pos.y);
+}
+
+void check_mouse_clicks() {
+
+  if (cursor_pos.x >= 161 && cursor_pos.x <= 438) {
+    
+    if (cursor_pos.y >= 304 && cursor_pos.y <= 338){
+      state = PLAYING;
+      start_game();
+    } else if (cursor_pos.y >= 452 && cursor_pos.y <= 487) {
+      state = FINISHED;
+    }
+
+  }
+
 }

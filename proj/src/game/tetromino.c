@@ -7,10 +7,10 @@ void check_rotate_inside_border(tetromino_t* tetromino) {
 
   for (int i = 0; i < iter; i++)
     for (int j = 0; j < iter; j++) {
-      if (tetromino->matrix[i][j] != 0 && tetromino->x + j > 9) { // out right
+      if (tetromino->matrix[i][j] != 0 && tetromino->x + j > 9) {
         (tetromino->x)-= ((tetromino->x + j)-9);
       }
-      if (tetromino->matrix[i][j] != 0 && tetromino->x + j < 0) { // out right
+      if (tetromino->matrix[i][j] != 0 && tetromino->x + j < 0) {
         (tetromino->x)+= (0-(tetromino->x + j));
       }
     }
@@ -24,7 +24,6 @@ void rotatePieceLeft(tetromino_t* piece){
         rotateLeft(piece->matrix, 3, 3);  
     } 
     check_rotate_inside_border(piece);
-    // check borders and move accordingly
 }
 
 void rotatePieceRight(tetromino_t* piece){
@@ -34,7 +33,6 @@ void rotatePieceRight(tetromino_t* piece){
         rotateRight(piece->matrix, 3, 3);
     } 
     check_rotate_inside_border(piece);
-    // check borders and move accordingly
 }
 
 tetromino_t* create_tetromino(tetromino_type type){
@@ -102,7 +100,7 @@ tetromino_t* create_tetromino(tetromino_type type){
             tetromino->matrix[2][1] = 1;
             tetromino->matrix[2][2] = 1;
             break;
-        case CLEAR: // do this correctly later (very much pain coming)
+        case CLEAR:
             break;
     }
 

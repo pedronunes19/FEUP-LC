@@ -51,10 +51,6 @@ void draw_leaderboard_menu() {
   draw_string("SCORE", 600, 150, 3, true);
 }
 
-void draw_save_score() {
-
-}
-
 void draw_gradient() {
   draw_xpm(gradient, 0, 0);
 }
@@ -135,7 +131,7 @@ void draw_board(tetromino_type board[16][10]) {
 
 void draw_string(const char *string, uint16_t x, uint16_t y, uint8_t scale, bool white) {
   for (unsigned int i = 0; i < strlen(string); i++) {
-    if (string[i] != ' ') {
+    if (string[i] != ' ' && string[i] != '/') {
       draw_character(string[i], x + (scale * 6 * i) , y, scale, white);
     } else {
       i++;
@@ -155,7 +151,6 @@ void draw_character(const char character, uint16_t x, uint16_t y, uint8_t scale,
     init_pnt = font.bytes;
   }
   
-  // Finding pointer to start of character in font
   if (!is_alpha(character)) {
     int num = character - '0';
     pnt = init_pnt + (6 * num) * font_bpp;

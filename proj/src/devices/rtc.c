@@ -41,8 +41,6 @@ Date(rtc_read_time) () {
     rtc_read_data(&time[i]);
   }
 
-  //printf("%02d/%02d/%02d - %02d:%02d:%02d\n", time[0], time[1], time[2], time[3], time[4], time[5]);
-
   Date date = {time[0], time[1], time[2]};
   return date;
 }

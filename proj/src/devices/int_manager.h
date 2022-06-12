@@ -12,12 +12,25 @@
 #include "../event_handler/mouse_event_handler.h"
 #include "../event_handler/timer_event_handler.h"
 
+/* Tetrominos falling speed */
 #define SLOW 40
 #define NORMAL 30
 #define FAST 20
 
+/**
+ * @brief Function called at program start, enables interrupts, intializes videocard, loads xpms and initializes other important features
+ * 
+ */
 int (init)();
+
+/**
+ * @brief The main program execution loop, responsible for calling all of the needed functions to run the game and menus
+ * 
+ */
 int (main_loop)();
-int (game_loop)();
+
+/**
+ * @brief Function executed on program end, unsubscribes interrupts and overall resets MINIX to its' default mode
+ * 
+ */
 int (leave)();
-void tetromino_board_state(tetromino_t *tetromino, tetromino_type board_state[16][10]);

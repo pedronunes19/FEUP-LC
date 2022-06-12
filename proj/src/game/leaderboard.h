@@ -25,11 +25,39 @@ typedef struct {
 
 extern Array scores;
 
+/**
+ * @brief 
+ * 
+ * @param a 
+ * @param init_size 
+ */
 void init_array(Array* a, size_t init_size);
+
+/**
+ * @brief 
+ * 
+ * @param a 
+ * @param element 
+ */
 void insert_array(Array* a, Entry element);
+
+/**
+ * @brief 
+ * 
+ * @param a 
+ */
 void free_array(Array* a);
 
 //-------------------------------------------------------------------
 
+/**
+ * @brief Get the scores object
+ * 
+ */
 void get_scores();
+
+/**
+ * @brief 
+ * 
+ */
 void draw_scores();

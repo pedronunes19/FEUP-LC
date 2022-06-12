@@ -30,12 +30,6 @@ int(check_status)(uint8_t st) {
     return AUX_DATA;
   }
 
-  /* might cause issues with the lab, since we won't be writing to the input buffer
-  if (st & IBF) {
-      return IBF_FULL;
-  }
-  */
-
   return OK;
 }
 

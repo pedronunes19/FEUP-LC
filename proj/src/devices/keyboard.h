@@ -7,7 +7,7 @@
 
 #include "i8042_kbd.h"
 
-extern char keys[M_KEY + 1];
+extern char keys[0x90];
 extern uint8_t scan_code[2];
 extern int kbd_i;
 extern bool kbd_ih_flag;

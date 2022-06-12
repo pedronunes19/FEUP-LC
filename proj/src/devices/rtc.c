@@ -12,7 +12,7 @@ int(rtc_write_data)(uint8_t data) {
   return sys_outb(RTC_DATA_REG, data);
 }
 
-Date(rtc_read_time) () {
+Date (rtc_read_time) () {
 
   uint8_t reg;
   rtc_write_addr(RTC_REG_B);

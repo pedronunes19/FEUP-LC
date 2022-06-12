@@ -2,7 +2,7 @@
 
 static int kbd_hook_id = 1;
 
-char keys[M_KEY + 1];
+char keys[0x90]; // no scancode will ever have a higher value than 0x90
 uint8_t scan_code[2];
 int kbd_i = 0;
 bool kbd_ih_flag = false;

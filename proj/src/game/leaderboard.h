@@ -10,6 +10,12 @@
 #include <string.h>
 
 #include "game_state.h"
+#include "../devices/rtc.h"
+
+/**
+ * @brief Dynamic array struct for handling leaderboard entries
+ * 
+ */
 
 typedef struct {
   char* name;
@@ -24,40 +30,81 @@ typedef struct {
 } Array;
 
 extern Array scores;
+extern char name[4];
+extern int name_len;
 
 /**
- * @brief 
+ * @brief Initialize a leaderboard array
  * 
- * @param a 
- * @param init_size 
+ * @param the array to be initialized
+ * @param initial size of the array
  */
 void init_array(Array* a, size_t init_size);
 
 /**
- * @brief 
+ * @brief Insert element into array
  * 
- * @param a 
- * @param element 
+ * @param the array to insert to
+ * @param element to be inserted
  */
 void insert_array(Array* a, Entry element);
 
 /**
- * @brief 
+ * @brief Free created array
  * 
- * @param a 
+ * @param the array to be freed
  */
 void free_array(Array* a);
 
 //-------------------------------------------------------------------
 
 /**
- * @brief Get the scores object
+ * @brief Get scores from the saved leaderboard
  * 
  */
 void get_scores();
 
 /**
- * @brief 
+ * @brief Output leaderboard scores to screen
  * 
  */
 void draw_scores();
+
+/**
+ * @brief Get current player's leaderboard entry 
+ * 
+ */
+void get_player_entry();
+
+/**
+ * @brief Draw the input of the user's name
+ * 
+ */
+void draw_player_name();
+
+/**
+ * @brief Comparator function for entries (descending order)
+ * 
+ * @param entry
+ * @param entry
+ * @return int
+ */
+int entry_compare(const void* s1, const void* s2);
+
+/**
+ * @brief Sort the leaderboard by player scores
+ * 
+ */
+void sort_scores();
+
+/**
+ * @brief Save the leaderboard in memory to the leaderboard file
+ * 
+ */
+void save_leaderboard();
+
+/**
+ * @brief Clean-up function to free the leaderboard on exit
+ * 
+ */
+void lb_clean_up();

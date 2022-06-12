@@ -37,12 +37,42 @@ void handle_kbd_playing_event(uint8_t scan_code[2]) {
 
 void handle_kbd_finished_event(uint8_t scan_code[2]) {
   switch (scan_code[0]) {
-    case ESC_BREAK: state = MAIN_MENU;
+    case ESC_BREAK: {
+
+      if (name_len < 3) { break; }
+
+      get_player_entry();
+      sort_scores();
+      save_leaderboard();
+
+      lb_clean_up();
+      state = MAIN_MENU;
+
+      break;
+    }
+
+    default: {
+      if (keys[scan_code[0]] != 0 && name_len < 3) {
+
+        // black magic :)
+        char* ch = strdup(&keys[scan_code[0]]);
+        *(ch + 1) = '\0';
+
+        strcat(name, ch); 
+        free(ch);
+        name_len++;
+
+      }
+      break;
+    }
   }
 }
 
 void handle_kbd_leaderboard_event(uint8_t scan_code[2]) {
   switch (scan_code[0]) {
-    case ESC_BREAK: free_array(&scores); state = MAIN_MENU;
+    case ESC_BREAK: {
+      state = MAIN_MENU;
+      break;
+    }
   }
 }

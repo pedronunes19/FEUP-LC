@@ -62,6 +62,9 @@ bool is_alpha(char character) {
 }
 
 void get_keys() {
+
+    memset(keys, 0, sizeof(keys));
+
     keys[A_KEY] = 'A';
     keys[B_KEY] = 'B';
     keys[C_KEY] = 'C';

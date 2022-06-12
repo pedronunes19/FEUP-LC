@@ -39,7 +39,9 @@
 #define LEFT_ARROW    0x4b
 #define RIGHT_ARROW   0x4d
 
-#define A_KEY         0x1f
+#define ENTER         0x1c
+
+#define A_KEY         0x1e
 #define B_KEY         0x30
 #define C_KEY         0x2e
 #define D_KEY         0x20
@@ -57,7 +59,7 @@
 #define P_KEY         0x19
 #define Q_KEY         0x10
 #define R_KEY         0x13
-#define S_KEY         0x1e
+#define S_KEY         0x1f
 #define T_KEY         0x14
 #define U_KEY         0x16
 #define V_KEY         0x2f

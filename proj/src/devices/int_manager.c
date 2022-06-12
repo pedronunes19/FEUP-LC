@@ -26,6 +26,9 @@ int(init)() {
   // initialize array of keys
   get_keys();
 
+  // get leaderboard scores
+  get_scores();
+
   return EXIT_SUCCESS;
 }
 
@@ -64,6 +67,8 @@ int(main_loop)() {
 
             kbd_i = 0;
             handle_kbd_event(scan_code);
+            scan_code[0] = 0;
+            scan_code[1] = 0;
           }
           else if (msg.m_notify.interrupts & timer_irq_set) {
 
@@ -97,6 +102,7 @@ int(leave)() {
   kbd_unsubscribe_int();
   mouse_unsubscribe_int();
   mouse_disable_data_reporting();
+  free_array(&scores);
   vg_exit();
 
   return EXIT_SUCCESS;

@@ -182,3 +182,4 @@ void cursor_erase();
  * 
  */
 void check_mouse_clicks();
+int get_final_score();

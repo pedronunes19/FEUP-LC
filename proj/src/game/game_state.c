@@ -279,6 +279,9 @@ void _finished_menu() {
   char score_str[5];
   sprintf(score_str, "%d", score);
   draw_finished_menu(score_str);
+  
+  draw_player_name();
+
 }
 
 void _draw_board() {
@@ -307,12 +310,15 @@ void check_mouse_clicks() {
       state = PLAYING;
       start_game();
     } else if (cursor_pos.y >=402 && cursor_pos.y <= 437) {
-      get_scores();
       state = LEADERBOARD;
     } else if (cursor_pos.y >= 452 && cursor_pos.y <= 487) {
       state = EXIT;
     }
   }
 
+}
+
+int get_final_score() {
+  return score;
 }
 

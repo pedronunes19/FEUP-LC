@@ -43,6 +43,6 @@ void handle_kbd_finished_event(uint8_t scan_code[2]) {
 
 void handle_kbd_leaderboard_event(uint8_t scan_code[2]) {
   switch (scan_code[0]) {
-    case ESC_BREAK: state = MAIN_MENU;
+    case ESC_BREAK: free_array(&scores); state = MAIN_MENU;
   }
 }

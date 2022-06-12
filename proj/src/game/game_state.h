@@ -3,6 +3,7 @@
 #include "draw_graphics.h"
 #include "logic.h"
 #include "utils.h"
+#include "leaderboard.h"
 
 typedef enum {
   PLAYING,
@@ -27,7 +28,7 @@ typedef enum {
 typedef struct {
   uint16_t x;
   uint16_t y;
-} Cursor;
+} Position;
 
 static tetromino_type board[16][10];
 static tetromino_t *tetromino;
@@ -43,6 +44,7 @@ void move_piece_left();
 void move_piece_right();
 void _finished_menu();
 void _draw_board();
+void _draw_score();
 void piece_fall();
 void clear_tetromino();
 void place_tetromino();

@@ -63,7 +63,6 @@ int(main_loop)() {
             }
 
             kbd_i = 0;
-            kbd_print_scancode(kbd_ih_flag, (kbd_i+1), scan_code);
             handle_kbd_event(scan_code);
           }
           else if (msg.m_notify.interrupts & timer_irq_set) {

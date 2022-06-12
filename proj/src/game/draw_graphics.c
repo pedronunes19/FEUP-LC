@@ -185,15 +185,14 @@ void erase_cursor(uint16_t x, uint16_t y) {
   draw_xpm(empty_cursor, x, y);
 }
 
-void draw_finished_menu() {
+void draw_finished_menu(const char* score) {
   draw_xpm(blank_menu, 0, 0);
 
   draw_string("GAME OVER", 294, 90, 4, true);
 
   draw_string("YOUR SCORE", 310, 150, 3, true);
   
-  // switch it with the score
-  draw_string("5", 382, 180, 3, true);
+  draw_string(score, 382, 180, 3, true);
 
   draw_string("ENTER YOUR NAME", 260, 250, 3, true);
 

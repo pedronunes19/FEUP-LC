@@ -8,9 +8,10 @@ bool end = false;
 bool cleared = false;
 int score = 0;
 char* score_string = "0";
-Cursor cursor_pos = {400, 300};
- 
+Position cursor_pos = {400, 300};
+
 void start_game() {
+  score = 0;
   spawned = false;
   end = false;
   cleared = false;
@@ -322,6 +323,7 @@ void move_piece_left() {
 }
 
 void piece_rotate(rotate_dir rotation) {
+  if (spawned) return;
   clear_tetromino();
 
   switch(rotation) {
@@ -356,37 +358,20 @@ void _leaderboard_menu() {
 }
 
 void _finished_menu() {
-  draw_finished_menu();
+
+  char score_str[5];
+  sprintf(score_str, "%d", score);
+  draw_finished_menu(score_str);
 }
-
-void draw_scores() {
-  /* program crashes whenever this is invoked i have no idea why */
-
-  /* READING LEADERBOARD FILE */
-  /*
-  FILE* file = fopen("scores.txt", "r");
-  char *line = NULL;
-  while (fgets(line, sizeof(line), file) != NULL) {
-    printf("%s\n", line);
-  }
-  fclose(file);
-
-  char* names[] = {"ME", "YOU", "THEY", "THEM"};
-  char* dates[] = {"21/02/22", "21/02/22", "21/02/22", "21/02/22"};
-  char* scores[] = {"55", "55", "54", "2"};
-
-  for (int i = 0; strcmp(names[i],"") != 0; i++) {
-    printf("hi\n");
-    draw_string(names[i], 100, 170+(i*10), 2, true);
-    draw_string(dates[i], 350, 170+(i*10), 2, true);
-    draw_string(scores[i], 600, 170+(i*10), 2, true);
-    printf("L\n");
-  }*/
-}
-
 
 void _draw_board() {
   draw_board(board);
+}
+
+void _draw_score() {
+  char score_str[5];
+  sprintf(score_str, "%d", score);
+  draw_score(score_str);
 }
 
 void cursor_draw() {
@@ -405,6 +390,7 @@ void check_mouse_clicks() {
       state = PLAYING;
       start_game();
     } else if (cursor_pos.y >=402 && cursor_pos.y <= 437) {
+      get_scores();
       state = LEADERBOARD;
     } else if (cursor_pos.y >= 452 && cursor_pos.y <= 487) {
       state = EXIT;
@@ -412,3 +398,4 @@ void check_mouse_clicks() {
   }
 
 }
+

@@ -12,7 +12,7 @@ int(rtc_write_data)(uint8_t data) {
   return sys_outb(RTC_DATA_REG, data);
 }
 
-int(rtc_read_time)() {
+Date(rtc_read_time) () {
 
   uint8_t reg;
   rtc_write_addr(RTC_REG_B);
@@ -33,14 +33,16 @@ int(rtc_read_time)() {
 
   tickdelay(micros_to_ticks(WAIT));
 
-  uint8_t time[6] = {0, 0, 0, 0, 0, 0};
-  uint8_t regs[6] = {RTC_MONTH_DAY, RTC_MONTH, RTC_YEAR, RTC_HOURS, RTC_MINS, RTC_SECS};
+  uint8_t time[3] = {0, 0, 0};
+  uint8_t regs[3] = {RTC_MONTH_DAY, RTC_MONTH, RTC_YEAR};
 
-  for (int i = 0; i < 6; i++) {
+  for (int i = 0; i < 3; i++) {
     rtc_write_addr(regs[i]);
     rtc_read_data(&time[i]);
   }
 
-  printf("%02d/%02d/%02d - %02d:%02d:%02d\n", time[0], time[1], time[2], time[3], time[4], time[5]);
-  return 0;
+  //printf("%02d/%02d/%02d - %02d:%02d:%02d\n", time[0], time[1], time[2], time[3], time[4], time[5]);
+
+  Date date = {time[0], time[1], time[2]};
+  return date;
 }

@@ -20,6 +20,7 @@ void handle_timer_menu_event() {
 
 void handle_timer_playing_event() {
   _draw_board();
+  _draw_score();
 }
 
 void handle_timer_finished_event() {

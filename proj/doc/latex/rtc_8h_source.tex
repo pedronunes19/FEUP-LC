@@ -1,0 +1,26 @@
+\hypertarget{rtc_8h_source}{}\doxysection{rtc.\+h}
+\label{rtc_8h_source}\index{src/devices/rtc.h@{src/devices/rtc.h}}
+\mbox{\hyperlink{rtc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{rtc__defines_8h}{rtc\_defines.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{9   uint16\_t \mbox{\hyperlink{structDate_a32927b4e5760ad46c6ff38e4c7817054}{day}};}
+\DoxyCodeLine{10   uint16\_t \mbox{\hyperlink{structDate_a3ae42a3d0f14a1ef2495d0f8d554089d}{month}};}
+\DoxyCodeLine{11   uint16\_t \mbox{\hyperlink{structDate_abd379380ddb23e30eaf16336d175fe46}{year}};}
+\DoxyCodeLine{12 \} \mbox{\hyperlink{structDate}{Date}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{19 int (\mbox{\hyperlink{rtc_8h_a002c192ab7ee4a5fcc562de492d19f8f}{rtc\_write\_addr}}) (uint8\_t addr);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{26 int (\mbox{\hyperlink{rtc_8h_ac8d167fce95fc4cd2b7a56bbf79987e0}{rtc\_read\_data}}) (uint8\_t* data);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33 int (\mbox{\hyperlink{rtc_8h_af907ca20c21aa8db001944d3e5d59d72}{rtc\_write\_data}}) (uint8\_t data);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40 \mbox{\hyperlink{structDate}{Date}} (\mbox{\hyperlink{rtc_8h_a9880d91f2c59ac2b77ee3e7c15fdca31}{rtc\_read\_time}}) ();}
+
+\end{DoxyCode}

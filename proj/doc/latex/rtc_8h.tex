@@ -1,0 +1,82 @@
+\hypertarget{rtc_8h}{}\doxysection{src/devices/rtc.h File Reference}
+\label{rtc_8h}\index{src/devices/rtc.h@{src/devices/rtc.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}rtc\+\_\+defines.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDate}{Date}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{rtc_8h_a002c192ab7ee4a5fcc562de492d19f8f}{rtc\+\_\+write\+\_\+addr}} (uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Write to the RTC address register. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8h_ac8d167fce95fc4cd2b7a56bbf79987e0}{rtc\+\_\+read\+\_\+data}} (uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Read from the RTC data register. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{rtc_8h_af907ca20c21aa8db001944d3e5d59d72}{rtc\+\_\+write\+\_\+data}} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write data to the RTC address register. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structDate}{Date}}() \mbox{\hyperlink{rtc_8h_a9880d91f2c59ac2b77ee3e7c15fdca31}{rtc\+\_\+read\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{structDate}{Date}} object like struct with information of the current day, month and year. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rtc_8h_ac8d167fce95fc4cd2b7a56bbf79987e0}\label{rtc_8h_ac8d167fce95fc4cd2b7a56bbf79987e0}} 
+\index{rtc.h@{rtc.h}!rtc\_read\_data@{rtc\_read\_data}}
+\index{rtc\_read\_data@{rtc\_read\_data}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_read\_data()}{rtc\_read\_data()}}
+{\footnotesize\ttfamily int() rtc\+\_\+read\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Read from the RTC data register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rtc_8h_a9880d91f2c59ac2b77ee3e7c15fdca31}\label{rtc_8h_a9880d91f2c59ac2b77ee3e7c15fdca31}} 
+\index{rtc.h@{rtc.h}!rtc\_read\_time@{rtc\_read\_time}}
+\index{rtc\_read\_time@{rtc\_read\_time}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_read\_time()}{rtc\_read\_time()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDate}{Date}}() rtc\+\_\+read\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a \mbox{\hyperlink{structDate}{Date}} object like struct with information of the current day, month and year. 
+
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structDate}{Date}} object like struct with day, month and year information 
+\end{DoxyReturn}
+\mbox{\Hypertarget{rtc_8h_a002c192ab7ee4a5fcc562de492d19f8f}\label{rtc_8h_a002c192ab7ee4a5fcc562de492d19f8f}} 
+\index{rtc.h@{rtc.h}!rtc\_write\_addr@{rtc\_write\_addr}}
+\index{rtc\_write\_addr@{rtc\_write\_addr}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_write\_addr()}{rtc\_write\_addr()}}
+{\footnotesize\ttfamily int() rtc\+\_\+write\+\_\+addr (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr }\end{DoxyParamCaption})}
+
+
+
+Write to the RTC address register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be written \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{rtc_8h_af907ca20c21aa8db001944d3e5d59d72}\label{rtc_8h_af907ca20c21aa8db001944d3e5d59d72}} 
+\index{rtc.h@{rtc.h}!rtc\_write\_data@{rtc\_write\_data}}
+\index{rtc\_write\_data@{rtc\_write\_data}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_write\_data()}{rtc\_write\_data()}}
+{\footnotesize\ttfamily int() rtc\+\_\+write\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Write data to the RTC address register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be written \\
+\hline
+\end{DoxyParams}

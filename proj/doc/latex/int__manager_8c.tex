@@ -1,0 +1,83 @@
+\hypertarget{int__manager_8c}{}\doxysection{src/devices/int\+\_\+manager.c File Reference}
+\label{int__manager_8c}\index{src/devices/int\_manager.c@{src/devices/int\_manager.c}}
+{\ttfamily \#include \char`\"{}int\+\_\+manager.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{int__manager_8c_a6611da0eaaaa020ce5748914abff7828}{init}} ()
+\begin{DoxyCompactList}\small\item\em Function called at program start, enables interrupts, intializes videocard, loads xpms and initializes other important features. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{int__manager_8c_a24285aea4a27f96c321b2628788e9a57}{main\+\_\+loop}} ()
+\begin{DoxyCompactList}\small\item\em The main program execution loop, responsible for calling all of the needed functions to run the game and menus. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{int__manager_8c_a5660953c43c447e3e57c44f7eacf432e}{leave}} ()
+\begin{DoxyCompactList}\small\item\em Function executed on program end, unsubscribes interrupts and overall resets MINIX to its\textquotesingle{} default mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{int__manager_8c_a3462fc5fe41d7f3738b28e8db5c34afa}{timer\+\_\+irq\+\_\+set}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{int__manager_8c_a4a804c5ed9fbbb87e678bc754a0050df}{kbd\+\_\+irq\+\_\+set}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{int__manager_8c_a19510d6e8f8e3683abe25e8936a4401e}{mouse\+\_\+irq\+\_\+set}}
+\item 
+\mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\+\_\+type}} \mbox{\hyperlink{int__manager_8c_aaf22d1489e4f6780474414413d6920d6}{board\+\_\+state}} \mbox{[}16\mbox{]}\mbox{[}10\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{int__manager_8c_a6611da0eaaaa020ce5748914abff7828}\label{int__manager_8c_a6611da0eaaaa020ce5748914abff7828}} 
+\index{int\_manager.c@{int\_manager.c}!init@{init}}
+\index{init@{init}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int() init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function called at program start, enables interrupts, intializes videocard, loads xpms and initializes other important features. 
+
+\mbox{\Hypertarget{int__manager_8c_a5660953c43c447e3e57c44f7eacf432e}\label{int__manager_8c_a5660953c43c447e3e57c44f7eacf432e}} 
+\index{int\_manager.c@{int\_manager.c}!leave@{leave}}
+\index{leave@{leave}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{leave()}{leave()}}
+{\footnotesize\ttfamily int() leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function executed on program end, unsubscribes interrupts and overall resets MINIX to its\textquotesingle{} default mode. 
+
+\mbox{\Hypertarget{int__manager_8c_a24285aea4a27f96c321b2628788e9a57}\label{int__manager_8c_a24285aea4a27f96c321b2628788e9a57}} 
+\index{int\_manager.c@{int\_manager.c}!main\_loop@{main\_loop}}
+\index{main\_loop@{main\_loop}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{main\_loop()}{main\_loop()}}
+{\footnotesize\ttfamily int() main\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main program execution loop, responsible for calling all of the needed functions to run the game and menus. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{int__manager_8c_aaf22d1489e4f6780474414413d6920d6}\label{int__manager_8c_aaf22d1489e4f6780474414413d6920d6}} 
+\index{int\_manager.c@{int\_manager.c}!board\_state@{board\_state}}
+\index{board\_state@{board\_state}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{board\_state}{board\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\+\_\+type}} board\+\_\+state\mbox{[}16\mbox{]}\mbox{[}10\mbox{]}}
+
+\mbox{\Hypertarget{int__manager_8c_a4a804c5ed9fbbb87e678bc754a0050df}\label{int__manager_8c_a4a804c5ed9fbbb87e678bc754a0050df}} 
+\index{int\_manager.c@{int\_manager.c}!kbd\_irq\_set@{kbd\_irq\_set}}
+\index{kbd\_irq\_set@{kbd\_irq\_set}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{kbd\_irq\_set}{kbd\_irq\_set}}
+{\footnotesize\ttfamily uint32\+\_\+t kbd\+\_\+irq\+\_\+set}
+
+\mbox{\Hypertarget{int__manager_8c_a19510d6e8f8e3683abe25e8936a4401e}\label{int__manager_8c_a19510d6e8f8e3683abe25e8936a4401e}} 
+\index{int\_manager.c@{int\_manager.c}!mouse\_irq\_set@{mouse\_irq\_set}}
+\index{mouse\_irq\_set@{mouse\_irq\_set}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_irq\_set}{mouse\_irq\_set}}
+{\footnotesize\ttfamily uint32\+\_\+t mouse\+\_\+irq\+\_\+set}
+
+\mbox{\Hypertarget{int__manager_8c_a3462fc5fe41d7f3738b28e8db5c34afa}\label{int__manager_8c_a3462fc5fe41d7f3738b28e8db5c34afa}} 
+\index{int\_manager.c@{int\_manager.c}!timer\_irq\_set@{timer\_irq\_set}}
+\index{timer\_irq\_set@{timer\_irq\_set}!int\_manager.c@{int\_manager.c}}
+\doxysubsubsection{\texorpdfstring{timer\_irq\_set}{timer\_irq\_set}}
+{\footnotesize\ttfamily uint32\+\_\+t timer\+\_\+irq\+\_\+set}
+

@@ -1,0 +1,216 @@
+\hypertarget{leaderboard_8h}{}\doxysection{src/game/leaderboard.h File Reference}
+\label{leaderboard_8h}\index{src/game/leaderboard.h@{src/game/leaderboard.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+state.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../devices/rtc.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEntry}{Entry}}
+\begin{DoxyCompactList}\small\item\em Dynamic array struct for handling leaderboard entries. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structArray}{Array}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{leaderboard_8h_a27e586ded8cb44d1d3815f227baec310}{init\+\_\+array}} (\mbox{\hyperlink{structArray}{Array}} $\ast$a, size\+\_\+t init\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Initialize a leaderboard array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_aa5d0f3d1056928bb9d3245e077264935}{insert\+\_\+array}} (\mbox{\hyperlink{structArray}{Array}} $\ast$a, \mbox{\hyperlink{structEntry}{Entry}} element)
+\begin{DoxyCompactList}\small\item\em Insert element into array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_aa12c8a334e6c87c24b5fce06c6ae5b3e}{free\+\_\+array}} (\mbox{\hyperlink{structArray}{Array}} $\ast$a)
+\begin{DoxyCompactList}\small\item\em Free created array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_a4a4b602741dfa9c79926e00da2cbdee8}{get\+\_\+scores}} ()
+\begin{DoxyCompactList}\small\item\em Get scores from the saved leaderboard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_a75a9159f47d5d8521f7b2f2e6870dfb7}{draw\+\_\+scores}} ()
+\begin{DoxyCompactList}\small\item\em Output leaderboard scores to screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_a6c99524b7234b35559698148e88d0d70}{get\+\_\+player\+\_\+entry}} ()
+\begin{DoxyCompactList}\small\item\em Get current player\textquotesingle{}s leaderboard entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_a8ed28d9498ae4bf8a808eb0ed29497ca}{draw\+\_\+player\+\_\+name}} ()
+\begin{DoxyCompactList}\small\item\em Draw the input of the user\textquotesingle{}s name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{leaderboard_8h_a1119d6f87763b0795cc20db2252085f4}{entry\+\_\+compare}} (const void $\ast$s1, const void $\ast$s2)
+\begin{DoxyCompactList}\small\item\em Comparator function for entries (descending order) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_ac59be4b63dca1962e980fe7107094c5a}{sort\+\_\+scores}} ()
+\begin{DoxyCompactList}\small\item\em Sort the leaderboard by player scores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_a055e9c20ed107175a5c45ed5dcf0de23}{save\+\_\+leaderboard}} ()
+\begin{DoxyCompactList}\small\item\em Save the leaderboard in memory to the leaderboard file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{leaderboard_8h_acfe625743c4bbc1d09a48518669a333a}{lb\+\_\+clean\+\_\+up}} ()
+\begin{DoxyCompactList}\small\item\em Clean-\/up function to free the leaderboard on exit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structArray}{Array}} \mbox{\hyperlink{leaderboard_8h_a115238ec5cf87cd6527eba284886123e}{scores}}
+\item 
+char \mbox{\hyperlink{leaderboard_8h_a592125fc2c2dc257d568a5d2977baa8b}{name}} \mbox{[}4\mbox{]}
+\item 
+int \mbox{\hyperlink{leaderboard_8h_a299efd1f0f06729d349e9c000260a4a1}{name\+\_\+len}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{leaderboard_8h_a8ed28d9498ae4bf8a808eb0ed29497ca}\label{leaderboard_8h_a8ed28d9498ae4bf8a808eb0ed29497ca}} 
+\index{leaderboard.h@{leaderboard.h}!draw\_player\_name@{draw\_player\_name}}
+\index{draw\_player\_name@{draw\_player\_name}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{draw\_player\_name()}{draw\_player\_name()}}
+{\footnotesize\ttfamily void draw\+\_\+player\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw the input of the user\textquotesingle{}s name. 
+
+\mbox{\Hypertarget{leaderboard_8h_a75a9159f47d5d8521f7b2f2e6870dfb7}\label{leaderboard_8h_a75a9159f47d5d8521f7b2f2e6870dfb7}} 
+\index{leaderboard.h@{leaderboard.h}!draw\_scores@{draw\_scores}}
+\index{draw\_scores@{draw\_scores}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{draw\_scores()}{draw\_scores()}}
+{\footnotesize\ttfamily void draw\+\_\+scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Output leaderboard scores to screen. 
+
+Output leaderboard scores to screen. \mbox{\Hypertarget{leaderboard_8h_a1119d6f87763b0795cc20db2252085f4}\label{leaderboard_8h_a1119d6f87763b0795cc20db2252085f4}} 
+\index{leaderboard.h@{leaderboard.h}!entry\_compare@{entry\_compare}}
+\index{entry\_compare@{entry\_compare}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{entry\_compare()}{entry\_compare()}}
+{\footnotesize\ttfamily int entry\+\_\+compare (\begin{DoxyParamCaption}\item[{const void $\ast$}]{s1,  }\item[{const void $\ast$}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Comparator function for entries (descending order) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & \\
+\hline
+{\em entry} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{leaderboard_8h_aa12c8a334e6c87c24b5fce06c6ae5b3e}\label{leaderboard_8h_aa12c8a334e6c87c24b5fce06c6ae5b3e}} 
+\index{leaderboard.h@{leaderboard.h}!free\_array@{free\_array}}
+\index{free\_array@{free\_array}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{free\_array()}{free\_array()}}
+{\footnotesize\ttfamily void free\+\_\+array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArray}{Array}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+
+
+Free created array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & array to be freed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{leaderboard_8h_a6c99524b7234b35559698148e88d0d70}\label{leaderboard_8h_a6c99524b7234b35559698148e88d0d70}} 
+\index{leaderboard.h@{leaderboard.h}!get\_player\_entry@{get\_player\_entry}}
+\index{get\_player\_entry@{get\_player\_entry}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{get\_player\_entry()}{get\_player\_entry()}}
+{\footnotesize\ttfamily void get\+\_\+player\+\_\+entry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get current player\textquotesingle{}s leaderboard entry. 
+
+\mbox{\Hypertarget{leaderboard_8h_a4a4b602741dfa9c79926e00da2cbdee8}\label{leaderboard_8h_a4a4b602741dfa9c79926e00da2cbdee8}} 
+\index{leaderboard.h@{leaderboard.h}!get\_scores@{get\_scores}}
+\index{get\_scores@{get\_scores}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{get\_scores()}{get\_scores()}}
+{\footnotesize\ttfamily void get\+\_\+scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get scores from the saved leaderboard. 
+
+\mbox{\Hypertarget{leaderboard_8h_a27e586ded8cb44d1d3815f227baec310}\label{leaderboard_8h_a27e586ded8cb44d1d3815f227baec310}} 
+\index{leaderboard.h@{leaderboard.h}!init\_array@{init\_array}}
+\index{init\_array@{init\_array}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{init\_array()}{init\_array()}}
+{\footnotesize\ttfamily void init\+\_\+array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArray}{Array}} $\ast$}]{a,  }\item[{size\+\_\+t}]{init\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Initialize a leaderboard array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & array to be initialized \\
+\hline
+{\em initial} & size of the array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{leaderboard_8h_aa5d0f3d1056928bb9d3245e077264935}\label{leaderboard_8h_aa5d0f3d1056928bb9d3245e077264935}} 
+\index{leaderboard.h@{leaderboard.h}!insert\_array@{insert\_array}}
+\index{insert\_array@{insert\_array}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{insert\_array()}{insert\_array()}}
+{\footnotesize\ttfamily void insert\+\_\+array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArray}{Array}} $\ast$}]{a,  }\item[{\mbox{\hyperlink{structEntry}{Entry}}}]{element }\end{DoxyParamCaption})}
+
+
+
+Insert element into array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & array to insert to \\
+\hline
+{\em element} & to be inserted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{leaderboard_8h_acfe625743c4bbc1d09a48518669a333a}\label{leaderboard_8h_acfe625743c4bbc1d09a48518669a333a}} 
+\index{leaderboard.h@{leaderboard.h}!lb\_clean\_up@{lb\_clean\_up}}
+\index{lb\_clean\_up@{lb\_clean\_up}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{lb\_clean\_up()}{lb\_clean\_up()}}
+{\footnotesize\ttfamily void lb\+\_\+clean\+\_\+up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clean-\/up function to free the leaderboard on exit. 
+
+\mbox{\Hypertarget{leaderboard_8h_a055e9c20ed107175a5c45ed5dcf0de23}\label{leaderboard_8h_a055e9c20ed107175a5c45ed5dcf0de23}} 
+\index{leaderboard.h@{leaderboard.h}!save\_leaderboard@{save\_leaderboard}}
+\index{save\_leaderboard@{save\_leaderboard}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{save\_leaderboard()}{save\_leaderboard()}}
+{\footnotesize\ttfamily void save\+\_\+leaderboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Save the leaderboard in memory to the leaderboard file. 
+
+\mbox{\Hypertarget{leaderboard_8h_ac59be4b63dca1962e980fe7107094c5a}\label{leaderboard_8h_ac59be4b63dca1962e980fe7107094c5a}} 
+\index{leaderboard.h@{leaderboard.h}!sort\_scores@{sort\_scores}}
+\index{sort\_scores@{sort\_scores}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{sort\_scores()}{sort\_scores()}}
+{\footnotesize\ttfamily void sort\+\_\+scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sort the leaderboard by player scores. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{leaderboard_8h_a592125fc2c2dc257d568a5d2977baa8b}\label{leaderboard_8h_a592125fc2c2dc257d568a5d2977baa8b}} 
+\index{leaderboard.h@{leaderboard.h}!name@{name}}
+\index{name@{name}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char name\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{leaderboard_8h_a299efd1f0f06729d349e9c000260a4a1}\label{leaderboard_8h_a299efd1f0f06729d349e9c000260a4a1}} 
+\index{leaderboard.h@{leaderboard.h}!name\_len@{name\_len}}
+\index{name\_len@{name\_len}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{name\_len}{name\_len}}
+{\footnotesize\ttfamily int name\+\_\+len\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{leaderboard_8h_a115238ec5cf87cd6527eba284886123e}\label{leaderboard_8h_a115238ec5cf87cd6527eba284886123e}} 
+\index{leaderboard.h@{leaderboard.h}!scores@{scores}}
+\index{scores@{scores}!leaderboard.h@{leaderboard.h}}
+\doxysubsubsection{\texorpdfstring{scores}{scores}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structArray}{Array}} scores\hspace{0.3cm}{\ttfamily [extern]}}
+

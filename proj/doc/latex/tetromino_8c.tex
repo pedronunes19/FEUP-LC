@@ -1,0 +1,97 @@
+\hypertarget{tetromino_8c}{}\doxysection{src/game/tetromino.c File Reference}
+\label{tetromino_8c}\index{src/game/tetromino.c@{src/game/tetromino.c}}
+{\ttfamily \#include \char`\"{}tetromino.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tetromino_8c_a117fe4a2dcda9b42c1b1cb0f2a8fcb58}{check\+\_\+rotate\+\_\+inside\+\_\+border}} (\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$tetromino)
+\begin{DoxyCompactList}\small\item\em Verifies if the rotation of the tetromino has placed it within the borders of the play area. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tetromino_8c_ac1b3c57e355dc3d7412258c4b36b272d}{rotate\+Piece\+Left}} (\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$piece)
+\begin{DoxyCompactList}\small\item\em Attempts to rotate a piece to the left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tetromino_8c_a6629f859175be55d84d62469f2722868}{rotate\+Piece\+Right}} (\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$piece)
+\begin{DoxyCompactList}\small\item\em Attempts to rotate a piece to the right. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$ \mbox{\hyperlink{tetromino_8c_a24ed04c65442ce8096973fdafcfa9f30}{create\+\_\+tetromino}} (\mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Create a tetromino object with a given type, allocating the necessary memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tetromino_8c_a416fd20728b150cdef756953cab42b93}{delete\+\_\+tetromino}} (\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$tetromino)
+\begin{DoxyCompactList}\small\item\em Frees all of the allocated memory for a tetromino. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tetromino_8c_a117fe4a2dcda9b42c1b1cb0f2a8fcb58}\label{tetromino_8c_a117fe4a2dcda9b42c1b1cb0f2a8fcb58}} 
+\index{tetromino.c@{tetromino.c}!check\_rotate\_inside\_border@{check\_rotate\_inside\_border}}
+\index{check\_rotate\_inside\_border@{check\_rotate\_inside\_border}!tetromino.c@{tetromino.c}}
+\doxysubsubsection{\texorpdfstring{check\_rotate\_inside\_border()}{check\_rotate\_inside\_border()}}
+{\footnotesize\ttfamily void check\+\_\+rotate\+\_\+inside\+\_\+border (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$}]{tetromino }\end{DoxyParamCaption})}
+
+
+
+Verifies if the rotation of the tetromino has placed it within the borders of the play area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tetromino} & A struct like object with information of the current playable tetromino \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tetromino_8c_a24ed04c65442ce8096973fdafcfa9f30}\label{tetromino_8c_a24ed04c65442ce8096973fdafcfa9f30}} 
+\index{tetromino.c@{tetromino.c}!create\_tetromino@{create\_tetromino}}
+\index{create\_tetromino@{create\_tetromino}!tetromino.c@{tetromino.c}}
+\doxysubsubsection{\texorpdfstring{create\_tetromino()}{create\_tetromino()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$ create\+\_\+tetromino (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Create a tetromino object with a given type, allocating the necessary memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of tetromino to be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tetromino\+\_\+t$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tetromino_8c_a416fd20728b150cdef756953cab42b93}\label{tetromino_8c_a416fd20728b150cdef756953cab42b93}} 
+\index{tetromino.c@{tetromino.c}!delete\_tetromino@{delete\_tetromino}}
+\index{delete\_tetromino@{delete\_tetromino}!tetromino.c@{tetromino.c}}
+\doxysubsubsection{\texorpdfstring{delete\_tetromino()}{delete\_tetromino()}}
+{\footnotesize\ttfamily void delete\+\_\+tetromino (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$}]{tetromino }\end{DoxyParamCaption})}
+
+
+
+Frees all of the allocated memory for a tetromino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tetromino} & A struct like object with information of the current playable tetromino \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tetromino_8c_ac1b3c57e355dc3d7412258c4b36b272d}\label{tetromino_8c_ac1b3c57e355dc3d7412258c4b36b272d}} 
+\index{tetromino.c@{tetromino.c}!rotatePieceLeft@{rotatePieceLeft}}
+\index{rotatePieceLeft@{rotatePieceLeft}!tetromino.c@{tetromino.c}}
+\doxysubsubsection{\texorpdfstring{rotatePieceLeft()}{rotatePieceLeft()}}
+{\footnotesize\ttfamily void rotate\+Piece\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$}]{piece }\end{DoxyParamCaption})}
+
+
+
+Attempts to rotate a piece to the left. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & A struct like object with information of the current playable tetromino \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tetromino_8c_a6629f859175be55d84d62469f2722868}\label{tetromino_8c_a6629f859175be55d84d62469f2722868}} 
+\index{tetromino.c@{tetromino.c}!rotatePieceRight@{rotatePieceRight}}
+\index{rotatePieceRight@{rotatePieceRight}!tetromino.c@{tetromino.c}}
+\doxysubsubsection{\texorpdfstring{rotatePieceRight()}{rotatePieceRight()}}
+{\footnotesize\ttfamily void rotate\+Piece\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtetromino__t}{tetromino\+\_\+t}} $\ast$}]{piece }\end{DoxyParamCaption})}
+
+
+
+Attempts to rotate a piece to the right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & A struct like object with information of the current playable tetromino \\
+\hline
+\end{DoxyParams}

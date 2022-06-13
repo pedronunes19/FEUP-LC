@@ -1,0 +1,79 @@
+\hypertarget{kbd__event__handler_8h}{}\doxysection{src/event\+\_\+handler/kbd\+\_\+event\+\_\+handler.h File Reference}
+\label{kbd__event__handler_8h}\index{src/event\_handler/kbd\_event\_handler.h@{src/event\_handler/kbd\_event\_handler.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../devices/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../game/game\+\_\+state.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{kbd__event__handler_8h_a8f953f3d6c73d1b602907e7e4a2426e8}{handle\+\_\+kbd\+\_\+event}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}{scan\+\_\+code}}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em General keyboard event handler, calls upon the correct keyboard event handler according to the current game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{kbd__event__handler_8h_a91d00aec5b74011e56618781413ea844}{handle\+\_\+kbd\+\_\+playing\+\_\+event}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}{scan\+\_\+code}}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Keyboard event handler for the playing game state, handles rotations in the Z and X keys and piece movement in the arrow keys. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{kbd__event__handler_8h_a7c7f1a94a6f9362340dc9c6207d9731b}{handle\+\_\+kbd\+\_\+finished\+\_\+event}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}{scan\+\_\+code}}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Keyboard event handler for the finished game state, handles name writing and exiting of this menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{kbd__event__handler_8h_a71b7e56eef556dcc84b64fd5902cc531}{handle\+\_\+kbd\+\_\+leaderboard\+\_\+event}} (uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}{scan\+\_\+code}}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Keyboard event handler for the leaderboard game state, handles exiting of this menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kbd__event__handler_8h_a8f953f3d6c73d1b602907e7e4a2426e8}\label{kbd__event__handler_8h_a8f953f3d6c73d1b602907e7e4a2426e8}} 
+\index{kbd\_event\_handler.h@{kbd\_event\_handler.h}!handle\_kbd\_event@{handle\_kbd\_event}}
+\index{handle\_kbd\_event@{handle\_kbd\_event}!kbd\_event\_handler.h@{kbd\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_kbd\_event()}{handle\_kbd\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+kbd\+\_\+event (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scan\+\_\+code\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+General keyboard event handler, calls upon the correct keyboard event handler according to the current game state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+\_\+code} & The scan code of the pressed key \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{kbd__event__handler_8h_a7c7f1a94a6f9362340dc9c6207d9731b}\label{kbd__event__handler_8h_a7c7f1a94a6f9362340dc9c6207d9731b}} 
+\index{kbd\_event\_handler.h@{kbd\_event\_handler.h}!handle\_kbd\_finished\_event@{handle\_kbd\_finished\_event}}
+\index{handle\_kbd\_finished\_event@{handle\_kbd\_finished\_event}!kbd\_event\_handler.h@{kbd\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_kbd\_finished\_event()}{handle\_kbd\_finished\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+kbd\+\_\+finished\+\_\+event (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scan\+\_\+code\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Keyboard event handler for the finished game state, handles name writing and exiting of this menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+\_\+code} & The scan code of the pressed key \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{kbd__event__handler_8h_a71b7e56eef556dcc84b64fd5902cc531}\label{kbd__event__handler_8h_a71b7e56eef556dcc84b64fd5902cc531}} 
+\index{kbd\_event\_handler.h@{kbd\_event\_handler.h}!handle\_kbd\_leaderboard\_event@{handle\_kbd\_leaderboard\_event}}
+\index{handle\_kbd\_leaderboard\_event@{handle\_kbd\_leaderboard\_event}!kbd\_event\_handler.h@{kbd\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_kbd\_leaderboard\_event()}{handle\_kbd\_leaderboard\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+kbd\+\_\+leaderboard\+\_\+event (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scan\+\_\+code\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Keyboard event handler for the leaderboard game state, handles exiting of this menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+\_\+code} & The scan code of the pressed key \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{kbd__event__handler_8h_a91d00aec5b74011e56618781413ea844}\label{kbd__event__handler_8h_a91d00aec5b74011e56618781413ea844}} 
+\index{kbd\_event\_handler.h@{kbd\_event\_handler.h}!handle\_kbd\_playing\_event@{handle\_kbd\_playing\_event}}
+\index{handle\_kbd\_playing\_event@{handle\_kbd\_playing\_event}!kbd\_event\_handler.h@{kbd\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_kbd\_playing\_event()}{handle\_kbd\_playing\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+kbd\+\_\+playing\+\_\+event (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{scan\+\_\+code\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Keyboard event handler for the playing game state, handles rotations in the Z and X keys and piece movement in the arrow keys. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scan\+\_\+code} & The scan code of the pressed key \\
+\hline
+\end{DoxyParams}

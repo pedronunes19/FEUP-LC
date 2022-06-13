@@ -1,0 +1,167 @@
+\hypertarget{utils_8c}{}\doxysection{src/game/utils.c File Reference}
+\label{utils_8c}\index{src/game/utils.c@{src/game/utils.c}}
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utils_8c_ad4854d883648f1c7e2ff9050bf37b1c3}{reverse\+Columns}} (uint8\+\_\+t $\ast$$\ast$arr, unsigned R, unsigned C)
+\begin{DoxyCompactList}\small\item\em Reverses the columns of a matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a5d90f4375a95fce471d9fa2cbbaa26f2}{reverse\+Rows}} (uint8\+\_\+t $\ast$$\ast$arr, unsigned R, unsigned C)
+\begin{DoxyCompactList}\small\item\em Reverses the rows of a matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a30c0c4591b8f4c42d630a15ddf863a12}{transpose}} (uint8\+\_\+t $\ast$$\ast$arr, unsigned R, unsigned C)
+\begin{DoxyCompactList}\small\item\em Transposes a matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a984ff845a8e1938888de02af624fae53}{print\+Matrix}} (uint8\+\_\+t $\ast$$\ast$arr, unsigned R, unsigned C)
+\begin{DoxyCompactList}\small\item\em Prints a martix (for debug purposes) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a40d838f8add605858a0c31516ccdd4eb}{rotate\+Left}} (uint8\+\_\+t $\ast$$\ast$arr, unsigned R, unsigned C)
+\begin{DoxyCompactList}\small\item\em Rotates a matrix to the left, calling the correct functions for this purpose. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a94696945ba5fc8cb718642ceb60359b2}{rotate\+Right}} (uint8\+\_\+t $\ast$$\ast$arr, unsigned R, unsigned C)
+\begin{DoxyCompactList}\small\item\em Rotates a matrix to the right, calling the correct functions for this purpose. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8c_a3fca3140f3b179f51b6079ea677df259}{is\+\_\+alpha}} (char character)
+\begin{DoxyCompactList}\small\item\em Checks if a character is alphanumeric. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a4f017f51874e2df61091a589c98aa54c}{get\+\_\+keys}} ()
+\begin{DoxyCompactList}\small\item\em Get the keys object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8c_a4f017f51874e2df61091a589c98aa54c}\label{utils_8c_a4f017f51874e2df61091a589c98aa54c}} 
+\index{utils.c@{utils.c}!get\_keys@{get\_keys}}
+\index{get\_keys@{get\_keys}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{get\_keys()}{get\_keys()}}
+{\footnotesize\ttfamily void get\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the keys object. 
+
+\mbox{\Hypertarget{utils_8c_a3fca3140f3b179f51b6079ea677df259}\label{utils_8c_a3fca3140f3b179f51b6079ea677df259}} 
+\index{utils.c@{utils.c}!is\_alpha@{is\_alpha}}
+\index{is\_alpha@{is\_alpha}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{is\_alpha()}{is\_alpha()}}
+{\footnotesize\ttfamily bool is\+\_\+alpha (\begin{DoxyParamCaption}\item[{char}]{character }\end{DoxyParamCaption})}
+
+
+
+Checks if a character is alphanumeric. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & The character to be evaluated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if is an alpha numeric character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8c_a984ff845a8e1938888de02af624fae53}\label{utils_8c_a984ff845a8e1938888de02af624fae53}} 
+\index{utils.c@{utils.c}!printMatrix@{printMatrix}}
+\index{printMatrix@{printMatrix}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{printMatrix()}{printMatrix()}}
+{\footnotesize\ttfamily void print\+Matrix (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{arr,  }\item[{unsigned}]{R,  }\item[{unsigned}]{C }\end{DoxyParamCaption})}
+
+
+
+Prints a martix (for debug purposes) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The matrix to be printed \\
+\hline
+{\em R} & The number of rows \\
+\hline
+{\em C} & The number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_ad4854d883648f1c7e2ff9050bf37b1c3}\label{utils_8c_ad4854d883648f1c7e2ff9050bf37b1c3}} 
+\index{utils.c@{utils.c}!reverseColumns@{reverseColumns}}
+\index{reverseColumns@{reverseColumns}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{reverseColumns()}{reverseColumns()}}
+{\footnotesize\ttfamily void reverse\+Columns (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{arr,  }\item[{unsigned}]{R,  }\item[{unsigned}]{C }\end{DoxyParamCaption})}
+
+
+
+Reverses the columns of a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The array to be reversed \\
+\hline
+{\em R} & The number of rows \\
+\hline
+{\em C} & The number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_a5d90f4375a95fce471d9fa2cbbaa26f2}\label{utils_8c_a5d90f4375a95fce471d9fa2cbbaa26f2}} 
+\index{utils.c@{utils.c}!reverseRows@{reverseRows}}
+\index{reverseRows@{reverseRows}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{reverseRows()}{reverseRows()}}
+{\footnotesize\ttfamily void reverse\+Rows (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{arr,  }\item[{unsigned}]{R,  }\item[{unsigned}]{C }\end{DoxyParamCaption})}
+
+
+
+Reverses the rows of a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The array to be reversed \\
+\hline
+{\em R} & The number of rows \\
+\hline
+{\em C} & The number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_a40d838f8add605858a0c31516ccdd4eb}\label{utils_8c_a40d838f8add605858a0c31516ccdd4eb}} 
+\index{utils.c@{utils.c}!rotateLeft@{rotateLeft}}
+\index{rotateLeft@{rotateLeft}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{rotateLeft()}{rotateLeft()}}
+{\footnotesize\ttfamily void rotate\+Left (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{arr,  }\item[{unsigned}]{R,  }\item[{unsigned}]{C }\end{DoxyParamCaption})}
+
+
+
+Rotates a matrix to the left, calling the correct functions for this purpose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The matrix to be rotated \\
+\hline
+{\em R} & The number of rows \\
+\hline
+{\em C} & The number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_a94696945ba5fc8cb718642ceb60359b2}\label{utils_8c_a94696945ba5fc8cb718642ceb60359b2}} 
+\index{utils.c@{utils.c}!rotateRight@{rotateRight}}
+\index{rotateRight@{rotateRight}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{rotateRight()}{rotateRight()}}
+{\footnotesize\ttfamily void rotate\+Right (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{arr,  }\item[{unsigned}]{R,  }\item[{unsigned}]{C }\end{DoxyParamCaption})}
+
+
+
+Rotates a matrix to the right, calling the correct functions for this purpose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The matrix to be rotated \\
+\hline
+{\em R} & The number of rows \\
+\hline
+{\em C} & The number of columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_a30c0c4591b8f4c42d630a15ddf863a12}\label{utils_8c_a30c0c4591b8f4c42d630a15ddf863a12}} 
+\index{utils.c@{utils.c}!transpose@{transpose}}
+\index{transpose@{transpose}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily void transpose (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$$\ast$}]{arr,  }\item[{unsigned}]{R,  }\item[{unsigned}]{C }\end{DoxyParamCaption})}
+
+
+
+Transposes a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The matrix to be transposed \\
+\hline
+{\em R} & The number of rows \\
+\hline
+{\em C} & The number of columns \\
+\hline
+\end{DoxyParams}

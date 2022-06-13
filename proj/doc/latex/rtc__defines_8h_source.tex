@@ -1,0 +1,58 @@
+\hypertarget{rtc__defines_8h_source}{}\doxysection{rtc\+\_\+defines.\+h}
+\label{rtc__defines_8h_source}\index{src/devices/rtc\_defines.h@{src/devices/rtc\_defines.h}}
+\mbox{\hyperlink{rtc__defines_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_LCOM\_RTC\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_LCOM\_RTC\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define WAIT              244}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define RTC\_IRQ           8         }\textcolor{comment}{// RTC interrupt line}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define RTC\_ADDR\_REG      0x70      }\textcolor{comment}{// RTC address register (written to)}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define RTC\_DATA\_REG      0x71      }\textcolor{comment}{// RTC data register (written/read to/from)}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define RTC\_SECS          0x00      }\textcolor{comment}{// Seconds register}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define RTC\_SECS\_ALARM    0x01      }\textcolor{comment}{// Seconds alarm register}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define RTC\_MINS          0x02      }\textcolor{comment}{// Minutes register}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define RTC\_MINS\_ALARM    0x03      }\textcolor{comment}{// Minutes alarm register}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define RTC\_HOURS         0x04      }\textcolor{comment}{// Hours register}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define RTC\_HOURS\_ALARM   0x05      }\textcolor{comment}{// Hours alarm register}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define RTC\_WEEK\_DAY      0x06      }\textcolor{comment}{// Day of the week register}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define RTC\_MONTH\_DAY     0x07      }\textcolor{comment}{// Day of the month register}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define RTC\_MONTH         0x08      }\textcolor{comment}{// Month register}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define RTC\_YEAR          0x09      }\textcolor{comment}{// Year register}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define RTC\_REG\_A         0x0A      }\textcolor{comment}{// Register A}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define RTC\_REG\_B         0x0B      }\textcolor{comment}{// Register B}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define RTC\_REG\_C         0x0C      }\textcolor{comment}{// Register C}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define RTC\_REG\_D         0x0D      }\textcolor{comment}{// Register D}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{/* Register A bit masks */}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define RTC\_UIP           BIT(7)    }\textcolor{comment}{// Bit mask to check for Update In Progress}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{/* Register B bit masks */}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define RTC\_SET           BIT(7)    }\textcolor{comment}{// Bit mask to inhibit updates of time/date registers}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define RTC\_PIE           BIT(6)    }\textcolor{comment}{// Bit mask to enable Periodic interrupts}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define RTC\_AIE           BIT(5)    }\textcolor{comment}{// Bit mask to enable Alarm interrupts}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define RTC\_UIE           BIT(4)    }\textcolor{comment}{// Bit mask to enable Update-\/ended interrupts}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define RTC\_DM            BIT(2)    }\textcolor{comment}{// Bit mask to set time, alarm and date registers in binary}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define RTC\_TW\_FO         BIT(1)    }\textcolor{comment}{// Bit mask to set hours range to 0-\/23}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define RTC\_DST           BIT(0)    }\textcolor{comment}{// Bit mask to enable daylight savings}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{comment}{/* Register C bit masks */}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{// IRQF = ((PF == PIE == 1) || (AF == AIE == 1) || (UF == UIE == 1))}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define RTC\_IRQF          BIT(7)    }\textcolor{comment}{// Bit mask to check for an interrupt}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define RTC\_PF            BIT(6)    }\textcolor{comment}{// Periodic flag}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define RTC\_AF            BIT(5)    }\textcolor{comment}{// Alarm flag}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define RTC\_UF            BIT(4)    }\textcolor{comment}{// Update-\/ended flag}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{/* Register D bit masks */}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define RTC\_VRT           BIT(7)    }\textcolor{comment}{// Bit mask to check if the internal lithium battery has power}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*\_LCOM\_RTC\_H\_*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

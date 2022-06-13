@@ -1,0 +1,220 @@
+\hypertarget{keyboard_8h}{}\doxysection{src/devices/keyboard.h File Reference}
+\label{keyboard_8h}\index{src/devices/keyboard.h@{src/devices/keyboard.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$minix/sysutil.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}i8042\+\_\+kbd.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{keyboard_8h_a1a522aa19bcb695a9df30032a893bee3}{DELAY\+\_\+\+US}}~20000
+\item 
+\#define \mbox{\hyperlink{keyboard_8h_ac8a34f3fae782b1f62195c0d8f1d5d38}{PARITY\+\_\+\+ERR}}~1
+\item 
+\#define \mbox{\hyperlink{keyboard_8h_abe4b8c2e83c44a395ee55c8d2cd41223}{TIME\+\_\+\+OUT\+\_\+\+ERR}}~2
+\item 
+\#define \mbox{\hyperlink{keyboard_8h_a0cfb144c907a65519a9fd11dc37463e1}{IBF\+\_\+\+FULL}}~3
+\item 
+\#define \mbox{\hyperlink{keyboard_8h_aa9656043b03d012486b03266f2f49356}{AUX\+\_\+\+DATA}}~4
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{keyboard_8h_a4ac9231a99a664d6a9f0b69767e0d707}{kbd\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes KBC interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aee0a7b54ee426fade9c780418d110fe0}{kbd\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes KBC interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aa6885d41bfb14bc316f3cb53410e60fb}{check\+\_\+status}} (uint8\+\_\+t st)
+\begin{DoxyCompactList}\small\item\em Checks status of the STATUS\+\_\+\+REG. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_aefe2b4f231fc70cb30ada78778f120c0}{kbd\+\_\+get\+\_\+status}} (uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em Reads the status register. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a619abc5b7b65862ca17882bc5da349d4}{kbd\+\_\+read\+\_\+out\+\_\+buffer}} (uint8\+\_\+t $\ast$output)
+\begin{DoxyCompactList}\small\item\em Reads the status output buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a1d5d98ebfbf6caf659fd5e6c4dd13e1a}{kbd\+\_\+reenable\+\_\+ints}} ()
+\item 
+int() \mbox{\hyperlink{keyboard_8h_a7969e8b1ce69a5fba9038fb1a8c32bae}{kbd\+\_\+write\+\_\+cmdb}} (int port, uint8\+\_\+t cmdb)
+\begin{DoxyCompactList}\small\item\em Writes a command byte to the KBC command register. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{keyboard_8h_a5b8097a2cc4717dbdc43aafe638d6af3}{kbd\+\_\+read\+\_\+ret\+\_\+cmdb}} (uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em Reads a command byte from the KBC command register. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{keyboard_8h_aca842ab89e3fc03d8cca103dd6808895}{kbd\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Handles keyboard interrupts reading the status register and output buffer and handling errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{keyboard_8h_ae5d71bd9d53577890ce705d0b488b6ee}{keys}} \mbox{[}0x90\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}{scan\+\_\+code}} \mbox{[}2\mbox{]}
+\item 
+int \mbox{\hyperlink{keyboard_8h_a1304f6a4a1ca2e86ea8cf758c982e0e0}{kbd\+\_\+i}}
+\item 
+bool \mbox{\hyperlink{keyboard_8h_add8f02ddb10d6c372aaecf63d33bcd66}{kbd\+\_\+ih\+\_\+flag}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{keyboard_8h_aa9656043b03d012486b03266f2f49356}\label{keyboard_8h_aa9656043b03d012486b03266f2f49356}} 
+\index{keyboard.h@{keyboard.h}!AUX\_DATA@{AUX\_DATA}}
+\index{AUX\_DATA@{AUX\_DATA}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{AUX\_DATA}{AUX\_DATA}}
+{\footnotesize\ttfamily \#define AUX\+\_\+\+DATA~4}
+
+\mbox{\Hypertarget{keyboard_8h_a1a522aa19bcb695a9df30032a893bee3}\label{keyboard_8h_a1a522aa19bcb695a9df30032a893bee3}} 
+\index{keyboard.h@{keyboard.h}!DELAY\_US@{DELAY\_US}}
+\index{DELAY\_US@{DELAY\_US}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{DELAY\_US}{DELAY\_US}}
+{\footnotesize\ttfamily \#define DELAY\+\_\+\+US~20000}
+
+\mbox{\Hypertarget{keyboard_8h_a0cfb144c907a65519a9fd11dc37463e1}\label{keyboard_8h_a0cfb144c907a65519a9fd11dc37463e1}} 
+\index{keyboard.h@{keyboard.h}!IBF\_FULL@{IBF\_FULL}}
+\index{IBF\_FULL@{IBF\_FULL}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{IBF\_FULL}{IBF\_FULL}}
+{\footnotesize\ttfamily \#define IBF\+\_\+\+FULL~3}
+
+\mbox{\Hypertarget{keyboard_8h_ac8a34f3fae782b1f62195c0d8f1d5d38}\label{keyboard_8h_ac8a34f3fae782b1f62195c0d8f1d5d38}} 
+\index{keyboard.h@{keyboard.h}!PARITY\_ERR@{PARITY\_ERR}}
+\index{PARITY\_ERR@{PARITY\_ERR}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{PARITY\_ERR}{PARITY\_ERR}}
+{\footnotesize\ttfamily \#define PARITY\+\_\+\+ERR~1}
+
+\mbox{\Hypertarget{keyboard_8h_abe4b8c2e83c44a395ee55c8d2cd41223}\label{keyboard_8h_abe4b8c2e83c44a395ee55c8d2cd41223}} 
+\index{keyboard.h@{keyboard.h}!TIME\_OUT\_ERR@{TIME\_OUT\_ERR}}
+\index{TIME\_OUT\_ERR@{TIME\_OUT\_ERR}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{TIME\_OUT\_ERR}{TIME\_OUT\_ERR}}
+{\footnotesize\ttfamily \#define TIME\+\_\+\+OUT\+\_\+\+ERR~2}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{keyboard_8h_aa6885d41bfb14bc316f3cb53410e60fb}\label{keyboard_8h_aa6885d41bfb14bc316f3cb53410e60fb}} 
+\index{keyboard.h@{keyboard.h}!check\_status@{check\_status}}
+\index{check\_status@{check\_status}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{check\_status()}{check\_status()}}
+{\footnotesize\ttfamily int() check\+\_\+status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{st }\end{DoxyParamCaption})}
+
+
+
+Checks status of the STATUS\+\_\+\+REG. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 no problems detected and one of the error return values otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_aefe2b4f231fc70cb30ada78778f120c0}\label{keyboard_8h_aefe2b4f231fc70cb30ada78778f120c0}} 
+\index{keyboard.h@{keyboard.h}!kbd\_get\_status@{kbd\_get\_status}}
+\index{kbd\_get\_status@{kbd\_get\_status}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_get\_status()}{kbd\_get\_status()}}
+{\footnotesize\ttfamily int() kbd\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Reads the status register. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_aca842ab89e3fc03d8cca103dd6808895}\label{keyboard_8h_aca842ab89e3fc03d8cca103dd6808895}} 
+\index{keyboard.h@{keyboard.h}!kbd\_ih@{kbd\_ih}}
+\index{kbd\_ih@{kbd\_ih}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_ih()}{kbd\_ih()}}
+{\footnotesize\ttfamily void() kbd\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles keyboard interrupts reading the status register and output buffer and handling errors. 
+
+\mbox{\Hypertarget{keyboard_8h_a619abc5b7b65862ca17882bc5da349d4}\label{keyboard_8h_a619abc5b7b65862ca17882bc5da349d4}} 
+\index{keyboard.h@{keyboard.h}!kbd\_read\_out\_buffer@{kbd\_read\_out\_buffer}}
+\index{kbd\_read\_out\_buffer@{kbd\_read\_out\_buffer}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_read\_out\_buffer()}{kbd\_read\_out\_buffer()}}
+{\footnotesize\ttfamily int() kbd\+\_\+read\+\_\+out\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+Reads the status output buffer. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a5b8097a2cc4717dbdc43aafe638d6af3}\label{keyboard_8h_a5b8097a2cc4717dbdc43aafe638d6af3}} 
+\index{keyboard.h@{keyboard.h}!kbd\_read\_ret\_cmdb@{kbd\_read\_ret\_cmdb}}
+\index{kbd\_read\_ret\_cmdb@{kbd\_read\_ret\_cmdb}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_read\_ret\_cmdb()}{kbd\_read\_ret\_cmdb()}}
+{\footnotesize\ttfamily int() kbd\+\_\+read\+\_\+ret\+\_\+cmdb (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Reads a command byte from the KBC command register. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_a1d5d98ebfbf6caf659fd5e6c4dd13e1a}\label{keyboard_8h_a1d5d98ebfbf6caf659fd5e6c4dd13e1a}} 
+\index{keyboard.h@{keyboard.h}!kbd\_reenable\_ints@{kbd\_reenable\_ints}}
+\index{kbd\_reenable\_ints@{kbd\_reenable\_ints}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_reenable\_ints()}{kbd\_reenable\_ints()}}
+{\footnotesize\ttfamily int() kbd\+\_\+reenable\+\_\+ints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{keyboard_8h_a4ac9231a99a664d6a9f0b69767e0d707}\label{keyboard_8h_a4ac9231a99a664d6a9f0b69767e0d707}} 
+\index{keyboard.h@{keyboard.h}!kbd\_subscribe\_int@{kbd\_subscribe\_int}}
+\index{kbd\_subscribe\_int@{kbd\_subscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_subscribe\_int()}{kbd\_subscribe\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes KBC interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{keyboard_8h_aee0a7b54ee426fade9c780418d110fe0}\label{keyboard_8h_aee0a7b54ee426fade9c780418d110fe0}} 
+\index{keyboard.h@{keyboard.h}!kbd\_unsubscribe\_int@{kbd\_unsubscribe\_int}}
+\index{kbd\_unsubscribe\_int@{kbd\_unsubscribe\_int}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_unsubscribe\_int()}{kbd\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() kbd\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes KBC interrupts. 
+
+Returns 0 upon success and non-\/zero otherwise ~\newline
+ \mbox{\Hypertarget{keyboard_8h_a7969e8b1ce69a5fba9038fb1a8c32bae}\label{keyboard_8h_a7969e8b1ce69a5fba9038fb1a8c32bae}} 
+\index{keyboard.h@{keyboard.h}!kbd\_write\_cmdb@{kbd\_write\_cmdb}}
+\index{kbd\_write\_cmdb@{kbd\_write\_cmdb}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_write\_cmdb()}{kbd\_write\_cmdb()}}
+{\footnotesize\ttfamily int() kbd\+\_\+write\+\_\+cmdb (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{uint8\+\_\+t}]{cmdb }\end{DoxyParamCaption})}
+
+
+
+Writes a command byte to the KBC command register. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{keyboard_8h_a1304f6a4a1ca2e86ea8cf758c982e0e0}\label{keyboard_8h_a1304f6a4a1ca2e86ea8cf758c982e0e0}} 
+\index{keyboard.h@{keyboard.h}!kbd\_i@{kbd\_i}}
+\index{kbd\_i@{kbd\_i}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_i}{kbd\_i}}
+{\footnotesize\ttfamily int kbd\+\_\+i\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{keyboard_8h_add8f02ddb10d6c372aaecf63d33bcd66}\label{keyboard_8h_add8f02ddb10d6c372aaecf63d33bcd66}} 
+\index{keyboard.h@{keyboard.h}!kbd\_ih\_flag@{kbd\_ih\_flag}}
+\index{kbd\_ih\_flag@{kbd\_ih\_flag}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{kbd\_ih\_flag}{kbd\_ih\_flag}}
+{\footnotesize\ttfamily bool kbd\+\_\+ih\+\_\+flag\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{keyboard_8h_ae5d71bd9d53577890ce705d0b488b6ee}\label{keyboard_8h_ae5d71bd9d53577890ce705d0b488b6ee}} 
+\index{keyboard.h@{keyboard.h}!keys@{keys}}
+\index{keys@{keys}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily char keys\mbox{[}0x90\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}\label{keyboard_8h_a06a3dd28ec493a423fea6ccd048d441a}} 
+\index{keyboard.h@{keyboard.h}!scan\_code@{scan\_code}}
+\index{scan\_code@{scan\_code}!keyboard.h@{keyboard.h}}
+\doxysubsubsection{\texorpdfstring{scan\_code}{scan\_code}}
+{\footnotesize\ttfamily uint8\+\_\+t scan\+\_\+code\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

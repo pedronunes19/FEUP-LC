@@ -1,0 +1,39 @@
+\hypertarget{tetromino_8h_source}{}\doxysection{tetromino.\+h}
+\label{tetromino_8h_source}\index{src/game/tetromino.h@{src/game/tetromino.h}}
+\mbox{\hyperlink{tetromino_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils_8h}{utils.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{11   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819da1e1a4aba20a5a009e616cbc8fad33ac7}{CLEAR}} = 0,}
+\DoxyCodeLine{12   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819dad091b8e376f7cf432dc367e1eda65e85}{I}},}
+\DoxyCodeLine{13   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819da03605500b0c55f3d95874e8edfcf4e30}{J}},}
+\DoxyCodeLine{14   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819daef31cc6fe9479955961311ee18ac205f}{L}},}
+\DoxyCodeLine{15   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819daf1ce01387d2348f8b858721a7db81670}{S}},}
+\DoxyCodeLine{16   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819daf4b8b7698dfedf5562a7db2bdb07010a}{O}},}
+\DoxyCodeLine{17   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819da21f40778b7db9343a6ca75ec2c41ccce}{T}},}
+\DoxyCodeLine{18   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819daa70478ce277ffc322f8e1e3418e07355}{Z}}}
+\DoxyCodeLine{19 \} \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\_type}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{30   int32\_t \mbox{\hyperlink{structtetromino__t_a89be098a62c1d2f2961e434d9e785a17}{x}};}
+\DoxyCodeLine{35   int32\_t \mbox{\hyperlink{structtetromino__t_a30968a7d75c8c7cee1f3d4426ef34e4b}{y}};}
+\DoxyCodeLine{40   \mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\_type}} \mbox{\hyperlink{structtetromino__t_a15cb31246281fff01ba4d0e781c9dc8c}{type}};}
+\DoxyCodeLine{45   uint8\_t **\mbox{\hyperlink{structtetromino__t_a086221ec0005628ec354cce35d91af42}{matrix}};}
+\DoxyCodeLine{50   xpm\_image\_t \mbox{\hyperlink{structtetromino__t_a98f8308fc235fe8b4739fcca09c9b1d7}{image}};}
+\DoxyCodeLine{51 \} \mbox{\hyperlink{structtetromino__t}{tetromino\_t}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{void} \mbox{\hyperlink{tetromino_8h_a117fe4a2dcda9b42c1b1cb0f2a8fcb58}{check\_rotate\_inside\_border}}(\mbox{\hyperlink{structtetromino__t}{tetromino\_t}}* tetromino);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65 \textcolor{keywordtype}{void} \mbox{\hyperlink{tetromino_8h_ac1b3c57e355dc3d7412258c4b36b272d}{rotatePieceLeft}}(\mbox{\hyperlink{structtetromino__t}{tetromino\_t}}* piece);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72 \textcolor{keywordtype}{void} \mbox{\hyperlink{tetromino_8h_a6629f859175be55d84d62469f2722868}{rotatePieceRight}}(\mbox{\hyperlink{structtetromino__t}{tetromino\_t}}* piece);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{80 \mbox{\hyperlink{structtetromino__t}{tetromino\_t}}* \mbox{\hyperlink{tetromino_8h_a24ed04c65442ce8096973fdafcfa9f30}{create\_tetromino}}(\mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\_type}} type);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{87 \textcolor{keywordtype}{void} \mbox{\hyperlink{tetromino_8h_a416fd20728b150cdef756953cab42b93}{delete\_tetromino}}(\mbox{\hyperlink{structtetromino__t}{tetromino\_t}} * tetromino);}
+
+\end{DoxyCode}

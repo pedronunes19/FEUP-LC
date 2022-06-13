@@ -1,0 +1,96 @@
+\hypertarget{mouse__event__handler_8h}{}\doxysection{src/event\+\_\+handler/mouse\+\_\+event\+\_\+handler.h File Reference}
+\label{mouse__event__handler_8h}\index{src/event\_handler/mouse\_event\_handler.h@{src/event\_handler/mouse\_event\_handler.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}devices/mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game/game\+\_\+state.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mouse__event__handler_8h_a2b4320aed33d44e042e51170d7ab66f3}{handle\+\_\+mouse\+\_\+event}} (struct packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}})
+\begin{DoxyCompactList}\small\item\em General mouse event handler, calls upon the correct keyboard event handler according to the current game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mouse__event__handler_8h_a0947840da77c1d2b1280d5ada3ed4293}{handle\+\_\+mouse\+\_\+menu\+\_\+event}} (struct packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}})
+\begin{DoxyCompactList}\small\item\em Mouse event handler for the main menu game state, handles menu selecting options and clicks, switching to the desired menus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mouse__event__handler_8h_aebb3bb8432b4f69b090547facd0028aa}{handle\+\_\+mouse\+\_\+playing\+\_\+event}} (struct packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}})
+\begin{DoxyCompactList}\small\item\em Mouse event handler for the playing game state, handles piece moving by moving the mouse in the left and write direcction, faster drop in the left button and right rotation in the right button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mouse__event__handler_8h_ae9d63d9bd28b25c369c58a64d241003a}{handle\+\_\+mouse\+\_\+finished\+\_\+event}} (struct packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}})
+\begin{DoxyCompactList}\small\item\em Mouse event handler for the finished game state, handles mouse movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mouse__event__handler_8h_a5a301b25a2019531c503c949ec154d31}{handle\+\_\+mouse\+\_\+leaderboard\+\_\+event}} (struct packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}})
+\begin{DoxyCompactList}\small\item\em Mouse event handler for the leaderboard game state, handles mouse movement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mouse__event__handler_8h_a2b4320aed33d44e042e51170d7ab66f3}\label{mouse__event__handler_8h_a2b4320aed33d44e042e51170d7ab66f3}} 
+\index{mouse\_event\_handler.h@{mouse\_event\_handler.h}!handle\_mouse\_event@{handle\_mouse\_event}}
+\index{handle\_mouse\_event@{handle\_mouse\_event}!mouse\_event\_handler.h@{mouse\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_mouse\_event()}{handle\_mouse\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+mouse\+\_\+event (\begin{DoxyParamCaption}\item[{struct packet}]{pp }\end{DoxyParamCaption})}
+
+
+
+General mouse event handler, calls upon the correct keyboard event handler according to the current game state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Struct like object with mouse event information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mouse__event__handler_8h_ae9d63d9bd28b25c369c58a64d241003a}\label{mouse__event__handler_8h_ae9d63d9bd28b25c369c58a64d241003a}} 
+\index{mouse\_event\_handler.h@{mouse\_event\_handler.h}!handle\_mouse\_finished\_event@{handle\_mouse\_finished\_event}}
+\index{handle\_mouse\_finished\_event@{handle\_mouse\_finished\_event}!mouse\_event\_handler.h@{mouse\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_mouse\_finished\_event()}{handle\_mouse\_finished\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+mouse\+\_\+finished\+\_\+event (\begin{DoxyParamCaption}\item[{struct packet}]{pp }\end{DoxyParamCaption})}
+
+
+
+Mouse event handler for the finished game state, handles mouse movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Struct like object with mouse event information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mouse__event__handler_8h_a5a301b25a2019531c503c949ec154d31}\label{mouse__event__handler_8h_a5a301b25a2019531c503c949ec154d31}} 
+\index{mouse\_event\_handler.h@{mouse\_event\_handler.h}!handle\_mouse\_leaderboard\_event@{handle\_mouse\_leaderboard\_event}}
+\index{handle\_mouse\_leaderboard\_event@{handle\_mouse\_leaderboard\_event}!mouse\_event\_handler.h@{mouse\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_mouse\_leaderboard\_event()}{handle\_mouse\_leaderboard\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+mouse\+\_\+leaderboard\+\_\+event (\begin{DoxyParamCaption}\item[{struct packet}]{pp }\end{DoxyParamCaption})}
+
+
+
+Mouse event handler for the leaderboard game state, handles mouse movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Struct like object with mouse event information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mouse__event__handler_8h_a0947840da77c1d2b1280d5ada3ed4293}\label{mouse__event__handler_8h_a0947840da77c1d2b1280d5ada3ed4293}} 
+\index{mouse\_event\_handler.h@{mouse\_event\_handler.h}!handle\_mouse\_menu\_event@{handle\_mouse\_menu\_event}}
+\index{handle\_mouse\_menu\_event@{handle\_mouse\_menu\_event}!mouse\_event\_handler.h@{mouse\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_mouse\_menu\_event()}{handle\_mouse\_menu\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+mouse\+\_\+menu\+\_\+event (\begin{DoxyParamCaption}\item[{struct packet}]{pp }\end{DoxyParamCaption})}
+
+
+
+Mouse event handler for the main menu game state, handles menu selecting options and clicks, switching to the desired menus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Struct like object with mouse event information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mouse__event__handler_8h_aebb3bb8432b4f69b090547facd0028aa}\label{mouse__event__handler_8h_aebb3bb8432b4f69b090547facd0028aa}} 
+\index{mouse\_event\_handler.h@{mouse\_event\_handler.h}!handle\_mouse\_playing\_event@{handle\_mouse\_playing\_event}}
+\index{handle\_mouse\_playing\_event@{handle\_mouse\_playing\_event}!mouse\_event\_handler.h@{mouse\_event\_handler.h}}
+\doxysubsubsection{\texorpdfstring{handle\_mouse\_playing\_event()}{handle\_mouse\_playing\_event()}}
+{\footnotesize\ttfamily void handle\+\_\+mouse\+\_\+playing\+\_\+event (\begin{DoxyParamCaption}\item[{struct packet}]{pp }\end{DoxyParamCaption})}
+
+
+
+Mouse event handler for the playing game state, handles piece moving by moving the mouse in the left and write direcction, faster drop in the left button and right rotation in the right button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Struct like object with mouse event information \\
+\hline
+\end{DoxyParams}

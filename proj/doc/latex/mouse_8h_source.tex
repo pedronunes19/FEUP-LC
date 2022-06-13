@@ -1,0 +1,35 @@
+\hypertarget{mouse_8h_source}{}\doxysection{mouse.\+h}
+\label{mouse_8h_source}\index{src/devices/mouse.h@{src/devices/mouse.h}}
+\mbox{\hyperlink{mouse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <lcom/lab4.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{i8042__mouse_8h}{i8042\_mouse.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define DELAY\_US2 25000 }\textcolor{comment}{// Tick delay}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{extern} \textcolor{keyword}{struct }packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}};}
+\DoxyCodeLine{10 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{mouse_8h_a73c31c7ca19d79b9ccc6b434583b36f0}{mouse\_i}};}
+\DoxyCodeLine{11 \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{mouse_8h_ab3ae786aee1f20eff4f6d9ff85e41299}{mouse\_ready}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{18 int (\mbox{\hyperlink{mouse_8h_a20285aed4b3ef45812cd967532dd09db}{mouse\_subscribe\_int}}) (uint8\_t* bit\_no);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{25 int (\mbox{\hyperlink{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\_unsubscribe\_int}})();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32 int (\mbox{\hyperlink{mouse_8h_a1520850d853547a773b93680b0606e54}{\_mouse\_enable\_data\_reporting}})();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39 int (\mbox{\hyperlink{mouse_8h_a7e311379d4d64f88873ef8ade5c82a25}{mouse\_disable\_data\_reporting}})();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46 int (\mbox{\hyperlink{mouse_8h_a0b7b792a5d7d8d05abd500a047064313}{mouse\_enable\_stream\_mode}})();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53 int (\mbox{\hyperlink{mouse_8h_a6c96b97b6d60426a8fc089131ca0c1db}{mouse\_get\_status}}) (uint8\_t* st);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{60 int (\mbox{\hyperlink{mouse_8h_a50796bc7dd16af8dbf9dc017679c3cf7}{mouse\_read\_buffer}}) (uint8\_t port, uint8\_t* output);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{67 int (\mbox{\hyperlink{mouse_8h_ac3329f3ba2dd01e2dcfe6e238b88c8c5}{mouse\_write\_cmd}}) (uint8\_t cmdb);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{73 void (\mbox{\hyperlink{mouse_8h_a210374b50462acdedab00df64d5cea3c}{mouse\_ih}})();}
+
+\end{DoxyCode}

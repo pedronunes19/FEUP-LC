@@ -1,0 +1,47 @@
+\hypertarget{vc__defines_8h_source}{}\doxysection{vc\+\_\+defines.\+h}
+\label{vc__defines_8h_source}\index{src/devices/vc\_defines.h@{src/devices/vc\_defines.h}}
+\mbox{\hyperlink{vc__defines_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{comment}{// AH register values}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define AH\_DEFAULT 0x4F}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define AH\_BIOS 0x00}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{// AH return values}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define CALL\_SUCCESS 0x00}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define CALL\_FAIL 0X01}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define HW\_ERROR 0X02}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define VIDEO\_ERROR 0X03}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{// AL functions}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define CONTROLLER\_INFO 0x00}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define MODE\_INFO 0x01}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define MODE\_SET 0x02}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// Graphics modes (Color Model\_Resolution\_Bits/Pixel)}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define IDX\_1024x768\_8 0x105}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define DC\_640x480\_15 0x110}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define DC\_800x600\_24 0x115}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define DC\_1280x1024\_16 0x11A}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define DC\_1152x864\_32 0x14C}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{/*}}
+\DoxyCodeLine{27 \textcolor{comment}{Necessary functions summary}}
+\DoxyCodeLine{28 \textcolor{comment}{}}
+\DoxyCodeLine{29 \textcolor{comment}{Function                           | AH         | AL              |Notes}}
+\DoxyCodeLine{30 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{31 \textcolor{comment}{Set VBE Mode                       | AH\_DEFAULT | MODE\_SET        |mode is passed in register BX, which should have bit 14 set}}
+\DoxyCodeLine{32 \textcolor{comment}{}}
+\DoxyCodeLine{33 \textcolor{comment}{}}
+\DoxyCodeLine{34 \textcolor{comment}{Return VBE Mode Info               | AH\_DEFAULT | MODE\_INFO       |mode is passed on CX must provide address for returned info in registers ES:DI}}
+\DoxyCodeLine{35 \textcolor{comment}{}}
+\DoxyCodeLine{36 \textcolor{comment}{}}
+\DoxyCodeLine{37 \textcolor{comment}{Return VBE Controller Info VBE Mode| AH\_DEFAULT | CONTROLLER\_INFO |must provide address for returned info in registers ES:DI}}
+\DoxyCodeLine{38 \textcolor{comment}{}}
+\DoxyCodeLine{39 \textcolor{comment}{}}
+\DoxyCodeLine{40 \textcolor{comment}{Set VBE Mode                       | AH\_BIOS    | <video mode>    |not a VBE function, but a BIOS function set AL to 0x03 to return to Minix's default text mode }}
+\DoxyCodeLine{41 \textcolor{comment}{*/}}
+
+\end{DoxyCode}

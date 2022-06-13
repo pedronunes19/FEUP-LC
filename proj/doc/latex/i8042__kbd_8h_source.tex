@@ -1,0 +1,77 @@
+\hypertarget{i8042__kbd_8h_source}{}\doxysection{i8042\+\_\+kbd.\+h}
+\label{i8042__kbd_8h_source}\index{src/devices/i8042\_kbd.h@{src/devices/i8042\_kbd.h}}
+\mbox{\hyperlink{i8042__kbd_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_LCOM\_I8042\_KBD\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_LCOM\_I8042\_KBD\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{comment}{/* I/O Ports */}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define KBD\_IRQ       1             }\textcolor{comment}{// keyboard interrupt line}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define OUT\_BUF       0x60          }\textcolor{comment}{// output buffer port}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define KBC\_ARGS      0x60          }\textcolor{comment}{// same as output buffer, used for sending KBC command arguments}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define STATUS\_REG    0x64          }\textcolor{comment}{// status register port}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define KBC\_CMD\_REG   0x64          }\textcolor{comment}{// same as status register, but used for issuing KBC commands}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{/* Bit masks */}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define PARITY        BIT(7)        }\textcolor{comment}{// bit mask to check for parity error}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define TIME\_OUT      BIT(6)        }\textcolor{comment}{// bit mask to check for timeout error}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define AUX           BIT(5)        }\textcolor{comment}{// bit mask to check if we're receiving mouse data}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define IBF           BIT(1)        }\textcolor{comment}{// bit mask to check if input buffer is full}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define OBF           BIT(0)        }\textcolor{comment}{// bit mask to check if output buffer is full}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define KBC\_INT       BIT(0)        }\textcolor{comment}{// bit mask to check if keyboard interrupts are enabled}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define IS\_BREAK      BIT(7)        }\textcolor{comment}{// bit mask to check if a scancode is a breakcode}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{/* Constants */}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define TWO\_BYTE\_SC   0xE0          }\textcolor{comment}{// value to check if we are dealing with a 2 byte scan code}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ESC\_MAKE      0x01          }\textcolor{comment}{// makecode for ESC}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define ESC\_BREAK     0x81          }\textcolor{comment}{// breakcode for ESC}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define KBC\_OK        0x55          }\textcolor{comment}{// code for valid keyboard controller}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define KBC\_ERR       0xFC          }\textcolor{comment}{// code for invalid keyboard controller}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{/* KBC Commands */}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define READ\_CMDB     0x20          }\textcolor{comment}{// read command byte}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define WRITE\_CMDB    0x60          }\textcolor{comment}{// write command byte}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define KBC\_CHK       0xAA          }\textcolor{comment}{// check keyboard controller; returns KBC\_OK if ok, else KBC\_ERR}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define KBI\_CHK       0xAB          }\textcolor{comment}{// check keyboard interface; returns 0 if OK}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define KBI\_DIS       0xAD          }\textcolor{comment}{// disable keyboard interface}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define KBI\_ENA       0xAE          }\textcolor{comment}{// enable keyboard interface}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{/* Keys */}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define DOWN\_ARROW    0x50}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LEFT\_ARROW    0x4b}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define RIGHT\_ARROW   0x4d}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define ENTER         0x1c}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define A\_KEY         0x1e}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define B\_KEY         0x30}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define C\_KEY         0x2e}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define D\_KEY         0x20}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define E\_KEY         0x12}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define F\_KEY         0x21}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define G\_KEY         0x22}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define H\_KEY         0x23}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define I\_KEY         0x17}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define J\_KEY         0x24}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define K\_KEY         0x25}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define L\_KEY         0x26}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define M\_KEY         0x32}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define N\_KEY         0x31}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define O\_KEY         0x18}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define P\_KEY         0x19}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define Q\_KEY         0x10}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define R\_KEY         0x13}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define S\_KEY         0x1f}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define T\_KEY         0x14}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define U\_KEY         0x16}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define V\_KEY         0x2f}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define W\_KEY         0x11}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define X\_KEY         0x2d}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define Y\_KEY         0x15}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define Z\_KEY         0x2c}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*\_LCOM\_I8042\_KBD\_H\_*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,207 @@
+\hypertarget{video__card_8h}{}\doxysection{src/devices/video\+\_\+card.h File Reference}
+\label{video__card_8h}\index{src/devices/video\_card.h@{src/devices/video\_card.h}}
+{\ttfamily \#include \char`\"{}game/tetromino.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vc\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$machine/int86.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$() \mbox{\hyperlink{video__card_8h_afa0e432c3ebeefc29a59abc4d22918df}{vg\+\_\+init}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Reads the current mode information, maps the virtual memory and chenges the graphics mode. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{video__card_8h_a8ee27bbdd4250f2a8fa20c0e4dd6f637}{change\+\_\+mode}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Changes MINIX\textquotesingle{}s graphic mode. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{video__card_8h_aab4576c0b20933f9c55f9572083b25ca}{map\+\_\+vm}} ()
+\begin{DoxyCompactList}\small\item\em Maps the virtual memory space in accord with the set graphics mode, creating 2 buffers for double buffering. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{video__card_8h_a59d8c6a919eef84d238f6c8d5bd66ff8}{draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Sets the color of the x, y pixel in the \char`\"{}back buffer\char`\"{}. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{video__card_8h_af110146e2c41a581c0d543ed7eb61f37}{draw\+\_\+xpm}} (xpm\+\_\+image\+\_\+t img, uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Draws a xpm image, pixel by pixel, starting in x, y, in the \char`\"{}back buffer\char`\"{}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{video__card_8h_a8f71a08c1257e1a10e831be12b216053}{vg\+\_\+draw\+\_\+board}} (xpm\+\_\+image\+\_\+t \mbox{\hyperlink{draw__graphics_8c_aaa480d8ef1238696f17304ff3d553e16}{board}})
+\begin{DoxyCompactList}\small\item\em Draws the board background image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{video__card_8h_ad69e51202402d2c677694fa209e8fb14}{draw\+\_\+board\+\_\+block}} (xpm\+\_\+image\+\_\+t img, uint8\+\_\+t x, uint8\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Draws a block of the board starting in x, y, in the \char`\"{}back buffer\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{video__card_8h_aaacefc546ec5b72d9cfffbb4451f99ad}{vg\+\_\+draw\+\_\+character}} (xpm\+\_\+image\+\_\+t \mbox{\hyperlink{draw__graphics_8c_a632b0a796c388aa5cf8a762ff0790256}{font}}, uint16\+\_\+t x, uint16\+\_\+t y, uint8\+\_\+t scale, uint8\+\_\+t $\ast$pnt)
+\begin{DoxyCompactList}\small\item\em Draws a character from the select font at x, y, scaling it according to user input. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{video__card_8h_a3ce2e02e2e15ba5a89048dda07874f68}{vg\+\_\+draw\+\_\+score\+\_\+bg}} (xpm\+\_\+image\+\_\+t \mbox{\hyperlink{draw__graphics_8c_a4b3a90a94868393fb0d229548cef333b}{square}})
+\begin{DoxyCompactList}\small\item\em Draws a background to display the player\textquotesingle{}s score with better contrast with the background. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{video__card_8h_ad42c7cf5f54fed0714fcf1f6e5e35bee}{swap\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em Swaps the \char`\"{}front\char`\"{} and \char`\"{}back\char`\"{} buffers by copying the information from the \char`\"{}back\char`\"{} to the \char`\"{}front\char`\"{} buffer which is the one being drawn in the user\textquotesingle{}s screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{video__card_8h_a8ee27bbdd4250f2a8fa20c0e4dd6f637}\label{video__card_8h_a8ee27bbdd4250f2a8fa20c0e4dd6f637}} 
+\index{video\_card.h@{video\_card.h}!change\_mode@{change\_mode}}
+\index{change\_mode@{change\_mode}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{change\_mode()}{change\_mode()}}
+{\footnotesize\ttfamily int() change\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Changes MINIX\textquotesingle{}s graphic mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode to be set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video__card_8h_ad69e51202402d2c677694fa209e8fb14}\label{video__card_8h_ad69e51202402d2c677694fa209e8fb14}} 
+\index{video\_card.h@{video\_card.h}!draw\_board\_block@{draw\_board\_block}}
+\index{draw\_board\_block@{draw\_board\_block}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{draw\_board\_block()}{draw\_board\_block()}}
+{\footnotesize\ttfamily void draw\+\_\+board\+\_\+block (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{uint8\+\_\+t}]{x,  }\item[{uint8\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Draws a block of the board starting in x, y, in the \char`\"{}back buffer\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The block xpm image to be drawn \\
+\hline
+{\em x} & The x cooridnate of the top left corner of the image \\
+\hline
+{\em y} & The y cooridnate of the top left corner of the image \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{video__card_8h_a59d8c6a919eef84d238f6c8d5bd66ff8}\label{video__card_8h_a59d8c6a919eef84d238f6c8d5bd66ff8}} 
+\index{video\_card.h@{video\_card.h}!draw\_pixel@{draw\_pixel}}
+\index{draw\_pixel@{draw\_pixel}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{draw\_pixel()}{draw\_pixel()}}
+{\footnotesize\ttfamily void() draw\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Sets the color of the x, y pixel in the \char`\"{}back buffer\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the pixel on the screen \\
+\hline
+{\em y} & The y coordinate of the pixel on the screen \\
+\hline
+{\em color} & The color to be set for the pixel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{video__card_8h_af110146e2c41a581c0d543ed7eb61f37}\label{video__card_8h_af110146e2c41a581c0d543ed7eb61f37}} 
+\index{video\_card.h@{video\_card.h}!draw\_xpm@{draw\_xpm}}
+\index{draw\_xpm@{draw\_xpm}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{draw\_xpm()}{draw\_xpm()}}
+{\footnotesize\ttfamily void() draw\+\_\+xpm (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Draws a xpm image, pixel by pixel, starting in x, y, in the \char`\"{}back buffer\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The xpm image to be drawn \\
+\hline
+{\em x} & The x cooridnate of the top left corner of the image \\
+\hline
+{\em y} & The y cooridnate of the top left corner of the image \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{video__card_8h_aab4576c0b20933f9c55f9572083b25ca}\label{video__card_8h_aab4576c0b20933f9c55f9572083b25ca}} 
+\index{video\_card.h@{video\_card.h}!map\_vm@{map\_vm}}
+\index{map\_vm@{map\_vm}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{map\_vm()}{map\_vm()}}
+{\footnotesize\ttfamily int() map\+\_\+vm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Maps the virtual memory space in accord with the set graphics mode, creating 2 buffers for double buffering. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video__card_8h_ad42c7cf5f54fed0714fcf1f6e5e35bee}\label{video__card_8h_ad42c7cf5f54fed0714fcf1f6e5e35bee}} 
+\index{video\_card.h@{video\_card.h}!swap\_buffer@{swap\_buffer}}
+\index{swap\_buffer@{swap\_buffer}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{swap\_buffer()}{swap\_buffer()}}
+{\footnotesize\ttfamily void swap\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Swaps the \char`\"{}front\char`\"{} and \char`\"{}back\char`\"{} buffers by copying the information from the \char`\"{}back\char`\"{} to the \char`\"{}front\char`\"{} buffer which is the one being drawn in the user\textquotesingle{}s screen. 
+
+\mbox{\Hypertarget{video__card_8h_a8f71a08c1257e1a10e831be12b216053}\label{video__card_8h_a8f71a08c1257e1a10e831be12b216053}} 
+\index{video\_card.h@{video\_card.h}!vg\_draw\_board@{vg\_draw\_board}}
+\index{vg\_draw\_board@{vg\_draw\_board}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_board()}{vg\_draw\_board()}}
+{\footnotesize\ttfamily int vg\+\_\+draw\+\_\+board (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{board }\end{DoxyParamCaption})}
+
+
+
+Draws the board background image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & The board xpm image to be drawn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video__card_8h_aaacefc546ec5b72d9cfffbb4451f99ad}\label{video__card_8h_aaacefc546ec5b72d9cfffbb4451f99ad}} 
+\index{video\_card.h@{video\_card.h}!vg\_draw\_character@{vg\_draw\_character}}
+\index{vg\_draw\_character@{vg\_draw\_character}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_character()}{vg\_draw\_character()}}
+{\footnotesize\ttfamily void vg\+\_\+draw\+\_\+character (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{font,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint8\+\_\+t}]{scale,  }\item[{uint8\+\_\+t $\ast$}]{pnt }\end{DoxyParamCaption})}
+
+
+
+Draws a character from the select font at x, y, scaling it according to user input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em font} & The font from which the character should be drawn \\
+\hline
+{\em x} & The x cooridnate of the top left corner of the character \\
+\hline
+{\em y} & The y cooridnate of the top left corner of the character \\
+\hline
+{\em scale} & The scale at which to drawn the character \\
+\hline
+{\em pnt} & A pointer to the start of the character in the font xpm \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{video__card_8h_a3ce2e02e2e15ba5a89048dda07874f68}\label{video__card_8h_a3ce2e02e2e15ba5a89048dda07874f68}} 
+\index{video\_card.h@{video\_card.h}!vg\_draw\_score\_bg@{vg\_draw\_score\_bg}}
+\index{vg\_draw\_score\_bg@{vg\_draw\_score\_bg}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_score\_bg()}{vg\_draw\_score\_bg()}}
+{\footnotesize\ttfamily int vg\+\_\+draw\+\_\+score\+\_\+bg (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{square }\end{DoxyParamCaption})}
+
+
+
+Draws a background to display the player\textquotesingle{}s score with better contrast with the background. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em square} & The image xpm of the square to be drawn\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The x position of the drawn xpm 
+\end{DoxyReturn}
+\mbox{\Hypertarget{video__card_8h_afa0e432c3ebeefc29a59abc4d22918df}\label{video__card_8h_afa0e432c3ebeefc29a59abc4d22918df}} 
+\index{video\_card.h@{video\_card.h}!vg\_init@{vg\_init}}
+\index{vg\_init@{vg\_init}!video\_card.h@{video\_card.h}}
+\doxysubsubsection{\texorpdfstring{vg\_init()}{vg\_init()}}
+{\footnotesize\ttfamily void $\ast$() vg\+\_\+init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Reads the current mode information, maps the virtual memory and chenges the graphics mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The mode to be set, read and mapped\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the address to the base address of the \char`\"{}front buffer\char`\"{} on success and NULL otherwise 
+\end{DoxyReturn}

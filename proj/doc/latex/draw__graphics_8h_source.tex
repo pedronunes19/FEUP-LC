@@ -1,0 +1,54 @@
+\hypertarget{draw__graphics_8h_source}{}\doxysection{draw\+\_\+graphics.\+h}
+\label{draw__graphics_8h_source}\index{src/game/draw\_graphics.h@{src/game/draw\_graphics.h}}
+\mbox{\hyperlink{draw__graphics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_blue.xpm"{}}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_yellow.xpm"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_red.xpm"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_purple.xpm"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_green.xpm"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_cyan.xpm"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}imgs/tetromino\_orange.xpm"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}imgs/clear.xpm"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}imgs/menu\_800x600.xpm"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}imgs/font.xpm"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}imgs/cursor.xpm"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}imgs/empty\_cursor.xpm"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}imgs/board.xpm"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}imgs/gradient.xpm"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}imgs/sidebar.xpm"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}imgs/square\_resized.xpm"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}imgs/blank\_menu.xpm"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}imgs/font\_white.xpm"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{video__card_8h}{devices/video\_card.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{27 \textcolor{keywordtype}{int} \mbox{\hyperlink{draw__graphics_8h_a271573582b62953a40feebcbe483849a}{load\_xpms}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{34 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a0266ac7a66bf25d17cb9a6c93e3613a1}{load\_tetromino\_image}}(\mbox{\hyperlink{structtetromino__t}{tetromino\_t}} *tetromino);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{41 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_aeb67de3245105cd38dc28d2fd71b16f4}{draw\_board}}(\mbox{\hyperlink{tetromino_8h_ae1485c7997f4fca1e6ddbe65c0be819d}{tetromino\_type}} \mbox{\hyperlink{int__manager_8c_aaf22d1489e4f6780474414413d6920d6}{board\_state}}[16][10]);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_affd28e6c221ab2a904e0fbaac2903437}{draw\_board\_bg}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a83361e027b6f0dd917305f1f82dedda3}{draw\_main\_menu}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{59 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a6e3262bb6e5a5425ebaaf24d7165a42d}{draw\_gradient}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{65 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_ae7ee516a5914a311282dfa27eaff3686}{draw\_leaderboard\_menu}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{71 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a1b5dbd09d4ab0dea2784b82092232482}{draw\_finished\_menu}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{82 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a2a61e1f0540e005c82d1cfdd981f84e7}{draw\_string}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\textcolor{keywordtype}{string}, uint16\_t x, uint16\_t y, uint8\_t scale, \textcolor{keywordtype}{bool} white);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{93 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a43c911093098dac3904420dcc07998da}{draw\_character}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} character, uint16\_t x, uint16\_t y, uint8\_t scale, \textcolor{keywordtype}{bool} white);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{100 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_ad2f05a2a10b83b31fd038b161194a9d3}{draw\_score}}(\textcolor{keywordtype}{char} *\mbox{\hyperlink{game__state_8c_aef160b7437d94056f1dc59646cd5b87d}{score}});}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a7f96d3ca995c36091dde22f14e3aaa30}{\_swap\_buffer}}();}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{114 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_a58b56a9af02d37c0b66d88674e579da3}{draw\_cursor}}(uint16\_t x, uint16\_t y);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{122 \textcolor{keywordtype}{void} \mbox{\hyperlink{draw__graphics_8h_aa1156b1e9f5177ad9f3215f1f7a19280}{erase\_cursor}}(uint16\_t x, uint16\_t y);}
+
+\end{DoxyCode}

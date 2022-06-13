@@ -1,0 +1,190 @@
+\hypertarget{mouse_8h}{}\doxysection{src/devices/mouse.h File Reference}
+\label{mouse_8h}\index{src/devices/mouse.h@{src/devices/mouse.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lab4.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}i8042\+\_\+mouse.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mouse_8h_a10ca1ea003dcb69ba6a5aadeee918043}{DELAY\+\_\+\+US2}}~25000
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{mouse_8h_a20285aed4b3ef45812cd967532dd09db}{mouse\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes mouse input interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes mouse input interrupts. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a1520850d853547a773b93680b0606e54}{\+\_\+mouse\+\_\+enable\+\_\+data\+\_\+reporting}} ()
+\begin{DoxyCompactList}\small\item\em Enables the mouse data reporting functionality. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a7e311379d4d64f88873ef8ade5c82a25}{mouse\+\_\+disable\+\_\+data\+\_\+reporting}} ()
+\begin{DoxyCompactList}\small\item\em Disables the mouse data reporting functionality. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a0b7b792a5d7d8d05abd500a047064313}{mouse\+\_\+enable\+\_\+stream\+\_\+mode}} ()
+\begin{DoxyCompactList}\small\item\em Enables mouse stream mode. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a6c96b97b6d60426a8fc089131ca0c1db}{mouse\+\_\+get\+\_\+status}} (uint8\+\_\+t $\ast$st)
+\begin{DoxyCompactList}\small\item\em Reads mouse status register. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_a50796bc7dd16af8dbf9dc017679c3cf7}{mouse\+\_\+read\+\_\+buffer}} (uint8\+\_\+t port, uint8\+\_\+t $\ast$output)
+\begin{DoxyCompactList}\small\item\em Reads mouse output buffer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{mouse_8h_ac3329f3ba2dd01e2dcfe6e238b88c8c5}{mouse\+\_\+write\+\_\+cmd}} (uint8\+\_\+t cmdb)
+\begin{DoxyCompactList}\small\item\em Writes a command byte to the mouse command register. \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{mouse_8h_a210374b50462acdedab00df64d5cea3c}{mouse\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse interrupt, processing errors and building packets of mouse information ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct packet \mbox{\hyperlink{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}{pp}}
+\item 
+int \mbox{\hyperlink{mouse_8h_a73c31c7ca19d79b9ccc6b434583b36f0}{mouse\+\_\+i}}
+\item 
+bool \mbox{\hyperlink{mouse_8h_ab3ae786aee1f20eff4f6d9ff85e41299}{mouse\+\_\+ready}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mouse_8h_a10ca1ea003dcb69ba6a5aadeee918043}\label{mouse_8h_a10ca1ea003dcb69ba6a5aadeee918043}} 
+\index{mouse.h@{mouse.h}!DELAY\_US2@{DELAY\_US2}}
+\index{DELAY\_US2@{DELAY\_US2}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{DELAY\_US2}{DELAY\_US2}}
+{\footnotesize\ttfamily \#define DELAY\+\_\+\+US2~25000}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mouse_8h_a1520850d853547a773b93680b0606e54}\label{mouse_8h_a1520850d853547a773b93680b0606e54}} 
+\index{mouse.h@{mouse.h}!\_mouse\_enable\_data\_reporting@{\_mouse\_enable\_data\_reporting}}
+\index{\_mouse\_enable\_data\_reporting@{\_mouse\_enable\_data\_reporting}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{\_mouse\_enable\_data\_reporting()}{\_mouse\_enable\_data\_reporting()}}
+{\footnotesize\ttfamily int() \+\_\+mouse\+\_\+enable\+\_\+data\+\_\+reporting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables the mouse data reporting functionality. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_a7e311379d4d64f88873ef8ade5c82a25}\label{mouse_8h_a7e311379d4d64f88873ef8ade5c82a25}} 
+\index{mouse.h@{mouse.h}!mouse\_disable\_data\_reporting@{mouse\_disable\_data\_reporting}}
+\index{mouse\_disable\_data\_reporting@{mouse\_disable\_data\_reporting}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_disable\_data\_reporting()}{mouse\_disable\_data\_reporting()}}
+{\footnotesize\ttfamily int() mouse\+\_\+disable\+\_\+data\+\_\+reporting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disables the mouse data reporting functionality. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_a0b7b792a5d7d8d05abd500a047064313}\label{mouse_8h_a0b7b792a5d7d8d05abd500a047064313}} 
+\index{mouse.h@{mouse.h}!mouse\_enable\_stream\_mode@{mouse\_enable\_stream\_mode}}
+\index{mouse\_enable\_stream\_mode@{mouse\_enable\_stream\_mode}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_enable\_stream\_mode()}{mouse\_enable\_stream\_mode()}}
+{\footnotesize\ttfamily int() mouse\+\_\+enable\+\_\+stream\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Enables mouse stream mode. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_a6c96b97b6d60426a8fc089131ca0c1db}\label{mouse_8h_a6c96b97b6d60426a8fc089131ca0c1db}} 
+\index{mouse.h@{mouse.h}!mouse\_get\_status@{mouse\_get\_status}}
+\index{mouse\_get\_status@{mouse\_get\_status}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_get\_status()}{mouse\_get\_status()}}
+{\footnotesize\ttfamily int() mouse\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Reads mouse status register. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_a210374b50462acdedab00df64d5cea3c}\label{mouse_8h_a210374b50462acdedab00df64d5cea3c}} 
+\index{mouse.h@{mouse.h}!mouse\_ih@{mouse\_ih}}
+\index{mouse\_ih@{mouse\_ih}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_ih()}{mouse\_ih()}}
+{\footnotesize\ttfamily void() mouse\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles mouse interrupt, processing errors and building packets of mouse information ~\newline
+ 
+
+\mbox{\Hypertarget{mouse_8h_a50796bc7dd16af8dbf9dc017679c3cf7}\label{mouse_8h_a50796bc7dd16af8dbf9dc017679c3cf7}} 
+\index{mouse.h@{mouse.h}!mouse\_read\_buffer@{mouse\_read\_buffer}}
+\index{mouse\_read\_buffer@{mouse\_read\_buffer}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_read\_buffer()}{mouse\_read\_buffer()}}
+{\footnotesize\ttfamily int() mouse\+\_\+read\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+Reads mouse output buffer. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_a20285aed4b3ef45812cd967532dd09db}\label{mouse_8h_a20285aed4b3ef45812cd967532dd09db}} 
+\index{mouse.h@{mouse.h}!mouse\_subscribe\_int@{mouse\_subscribe\_int}}
+\index{mouse\_subscribe\_int@{mouse\_subscribe\_int}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe\_int()}{mouse\_subscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes mouse input interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}\label{mouse_8h_a3ecf823d80520009ae5e0d76ae40a3c3}} 
+\index{mouse.h@{mouse.h}!mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}}
+\index{mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe\_int()}{mouse\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int() mouse\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes mouse input interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mouse_8h_ac3329f3ba2dd01e2dcfe6e238b88c8c5}\label{mouse_8h_ac3329f3ba2dd01e2dcfe6e238b88c8c5}} 
+\index{mouse.h@{mouse.h}!mouse\_write\_cmd@{mouse\_write\_cmd}}
+\index{mouse\_write\_cmd@{mouse\_write\_cmd}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_write\_cmd()}{mouse\_write\_cmd()}}
+{\footnotesize\ttfamily int() mouse\+\_\+write\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmdb }\end{DoxyParamCaption})}
+
+
+
+Writes a command byte to the mouse command register. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mouse_8h_a73c31c7ca19d79b9ccc6b434583b36f0}\label{mouse_8h_a73c31c7ca19d79b9ccc6b434583b36f0}} 
+\index{mouse.h@{mouse.h}!mouse\_i@{mouse\_i}}
+\index{mouse\_i@{mouse\_i}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_i}{mouse\_i}}
+{\footnotesize\ttfamily int mouse\+\_\+i\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{mouse_8h_ab3ae786aee1f20eff4f6d9ff85e41299}\label{mouse_8h_ab3ae786aee1f20eff4f6d9ff85e41299}} 
+\index{mouse.h@{mouse.h}!mouse\_ready@{mouse\_ready}}
+\index{mouse\_ready@{mouse\_ready}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_ready}{mouse\_ready}}
+{\footnotesize\ttfamily bool mouse\+\_\+ready\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}\label{mouse_8h_a26e83eca70c2b9169fbbb0eac7e32e32}} 
+\index{mouse.h@{mouse.h}!pp@{pp}}
+\index{pp@{pp}!mouse.h@{mouse.h}}
+\doxysubsubsection{\texorpdfstring{pp}{pp}}
+{\footnotesize\ttfamily struct packet pp\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,360 @@
+\hypertarget{game__state_8c}{}\doxysection{src/game/game\+\_\+state.c File Reference}
+\label{game__state_8c}\index{src/game/game\_state.c@{src/game/game\_state.c}}
+{\ttfamily \#include \char`\"{}game\+\_\+state.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game__state_8c_a671b58f5509a3a9fa692bacccfc32cc9}{start\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Starts the game, draws the ui components, prepares the board and sets other variables needed to run the game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game__state_8c_ac7a3501e6526c9c4ae21c4652b04ec24}{check\+\_\+space}} ()
+\item 
+void \mbox{\hyperlink{game__state_8c_aa240d00b64a1f175b7c5840cf631b8ff}{place\+\_\+tetromino}} ()
+\begin{DoxyCompactList}\small\item\em Places a tetromino on the board. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game__state_8c_a0c7b8e6583df88f1612ca17ee0d45cd6}{clear\+\_\+lines}} ()
+\item 
+void \mbox{\hyperlink{game__state_8c_a531a40b3b9dd423f7b9df36158336ba4}{piece\+\_\+fall}} ()
+\begin{DoxyCompactList}\small\item\em Piece falling logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a0a60e1ed752926488742c38599929c07}{hard\+\_\+drop}} ()
+\begin{DoxyCompactList}\small\item\em Quickly drops a piece until its\textquotesingle{} first contact. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_acbc8fa6e5f910bab8a892e8019f6d70f}{clear\+\_\+tetromino}} ()
+\begin{DoxyCompactList}\small\item\em Clears a tetromino from the board. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a33b0e423cdfdc17ecbb8677745978bdf}{draw\+\_\+game\+\_\+ui}} ()
+\begin{DoxyCompactList}\small\item\em Draws the IO components of the game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{game__state_8c_af63b5f9f6a2614f39e915a95339e2970}{check\+\_\+collision}} (\mbox{\hyperlink{game__state_8h_ade73d4a2b4154bf90ad68ee3a7fc6b5e}{collision\+\_\+dir}} dir)
+\begin{DoxyCompactList}\small\item\em Checks for collisions of a piece in a certain direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a89c3e6833c38d2b5641322444ac9fc60}{move\+\_\+piece\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to move a piece to the right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_ae18b74aaf6b9aa6ae15d05064f0c6000}{move\+\_\+piece\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to move a piece to the left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a06077d6e638752ecae67f6705a7f3f53}{piece\+\_\+rotate}} (\mbox{\hyperlink{game__state_8h_a643de71b1b5fb3fca73fca4685ac1cc2}{rotate\+\_\+dir}} rotation)
+\begin{DoxyCompactList}\small\item\em Rotates a piece in a given direction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a29568e025250a8489157bc1edb122f33}{update\+\_\+cursor}} (uint16\+\_\+t x\+\_\+val, uint16\+\_\+t y\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Updates the cursor position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_ab047dfac8d4fdcd79fd1d01ac0108230}{move\+\_\+tetromino}} (uint16\+\_\+t x\+\_\+displacement)
+\begin{DoxyCompactList}\small\item\em Moves a piece in the x axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a5a77ee52a28fda90e08f909a1eefcd53}{\+\_\+main\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the main menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a381be9666c112419266d6fa37c963c6c}{\+\_\+leaderboard\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the leaderboard menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_ac9a1828f217b9734c3239757ca805ed6}{\+\_\+finished\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the post game menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a2197621c2978ad9dabc69238471854f7}{\+\_\+draw\+\_\+board}} ()
+\begin{DoxyCompactList}\small\item\em Draws the current board. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a52415dac73f903f7c99712d8a079e42f}{\+\_\+draw\+\_\+score}} ()
+\begin{DoxyCompactList}\small\item\em Draws the player\textquotesingle{}s score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a36951ff3bd81205b3d399c2735d38b59}{cursor\+\_\+draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the cursor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_a3b714459f8030f49c71cfe0bab357a4e}{cursor\+\_\+erase}} ()
+\begin{DoxyCompactList}\small\item\em Clears the cursor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__state_8c_aa643469b07e5acac0e77cf28db31b24b}{check\+\_\+mouse\+\_\+clicks}} ()
+\begin{DoxyCompactList}\small\item\em Verifies if mouse clicks are within certain values, used in the main menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game__state_8c_ac958e0bf16103d38207169cca95686c5}{get\+\_\+final\+\_\+score}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{game__state_8h_ad0ed1832dd134806ad335cdcc1a59ad2}{game\+\_\+state}} \mbox{\hyperlink{game__state_8c_aa695ed09e3998fb66889f148925a12aa}{state}} = \mbox{\hyperlink{game__state_8h_ad0ed1832dd134806ad335cdcc1a59ad2ac22743f1fc74de09544ecc9bab74a17b}{MAIN\+\_\+\+MENU}}
+\item 
+bool \mbox{\hyperlink{game__state_8c_ab3aeea8903eb004bd9d06d4ed7b951fa}{spawned}} = false
+\item 
+bool \mbox{\hyperlink{game__state_8c_a54352d3853674ab02c3eb342715348b1}{end}} = false
+\item 
+bool \mbox{\hyperlink{game__state_8c_a0db8de0cf3c5cea15cd46e5d8c5fdfe4}{cleared}} = false
+\item 
+int \mbox{\hyperlink{game__state_8c_aef160b7437d94056f1dc59646cd5b87d}{score}} = 0
+\item 
+char $\ast$ \mbox{\hyperlink{game__state_8c_a81eb55fe6e0ea310f63594da9a8c0475}{score\+\_\+string}} = \char`\"{}0\char`\"{}
+\item 
+\mbox{\hyperlink{structPosition}{Position}} \mbox{\hyperlink{game__state_8c_a894a7c3b0c6a008d5f86c438da4e4e57}{cursor\+\_\+pos}} = \{400, 300\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game__state_8c_a2197621c2978ad9dabc69238471854f7}\label{game__state_8c_a2197621c2978ad9dabc69238471854f7}} 
+\index{game\_state.c@{game\_state.c}!\_draw\_board@{\_draw\_board}}
+\index{\_draw\_board@{\_draw\_board}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{\_draw\_board()}{\_draw\_board()}}
+{\footnotesize\ttfamily void \+\_\+draw\+\_\+board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the current board. 
+
+\mbox{\Hypertarget{game__state_8c_a52415dac73f903f7c99712d8a079e42f}\label{game__state_8c_a52415dac73f903f7c99712d8a079e42f}} 
+\index{game\_state.c@{game\_state.c}!\_draw\_score@{\_draw\_score}}
+\index{\_draw\_score@{\_draw\_score}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{\_draw\_score()}{\_draw\_score()}}
+{\footnotesize\ttfamily void \+\_\+draw\+\_\+score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the player\textquotesingle{}s score. 
+
+\mbox{\Hypertarget{game__state_8c_ac9a1828f217b9734c3239757ca805ed6}\label{game__state_8c_ac9a1828f217b9734c3239757ca805ed6}} 
+\index{game\_state.c@{game\_state.c}!\_finished\_menu@{\_finished\_menu}}
+\index{\_finished\_menu@{\_finished\_menu}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{\_finished\_menu()}{\_finished\_menu()}}
+{\footnotesize\ttfamily void \+\_\+finished\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the post game menu. 
+
+\mbox{\Hypertarget{game__state_8c_a381be9666c112419266d6fa37c963c6c}\label{game__state_8c_a381be9666c112419266d6fa37c963c6c}} 
+\index{game\_state.c@{game\_state.c}!\_leaderboard\_menu@{\_leaderboard\_menu}}
+\index{\_leaderboard\_menu@{\_leaderboard\_menu}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{\_leaderboard\_menu()}{\_leaderboard\_menu()}}
+{\footnotesize\ttfamily void \+\_\+leaderboard\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the leaderboard menu. 
+
+\mbox{\Hypertarget{game__state_8c_a5a77ee52a28fda90e08f909a1eefcd53}\label{game__state_8c_a5a77ee52a28fda90e08f909a1eefcd53}} 
+\index{game\_state.c@{game\_state.c}!\_main\_menu@{\_main\_menu}}
+\index{\_main\_menu@{\_main\_menu}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{\_main\_menu()}{\_main\_menu()}}
+{\footnotesize\ttfamily void \+\_\+main\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the main menu. 
+
+\mbox{\Hypertarget{game__state_8c_af63b5f9f6a2614f39e915a95339e2970}\label{game__state_8c_af63b5f9f6a2614f39e915a95339e2970}} 
+\index{game\_state.c@{game\_state.c}!check\_collision@{check\_collision}}
+\index{check\_collision@{check\_collision}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{check\_collision()}{check\_collision()}}
+{\footnotesize\ttfamily bool check\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__state_8h_ade73d4a2b4154bf90ad68ee3a7fc6b5e}{collision\+\_\+dir}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Checks for collisions of a piece in a certain direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & The dierction of the piece movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if a collision was detected 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game__state_8c_aa643469b07e5acac0e77cf28db31b24b}\label{game__state_8c_aa643469b07e5acac0e77cf28db31b24b}} 
+\index{game\_state.c@{game\_state.c}!check\_mouse\_clicks@{check\_mouse\_clicks}}
+\index{check\_mouse\_clicks@{check\_mouse\_clicks}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{check\_mouse\_clicks()}{check\_mouse\_clicks()}}
+{\footnotesize\ttfamily void check\+\_\+mouse\+\_\+clicks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifies if mouse clicks are within certain values, used in the main menu. 
+
+\mbox{\Hypertarget{game__state_8c_ac7a3501e6526c9c4ae21c4652b04ec24}\label{game__state_8c_ac7a3501e6526c9c4ae21c4652b04ec24}} 
+\index{game\_state.c@{game\_state.c}!check\_space@{check\_space}}
+\index{check\_space@{check\_space}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{check\_space()}{check\_space()}}
+{\footnotesize\ttfamily bool check\+\_\+space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{game__state_8c_a0c7b8e6583df88f1612ca17ee0d45cd6}\label{game__state_8c_a0c7b8e6583df88f1612ca17ee0d45cd6}} 
+\index{game\_state.c@{game\_state.c}!clear\_lines@{clear\_lines}}
+\index{clear\_lines@{clear\_lines}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{clear\_lines()}{clear\_lines()}}
+{\footnotesize\ttfamily bool clear\+\_\+lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{game__state_8c_acbc8fa6e5f910bab8a892e8019f6d70f}\label{game__state_8c_acbc8fa6e5f910bab8a892e8019f6d70f}} 
+\index{game\_state.c@{game\_state.c}!clear\_tetromino@{clear\_tetromino}}
+\index{clear\_tetromino@{clear\_tetromino}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{clear\_tetromino()}{clear\_tetromino()}}
+{\footnotesize\ttfamily void clear\+\_\+tetromino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears a tetromino from the board. 
+
+\mbox{\Hypertarget{game__state_8c_a36951ff3bd81205b3d399c2735d38b59}\label{game__state_8c_a36951ff3bd81205b3d399c2735d38b59}} 
+\index{game\_state.c@{game\_state.c}!cursor\_draw@{cursor\_draw}}
+\index{cursor\_draw@{cursor\_draw}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{cursor\_draw()}{cursor\_draw()}}
+{\footnotesize\ttfamily void cursor\+\_\+draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the cursor. 
+
+\mbox{\Hypertarget{game__state_8c_a3b714459f8030f49c71cfe0bab357a4e}\label{game__state_8c_a3b714459f8030f49c71cfe0bab357a4e}} 
+\index{game\_state.c@{game\_state.c}!cursor\_erase@{cursor\_erase}}
+\index{cursor\_erase@{cursor\_erase}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{cursor\_erase()}{cursor\_erase()}}
+{\footnotesize\ttfamily void cursor\+\_\+erase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the cursor. 
+
+\mbox{\Hypertarget{game__state_8c_a33b0e423cdfdc17ecbb8677745978bdf}\label{game__state_8c_a33b0e423cdfdc17ecbb8677745978bdf}} 
+\index{game\_state.c@{game\_state.c}!draw\_game\_ui@{draw\_game\_ui}}
+\index{draw\_game\_ui@{draw\_game\_ui}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_ui()}{draw\_game\_ui()}}
+{\footnotesize\ttfamily void draw\+\_\+game\+\_\+ui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the IO components of the game. 
+
+\mbox{\Hypertarget{game__state_8c_ac958e0bf16103d38207169cca95686c5}\label{game__state_8c_ac958e0bf16103d38207169cca95686c5}} 
+\index{game\_state.c@{game\_state.c}!get\_final\_score@{get\_final\_score}}
+\index{get\_final\_score@{get\_final\_score}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{get\_final\_score()}{get\_final\_score()}}
+{\footnotesize\ttfamily int get\+\_\+final\+\_\+score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{game__state_8c_a0a60e1ed752926488742c38599929c07}\label{game__state_8c_a0a60e1ed752926488742c38599929c07}} 
+\index{game\_state.c@{game\_state.c}!hard\_drop@{hard\_drop}}
+\index{hard\_drop@{hard\_drop}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{hard\_drop()}{hard\_drop()}}
+{\footnotesize\ttfamily void hard\+\_\+drop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Quickly drops a piece until its\textquotesingle{} first contact. 
+
+\mbox{\Hypertarget{game__state_8c_ae18b74aaf6b9aa6ae15d05064f0c6000}\label{game__state_8c_ae18b74aaf6b9aa6ae15d05064f0c6000}} 
+\index{game\_state.c@{game\_state.c}!move\_piece\_left@{move\_piece\_left}}
+\index{move\_piece\_left@{move\_piece\_left}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{move\_piece\_left()}{move\_piece\_left()}}
+{\footnotesize\ttfamily void move\+\_\+piece\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to move a piece to the left. 
+
+\mbox{\Hypertarget{game__state_8c_a89c3e6833c38d2b5641322444ac9fc60}\label{game__state_8c_a89c3e6833c38d2b5641322444ac9fc60}} 
+\index{game\_state.c@{game\_state.c}!move\_piece\_right@{move\_piece\_right}}
+\index{move\_piece\_right@{move\_piece\_right}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{move\_piece\_right()}{move\_piece\_right()}}
+{\footnotesize\ttfamily void move\+\_\+piece\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempts to move a piece to the right. 
+
+\mbox{\Hypertarget{game__state_8c_ab047dfac8d4fdcd79fd1d01ac0108230}\label{game__state_8c_ab047dfac8d4fdcd79fd1d01ac0108230}} 
+\index{game\_state.c@{game\_state.c}!move\_tetromino@{move\_tetromino}}
+\index{move\_tetromino@{move\_tetromino}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{move\_tetromino()}{move\_tetromino()}}
+{\footnotesize\ttfamily void move\+\_\+tetromino (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+displacement }\end{DoxyParamCaption})}
+
+
+
+Moves a piece in the x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+displacement} & The amount of movement in the x axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game__state_8c_a531a40b3b9dd423f7b9df36158336ba4}\label{game__state_8c_a531a40b3b9dd423f7b9df36158336ba4}} 
+\index{game\_state.c@{game\_state.c}!piece\_fall@{piece\_fall}}
+\index{piece\_fall@{piece\_fall}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{piece\_fall()}{piece\_fall()}}
+{\footnotesize\ttfamily void piece\+\_\+fall (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Piece falling logic. 
+
+\mbox{\Hypertarget{game__state_8c_a06077d6e638752ecae67f6705a7f3f53}\label{game__state_8c_a06077d6e638752ecae67f6705a7f3f53}} 
+\index{game\_state.c@{game\_state.c}!piece\_rotate@{piece\_rotate}}
+\index{piece\_rotate@{piece\_rotate}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{piece\_rotate()}{piece\_rotate()}}
+{\footnotesize\ttfamily void piece\+\_\+rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{game__state_8h_a643de71b1b5fb3fca73fca4685ac1cc2}{rotate\+\_\+dir}}}]{rotation }\end{DoxyParamCaption})}
+
+
+
+Rotates a piece in a given direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & The direction of rotation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game__state_8c_aa240d00b64a1f175b7c5840cf631b8ff}\label{game__state_8c_aa240d00b64a1f175b7c5840cf631b8ff}} 
+\index{game\_state.c@{game\_state.c}!place\_tetromino@{place\_tetromino}}
+\index{place\_tetromino@{place\_tetromino}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{place\_tetromino()}{place\_tetromino()}}
+{\footnotesize\ttfamily void place\+\_\+tetromino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Places a tetromino on the board. 
+
+\mbox{\Hypertarget{game__state_8c_a671b58f5509a3a9fa692bacccfc32cc9}\label{game__state_8c_a671b58f5509a3a9fa692bacccfc32cc9}} 
+\index{game\_state.c@{game\_state.c}!start\_game@{start\_game}}
+\index{start\_game@{start\_game}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{start\_game()}{start\_game()}}
+{\footnotesize\ttfamily void start\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts the game, draws the ui components, prepares the board and sets other variables needed to run the game. 
+
+\mbox{\Hypertarget{game__state_8c_a29568e025250a8489157bc1edb122f33}\label{game__state_8c_a29568e025250a8489157bc1edb122f33}} 
+\index{game\_state.c@{game\_state.c}!update\_cursor@{update\_cursor}}
+\index{update\_cursor@{update\_cursor}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{update\_cursor()}{update\_cursor()}}
+{\footnotesize\ttfamily void update\+\_\+cursor (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x\+\_\+val,  }\item[{uint16\+\_\+t}]{y\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+Updates the cursor position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+val} & The x amount of displacement in the x axis \\
+\hline
+{\em y\+\_\+val} & The y amount of displacement in the y axis \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{game__state_8c_a0db8de0cf3c5cea15cd46e5d8c5fdfe4}\label{game__state_8c_a0db8de0cf3c5cea15cd46e5d8c5fdfe4}} 
+\index{game\_state.c@{game\_state.c}!cleared@{cleared}}
+\index{cleared@{cleared}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{cleared}{cleared}}
+{\footnotesize\ttfamily bool cleared = false}
+
+\mbox{\Hypertarget{game__state_8c_a894a7c3b0c6a008d5f86c438da4e4e57}\label{game__state_8c_a894a7c3b0c6a008d5f86c438da4e4e57}} 
+\index{game\_state.c@{game\_state.c}!cursor\_pos@{cursor\_pos}}
+\index{cursor\_pos@{cursor\_pos}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{cursor\_pos}{cursor\_pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPosition}{Position}} cursor\+\_\+pos = \{400, 300\}}
+
+\mbox{\Hypertarget{game__state_8c_a54352d3853674ab02c3eb342715348b1}\label{game__state_8c_a54352d3853674ab02c3eb342715348b1}} 
+\index{game\_state.c@{game\_state.c}!end@{end}}
+\index{end@{end}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily bool end = false}
+
+\mbox{\Hypertarget{game__state_8c_aef160b7437d94056f1dc59646cd5b87d}\label{game__state_8c_aef160b7437d94056f1dc59646cd5b87d}} 
+\index{game\_state.c@{game\_state.c}!score@{score}}
+\index{score@{score}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily int score = 0}
+
+\mbox{\Hypertarget{game__state_8c_a81eb55fe6e0ea310f63594da9a8c0475}\label{game__state_8c_a81eb55fe6e0ea310f63594da9a8c0475}} 
+\index{game\_state.c@{game\_state.c}!score\_string@{score\_string}}
+\index{score\_string@{score\_string}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{score\_string}{score\_string}}
+{\footnotesize\ttfamily char$\ast$ score\+\_\+string = \char`\"{}0\char`\"{}}
+
+\mbox{\Hypertarget{game__state_8c_ab3aeea8903eb004bd9d06d4ed7b951fa}\label{game__state_8c_ab3aeea8903eb004bd9d06d4ed7b951fa}} 
+\index{game\_state.c@{game\_state.c}!spawned@{spawned}}
+\index{spawned@{spawned}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{spawned}{spawned}}
+{\footnotesize\ttfamily bool spawned = false}
+
+\mbox{\Hypertarget{game__state_8c_aa695ed09e3998fb66889f148925a12aa}\label{game__state_8c_aa695ed09e3998fb66889f148925a12aa}} 
+\index{game\_state.c@{game\_state.c}!state@{state}}
+\index{state@{state}!game\_state.c@{game\_state.c}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{game__state_8h_ad0ed1832dd134806ad335cdcc1a59ad2}{game\+\_\+state}} state = \mbox{\hyperlink{game__state_8h_ad0ed1832dd134806ad335cdcc1a59ad2ac22743f1fc74de09544ecc9bab74a17b}{MAIN\+\_\+\+MENU}}}
+
